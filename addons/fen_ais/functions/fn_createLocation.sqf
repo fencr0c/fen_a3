@@ -39,8 +39,8 @@ _radius=param[1,1500];
 
 if (isNull _location) exitWith {};
 
-_location setVariable ["fen_ais_location",_radius];
-_location setVariable ["fen_ais_balance",false];
+_location setVariable ["fen_ais_location",_radius,true];
+_location setVariable ["fen_ais_balance",false,true];
 
 _idx=2;
 while {_idx<count _this} do {
