@@ -23,7 +23,7 @@ while {fen_ais_despawnQueueHandlerRunning} do {
 		private _location=_x;
 		private _locationDespawn=true;
 		
-		private	_triggeredByAI=_location getVariable ["fen_ais_triggeredByAI",false];
+		private	_triggeredByAI=_location getVariable ["fen_ais_byAI",false];
 
 		private _despawnQueueTrigger=_location getVariable "fen_ais_despawnQueueTrigger";
 

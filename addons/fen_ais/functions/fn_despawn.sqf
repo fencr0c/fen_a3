@@ -23,8 +23,8 @@ _aisRad=_aisLoc getVariable "fen_ais_location";
 _aisEnm=_aisLoc getVariable ["fen_ais_enemy",[west]];
 
 _trgBAI=false;
-if (typeName(_aisLoc getVariable ["fen_ais_triggeredByAI","STRING"])=="BOOL") then {
-	_trgBAI=_aisLoc getVariable "fen_ais_triggeredByAI";
+if (typeName(_aisLoc getVariable ["fen_ais_byAI","STRING"])=="BOOL") then {
+	_trgBAI=_aisLoc getVariable "fen_ais_byAI";
 };
 
 _aisTrg=createTrigger ["EmptyDetector",position _aisLoc];

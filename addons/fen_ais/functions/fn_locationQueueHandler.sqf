@@ -19,7 +19,7 @@ while {fen_ais_locationQueueHandlerRunning} do {
 		private _location=_x;
 		private _locationTriggered=false;
 		
-		private _triggeredByAI=_location getVariable ["fen_ais_triggeredByAI",false];
+		private _triggeredByAI=_location getVariable ["fen_ais_byAI",false];
 
 		private _locationQueueTrigger=_location getVariable "fen_ais_locationQueueTrigger";
 
