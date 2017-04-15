@@ -1040,10 +1040,24 @@ class CfgVehicles {
 				};
 			};
 			class explosionClass {
-				displayName="Explosion class";
-				description="Defines class name to use for generating explosion.";
+				displayName="Explosion size";
+				description="Defines size of explosion.";
 				typeName="STRING";	
-				defaultValue="Sh_82mm_AMOS";
+				class values {
+					class small {
+						name="Small";
+						value="M_NLAW_AT_F";
+						default=1;
+					};
+					class medium {
+						name="Medium";
+						value="M_Mo_82mm_AT";
+					};
+					class large {
+						name="Large";
+						value="Bo_Mk82";
+					};
+				};
 			};
 			class minRange {
 				displayName="Minimum proximity";

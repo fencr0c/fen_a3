@@ -1,6 +1,6 @@
 /*
 
-File: iedobject.sqf
+File: fn_iedobject.sqf
 Author: Fen
 
 Description:
@@ -20,13 +20,15 @@ private ["_iedObj","_expCls","_trgSid","_trgRng","_trgDly","_iedTrg","_iedRng","
 
 _iedObj=param[0,objNull,[objNull]];
 _iedDlt=param[1,false,[true]];
-_expCls=param[2,"Sh_82mm_AMOS",[""]];
+_expCls=param[2,"M_NLAW_AT_F",[""]];
 _iedRng=param[3,[1,8],[[]],[2]];
 _iedDly=param[4,[0,5],[[]],[2]];
 _trgSid=param[5,west,[sidelogic]];
 
 if (isNull _iedObj) exitWith {};
 if not(local _iedObj) exitWith {};
+
+diag_log format["fn_iedobject: explosion class is %1",_expCls]; // debug delete me 
 
 _trgRng=_iedRng call BIS_fnc_randomNum;
 _trgDly=_iedDly call BIS_fnc_randomNum;
@@ -47,7 +49,7 @@ if not(alive _iedObj) exitWith {};
 sleep _trgDly;
 
 _expObj=createVehicle[_expCls,position _iedObj,[],0,"CAN_COLLIDE"];
-_expObj setVelocity[0,0,-1];
+//_expObj setVelocity[0,0,-1];
 
 _iedObj setDamage 1;
 
