@@ -19,10 +19,10 @@ if (hasInterface and not isServer) exitWith {};
 private _localunits=_units select {local _x};
 
 private _proximity=_logic getVariable ["proximity",300];
-private _proximitySides=[_logic getVariable ["proximitySides",[west]]] call BIS_fnc_parseNumber;
-if (typeName _proximitySides!="ARRAY") then {
-	_proximitySides=[west];
-};
+private _proximityWest=_logic getVariable ["proximityWest",false];
+private _proximityEast=_logic getVariable ["proximityEast",false];
+private _proximityGuer=_logic getVariable ["proximityGuer",false];
+private _proximityCiv=_logic getVariable ["proximityCiv",false];
 private _percentage=_logic getVariable ["percentage",50];
 private _retreatAction=_logic getVariable ["_retreatAction",false];
 private _includeAIS=_logic getVariable ["includeAIS",false];
@@ -31,6 +31,19 @@ if (typeName _owningLocation!="OBJECT") then {
 	_owningLocation=objNull;
 };
 
+private _proximitySides=[];
+if (_proximityWest) then {
+	_proximitySides pushBack west;
+};
+if (_proximityEast) then {
+	_proximitySides pushBack east;
+};
+if (_proximityGuer) then {
+	_proximitySides pushBack independent;
+};
+if (_proximityCiv) then {
+	_proximitySides pushBack civilian;
+};
 
 { 
 	if (_includeAIS) then {

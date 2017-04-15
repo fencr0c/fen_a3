@@ -19,10 +19,11 @@ if (hasInterface and not isServer) exitWith {};
 private _localunits=_units select {local _x};
 
 private _passIntel=_logic getVariable ["passIntel",75];
-private _updateSides=[_logic getVariable ["updateSides",[west]]] call BIS_fnc_parseNumber;
-if (typeName _updateSides!="ARRAY") then {
-	_updateSides=[west];
-};
+private _updateWest=_logic getVariable ["updateWest",false];
+private _updateEast=_logic getVariable ["updateEast",false];
+private _updateGuer=_logic getVariable ["updateGuer",false];
+private _updateCiv=_logic getVariable ["updateCiv",false];
+
 private _updateRange=_logic getVariable ["updateRange",1000];
 private _frequency=_logic getVariable ["frequency",10];
 private _includeAIS=_logic getVariable ["includeAIS",false];
@@ -31,6 +32,19 @@ if (typeName _owningLocation!="OBJECT") then {
 	_owningLocation=objNull;
 };
 
+private _updateSides=[];
+if (_updateWest) then {
+	_updateSides pushBack west;
+};
+if (_updateEast) then {
+	_updateSides pushBack east;
+};
+if (_updateGuer) then {
+	_updateSides pushBack independent;
+};
+if (_updateCiv) then {
+	_updateSides pushBack civilian;
+};
 { 
 	if (_includeAIS) then {
 		private _grpOptions=["exec:"];

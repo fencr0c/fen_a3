@@ -17,10 +17,10 @@ if not(isServer) exitWith {};
 
 private _radius=_logic getVariable ["radius",300];
 private _maxCivilians=_logic getVariable ["maxCivilians",10];
-private _triggeredBy=[_logic getVariable ["triggeredBy",[west]]] call BIS_fnc_parseNumber;
-if (typename _triggeredBy!="ARRAY") then {	
-	_triggeredBy=[west];
-};
+private _triggerByWest=_logic getVariable ["triggerByWest",false];
+private _triggerByEast=_logic getVariable ["triggerByEast",false];
+private _triggerByGuer=_logic getVariable ["triggerByGuer",false];
+private _triggerByCiv=_logic getVariable ["triggerByCiv",false];
 private _triggerRange=_logic getVariable ["triggerRange",1500];
 private _civFaction=_logic getVariable ["civFaction",""];
 private _civClasses=[_logic getVariable ["civClasses",[]]] call BIS_fnc_parseNumber;
@@ -35,6 +35,20 @@ if (typeName _conversations!="ARRAY") then {
 private _excludeBuildings=[_logic getVariable ["excludeBuildings",[]]] call BIS_fnc_parseNumber;
 if (typeName _excludeBuildings!="ARRAY") then {
 	_excludeBuildings=[];
+};
+
+private _triggeredBy=[];
+if (_triggerByWest) then {
+	_triggeredBy pushBack west;
+};
+if (_triggerByEast) then {
+	_triggeredBy pushBack east;
+};
+if (_triggerByGuer) then {
+	_triggeredBy pushBack independent;
+};
+if (_triggerByCiv) then {
+	_triggeredBy pushBack civilian;
 };
 
 private _civData="";
