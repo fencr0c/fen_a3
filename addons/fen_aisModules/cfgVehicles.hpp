@@ -52,9 +52,9 @@ class CfgVehicles {
 					};
 				};		
 			};				
-			class ai {
-				displayName="Triggerd by AI";
-				description="Location can be activated by AI";
+			class triggerByAIWest {
+				displayName="Activated by AI: West";
+				description="By default locations are activated by player, use this to also trigger activation by West AI units.";
 				typeName="BOOL";
 				class values {
 					class no {
@@ -68,11 +68,54 @@ class CfgVehicles {
 					};
 				};
 			};
-			class sides {
-				displayName="Activating sides";
-				description="By default locations are triggered by players of any side. Use this to override or when triggering by AI e.g. [west,east]";
-				typeName="STRING";
+			class triggerByAIEast {
+				displayName="Activated by AI: East";
+				description="By default locations are activated by player, use this to also trigger activation by East AI units.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
 			};
+			class triggerByAIGuer {
+				displayName="Activated by AI: Independent";
+				description="By default locations are activated by player, use this to also trigger activation by Independent AI units.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};	
+			class triggerByAICiv {
+				displayName="Activated by AI: Civilian";
+				description="By default locations are activated by player, use this to also trigger activation by Civilian AI units.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};				
 			class balance {
 				displayName="Apply Balancing"; 
 				description="Number of AI groups spawned in will be balanced to number of players in mission.";
@@ -105,7 +148,7 @@ class CfgVehicles {
 	
 	class fenAIS_moduleInit: Module_F {
 		scope = 2;
-        displayName="AIS Required";
+        displayName="AIS Auto Start";
         author = "Fen";
         vehicleClass = "Modules";
         category = "fenAIS_modules";
@@ -126,12 +169,12 @@ class CfgVehicles {
 					class no {
 						name="No";
 						value=0;
-						default=1;
+
 					};
 					class yes {
 						name="Yes";
 						value=1;
-
+						default=1;
 					};
 				};		
 			};

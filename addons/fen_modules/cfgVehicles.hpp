@@ -222,7 +222,25 @@ class CfgVehicles {
 				displayName="Triggering side";
 				description="Defines side that will trigger detonation when vehicle mounted.";
 				typeName="STRING";
-				defaultValue="west";
+				class values {
+					class west {
+						name="West";
+						value="west";
+						default=1;
+					};
+					class east {
+						name="East";
+						value="east";
+					};
+					class independent {
+						name="Independent";
+						value="independent";
+					};
+					class civilian {
+						name="Civilian";
+						value="civilian";
+					};
+				};
 			};
 			class includeAIS {
 				displayName="Add to AIS";
@@ -296,12 +314,70 @@ class CfgVehicles {
 				typeName="number";
 				defaultValue=10;
 			};			
-			class triggeredBy {
-				displayName="Activating sides array";
-				description="Defines array of sides that will trigger civilians to be created.";
-				typeName="STRING";
-				defaultValue=[west];
+			class triggerByWest {
+				displayName="Activated by: West";
+				description="Civilians will be created with West units in range.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+						default=1;
+					};
+				};
 			};
+			class triggerByEast {
+				displayName="Activated by: East";
+				description="Civilians will be created with East units in range.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};
+			class triggerByGuer {
+				displayName="Activated by: Independent";
+				description="Civilians will be created with Independent units in range.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};	
+			class triggerByCiv {
+				displayName="Activated by: Civilian";
+				description="Civialians will be created with Civilian units in range.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};				
 			class triggerRange {
 				displayName="Activation radius";
 				description="Defines activation radius from module.";
@@ -316,7 +392,7 @@ class CfgVehicles {
 			};
 			class civClasses {
 				displayName="Civilian classes array";
-				description="Optional: If supplied and no faction, random units from this array will be created.";
+				description="Optional: If supplied and Civilian faction is blank, random units from this array will be created.";
 				typeName="STRING";
 			};
 			class fpsLimiter {
@@ -436,16 +512,74 @@ class CfgVehicles {
 		
 		class Arguments: ArgumentsBaseUnits {
             class passIntel {
-				displayName="Chance of passing on info";
+				displayName="Percentage chance of passing on info";
 				description="Defines percentage chance of dicker passing on sigthings to nearby enemy.";
 				typeName="NUMBER";
 				defaultValue=75;
 			};
-			class updateSides {
-				displayName="Array of sides to update";
-				description="Defines sides what will be updated with sightings by dicker.";
-				typeName="STRING";
-				defaultValue=[east];
+			class updateWest {
+				displayName="Pass intel to: West";
+				description="Dicker will pass on intel to all nearby West units.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};
+			class updateEast {
+				displayName="Pass intel to: East";
+				description="Dicker will pass on intel to all nearby East units.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+						default=1;
+					};
+				};
+			};
+			class updateGuer {
+				displayName="Pass intel to: Independent";
+				description="Dicker will pass on intel to all nearby Independent units.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};	
+			class updateCiv {
+				displayName="Pass intel to: Civilian";
+				description="Dicker will pass on intel to all nearby Civilian units.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
 			};
 			class updateRange {
 				displayName="Update all units within";
@@ -1161,16 +1295,74 @@ class CfgVehicles {
 		class Arguments: ArgumentsBaseUnits {
             class proximity {
 				displayName="Proximity retreat";
-				description="Defines proximity retreat radius. When units of side below are near group they will retreat.";
+				description="Defines proximity retreat radius. When units of sides below are near group they will retreat.";
 				typeName="NUMBER";
 				defaultValue=300;
 			};
-            class proximitySides {
-				displayName="Proximity sides array";
-				description="Defines array of sides that can trigger a proximity retreat e.g. [west]";
-				typeName="STRING";
-				defaultValue=[west];
+			class proximityWest {
+				displayName="Proximity: West";
+				description="Group will retreat if West units in proximity.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+						default=1;
+					};
+				};
 			};
+			class proximityEast {
+				displayName="Proximity: East";
+				description="Group will retreat if West units in proximity.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};
+			class proximityGuer {
+				displayName="Proximity: Independent";
+				description="Group will retreat if West units in proximity.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};	
+			class proximityCiv {
+				displayName="Proximity: Civilian";
+				description="Group will retreat if West units in proximity.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};				
 			class percentage {
 				displayName="Casualty retreat";
 				description="Defines percentage of casualities to trigger a retreat";
