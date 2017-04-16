@@ -162,8 +162,8 @@ while {true} do {
                     _x setVariable ["fen_aispotter_Chk",_lstSht];
                 };
                 
-                // ingore if fired in last 300 seconds
-                if (_lstSht!=-1 and (time-_lstSht)<300) then {
+                // ingore if fired in last 30 seconds
+                if (_lstSht!=-1 and (time-_lstSht)<30) then {
                     breakOut "fireArtillery";
                 };
                 
