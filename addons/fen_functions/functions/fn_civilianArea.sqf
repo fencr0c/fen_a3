@@ -78,6 +78,17 @@ fen_fnc_civilianArea_group={
 	};
 };
 
+private _excludeClasses=[
+	"C_Driver_1_F",
+	"C_Driver_2_F",
+	"C_Driver_3_F",
+	"C_Driver_4_F",
+	"C_journalist_F",
+	"C_Marshal_F",
+	"C_man_pilot_F",
+	"C_scientist_F",
+	"C_Soldier_VR_F"
+];
 
 if (typename _civOpt=="ARRAY") then {
     _civArr=_civOpt;
@@ -88,7 +99,7 @@ if (typename _civOpt=="ARRAY") then {
 		for [{_idx=0},{_idx<count _config},{_idx=_idx+1}] do {
 	
 			if (isClass (_config select _idx)) then {
-				if (configname(_config select _idx) isKindOf "Man" and tolower ([(_config select _idx),"faction","none"] call BIS_fnc_returnConfigEntry)==tolower _civOpt) then {
+				if (configname(_config select _idx) isKindOf "Man" and tolower ([(_config select _idx),"faction","none"] call BIS_fnc_returnConfigEntry)==tolower _civOpt and not(_config select _idx in _excludeClasses)) then {
 					_civArr pushBack configName (_config select _idx);
 				};
 			};
