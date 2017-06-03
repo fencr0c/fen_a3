@@ -79,7 +79,7 @@ fen_fnc_dicker_knowPlayers={
     _knwDst=999999999;
     
     {
-        
+/* knowsAbout does not work for civilian units when spotting dismounted players        
         _knwAbt=_dicUnt knowsAbout _x;
         
         if (vehicle _x!=_x) then {
@@ -93,6 +93,39 @@ fen_fnc_dicker_knowPlayers={
             _knwRat=_knwAbt;
             _knwDst=_x distance _dicUnt;
         };
+*/
+	
+		if (alive _x) then {
+			if (vehicle _x!=_x) then {
+				if not(vehicle _x isKindOf "Air") then {
+					_knwAbt=_dicUnt knowsAbout (vehicle _x);
+					if (_knwAbt>1.35 and (vehicle _x distance _dicUnt<_knwDst)) then {
+						_knwUnt=_x;
+						_knwRat=4;
+						_knwDst=_x distance _dicUnt;
+					};
+				};
+			} else {
+				_knwAbt=_dicUnt knowsAbout _x;
+				if (_knwAbt>0) then {
+					if (_x distance _dicUnt<_knwDst) then {
+						_knwUnt=_x;
+						_knwRat=4;
+						_knwDst=_x distance _dicUnt;
+					};
+				} else {
+					if (_dicUnt distance _x<1000) then {
+						private _visRating=[objNull,"VIEW",_dicUnt] checkVisibility [(eyePos _dicUnt),(eyePos _x)];
+						if (_visRating==1 and (_x distance _dicUnt<_knwDst)) then {
+							_knwUnt=_x;
+							_knwRat=4;
+							_knwDst=_x distance _dicUnt;
+						};
+					};
+				};
+			};
+		};
+		
     } forEach ([] call BIS_fnc_listPlayers);
     
     [_knwUnt,_knwRat];

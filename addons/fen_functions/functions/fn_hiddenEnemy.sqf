@@ -77,12 +77,20 @@ fen_fnc_hiddenEnemyControl={
         };
             
         // check if unit knows about any players
-		// 2017APR07 knowsAbout value change to from>3 to >0 BIS have changed civilians never seems to get above 1.35
         _knwPly=[];
         {
-            if (_civUnt knowsAbout vehicle _x>0 and vehicle _x isKindOf "Man" and _x distance _civUnt<=_actRad) then {
-				_knwPly pushBack _x;
-            };
+//			if (_civUnt knowsAbout vehicle _x>0 and vehicle _x isKindOf "Man" and _x distance _civUnt<=_actRad) then {
+//			_knwPly pushBack _x;
+//            };
+			if (vehicle _x isKindOf "Man" and _x distance _civUnt<=_actRad) then {
+				if (_civUnt knowsAbout vehicle _x>0) then {
+					_knwPly pushBack _x;
+				} else {
+					if ([objNull,"VIEW",_civUnt] checkVisibility [(eyePos _civUnt),(eyePos _x)]>0) then {
+						_knwPlay pushBack _x;
+					};
+				};
+			};
         } forEach ([] call BIS_fnc_listPlayers);
             
         // if no known player generate another random move
