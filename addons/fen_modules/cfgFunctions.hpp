@@ -6,6 +6,10 @@ class cfgFunctions {
 			class moduleAISpotter {
 				descrption="Allow AI unit to act as FO for nearby artillery";
 			};
+			// fen_fnc_airResupply
+			class moduleAirResupply {
+				descripton="Para drop supplies";
+			};
 			// fen_fnc_bldPatrol
 			class moduleBldPatrol {
 				descrption="Set group to patrol nearby buildings";

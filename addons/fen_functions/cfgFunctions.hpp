@@ -4,6 +4,8 @@ class cfgFunctions {
 			file="fen_A3\addons\fen_functions\functions";
 			class airAssault;
 			class aiSpotter;
+			class airResupply;
+			class airResupply_drop;
 			class artilleryFX;
 			class artilleryLine;
 			class bldPatrol;

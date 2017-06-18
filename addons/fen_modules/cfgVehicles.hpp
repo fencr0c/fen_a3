@@ -114,6 +114,62 @@ class CfgVehicles {
 		};
 	};
 	
+	// fen_fnc_airResupply
+	class fen_moduleAirResupply: Module_F {
+        scope = 2;
+        displayName="Air Resupply";
+        author = "Fen";
+        vehicleClass = "Modules";
+        category = "Fen_Modules";
+        function = "fen_fnc_moduleAirResupply";
+        functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleAirResupply.paa";
+        isGlobal = 1;
+        isTriggerActivated = 0;
+        isDisposable = 0;
+        is3DEN = 0;
+		
+		class Arguments: ArgumentsBaseUnits {
+			class dropWP {
+				displayName="Drop Waypoint";
+				description="Waypoint number when supplies dropped";
+				typeName="NUMBER";
+				defaultValue=1;
+			};
+            class flyHeight {
+				displayName="Flying Height";
+				description="Defines flying height for aircraft.";
+				typeName="NUMBER";
+				defaultValue=150;
+			};
+			class chuteClass {
+				displayName="Chute Class Name";
+				description="Defines chute to be used for drop.";
+				defaultValue="B_Parachute_02_F";
+				typeName="STRING";
+			};
+		};
+		
+		class ModuleDescription: ModuleDescription {
+			description="Air Resupply";
+			sync[]={
+				"LocationArea_F"
+			};
+			class LocationArea_F {
+				description[]={
+					"https://feedback.bistudio.com/T84295",
+					"has been fixed if you can see this."
+				};
+				position=0;
+				optional=0;
+				duplicate=1;
+				synced[]={
+					"Any"
+				};
+			};
+		};
+	};
+	
 	// fen_fnc_bldPatrol
 	class fen_moduleBldPatrol: Module_F {
         scope = 2;
@@ -139,7 +195,7 @@ class CfgVehicles {
 			class excludeBuildings{
 				displayName="Exclude building classes";
 				description="Optional: Defines array of building classes not to be patrolled e.g. ['Land_Barrack2','Land_i_Barracks_V2_F']";
-				TypeName="STRING";
+				typeName="STRING";
 			};
 			class includeAIS {
 				displayName="Add to AIS";
@@ -223,13 +279,13 @@ class CfgVehicles {
 			class minDelay {
 				displayName="Minimum delay (seconds)";
 				description="Defines minimum time in seconds between unit mounting vehicle and detonation.";
-				TypeName="NUMBER";
+				typeName="NUMBER";
 				defaultValue=0;
 			};
 			class maxDelay {
 				displayName="Maximum delay (seconds)";
 				description="Defines maximum time in seconds between unit mounting vehicle and detonation.";
-				TypeName="NUMBER";
+				typeName="NUMBER";
 				defaultValue=10;
 			};
 			class trapSide {
@@ -675,7 +731,7 @@ class CfgVehicles {
 			class excludeBuildings{
 				displayName="Exclude building classes";
 				description="Optional: Defines array of building classes not to be patrolled e.g. ['Land_Barrack2','Land_i_Barracks_V2_F']";
-				TypeName="STRING";
+				typeName="STRING";
 			};
 			class includeAIS {
 				displayName="Add to AIS";
@@ -745,7 +801,7 @@ class CfgVehicles {
 			class excludeBuildings{
 				displayName="Exclude building classes";
 				description="Optional: Defines array of building classes not to be patrolled e.g. ['Land_Barrack2','Land_i_Barracks_V2_F']";
-				TypeName="STRING";
+				typeName="STRING";
 			};
 			class includeAIS {
 				displayName="Add to AIS";
@@ -883,7 +939,7 @@ class CfgVehicles {
 			class armWeapons {
 				displayName="Arm with weapons (class array)";
 				description="Optional: If weapons faction not used will arm with weapons in this array e.g. ['Rifle_1','Rifle_2']";
-				TypeName="STRING";
+				typeName="STRING";
 			};
 			class armFrom {
 				displayName="Weapons cache classes array";
