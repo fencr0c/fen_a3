@@ -10,6 +10,14 @@ class cfgFunctions {
 			class moduleAirResupply {
 				descripton="Para drop supplies";
 			};
+			// fen_fnc_artilleryFX
+			class moduleArtilleryFX {
+				description="Artillery Effects";
+			};
+			// fen_fnc_artilleryLine 
+			class moduleArtilleryLine {
+				description="Artillery Line";
+			};
 			// fen_fnc_bldPatrol
 			class moduleBldPatrol {
 				descrption="Set group to patrol nearby buildings";
@@ -66,6 +74,11 @@ class cfgFunctions {
 			class moduleRetreatGroup {
 				description="Retreat Group";
 			};
+			// fen_fnc_rollingBarrage
+			class moduleRollingBarrage {
+				description="Rolling Barrage";
+			};
+
 			// fen_fnc_scrambleCrew
 			class moduleScrambleCrew {
 				description="Scramble Crew";

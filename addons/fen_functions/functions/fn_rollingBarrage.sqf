@@ -49,4 +49,3 @@ for [{_idy=1},{_idy<=_yNmRow},{_idy=_idy+1}] do {
     _rowLoc=[_rowLoc,_ySpRow,_barDir] call BIS_fnc_relPos;
 };
 
-

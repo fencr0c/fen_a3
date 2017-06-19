@@ -170,6 +170,148 @@ class CfgVehicles {
 		};
 	};
 	
+	// fen_fnc_artilleryFX
+	class fen_moduleArtilleryFX: Module_F {
+        scope = 2;
+        displayName="Artillery FX";
+        author = "Fen";
+        vehicleClass = "Modules";
+        category = "Fen_Modules";
+        function = "fen_fnc_moduleArtilleryFX";
+        functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleArtilleryFX.paa";
+        isGlobal = 1;
+        isTriggerActivated = 1;
+        isDisposable = 0;
+        is3DEN = 0;
+		
+		class Arguments: ArgumentsBaseUnits {
+			class minDistance {
+				displayName="Minimum Distance";
+				description="Defines minimum distance shells land from module.";
+				typeName="NUMBER";
+				defaultValue=0;
+			};
+            class maxDistance {
+				displayName="Maximum Distance";
+				description="Defines maximum distance shells land from module.";
+				typeName="NUMBER";
+				defaultValue=300;
+			};
+			class fireMissions {
+				displayName="Fire missions"
+				description="Defines number of fire missions.";
+				typeName="NUMBER";
+				defaultValue=2;
+			};
+			class delayFireMissions{
+				displayName="Delay between fire missions";
+				description="Defines number of seconds between fire missions.";
+				typeName="NUMBER";
+				defaultValue=60;
+			};
+			class shellCount {
+				displayName="Shells per fire mission";
+				description="Defines number of shells per fire mission.";
+				typeName="NUMBER";
+				defaultValue=5;
+			};
+			class safeDistance {
+				displayName="Proximity";
+				description="Defines closest shell can land near player.";
+				typeName="NUMBER";
+				defaultValue=75;
+			};
+			class shellClass {
+				displayName="Shell Class";
+				description="Defines shell class for artillery.";
+				typeName="STRING";
+				defaultValue="Sh_82mm_AMOS";
+			};
+		};
+		
+		class ModuleDescription: ModuleDescription {
+			description="Artillery FX";
+			sync[]={
+				"LocationArea_F"
+			};
+			class LocationArea_F {
+				description[]={
+					"https://feedback.bistudio.com/T84295",
+					"has been fixed if you can see this."
+				};
+				position=0;
+				optional=0;
+				duplicate=1;
+				synced[]={
+					"Any"
+				};
+			};
+		};
+	};
+	
+	// fen_fnc_artilleryLine
+	class fen_moduleArtilleryLine: Module_F {
+        scope = 2;
+        displayName="Artillery Line";
+        author = "Fen";
+        vehicleClass = "Modules";
+        category = "Fen_Modules";
+        function = "fen_fnc_moduleArtilleryLine";
+        functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleArtilleryLine.paa";
+        isGlobal = 1;
+        isTriggerActivated = 1;
+        isDisposable = 0;
+        is3DEN = 0;
+		
+		class Arguments: ArgumentsBaseUnits {
+			class numberShells {
+				displayName="Number of shells";
+				description="Defines number of shells in artiller line.";
+				typeName="NUMBER";
+				defaultValue=5;
+			};
+            class shellSpace {
+				displayName="Shell spacing";
+				description="Defines distance between each shell.";
+				typeName="NUMBER";
+				defaultValue=10;
+			};
+			class shellDelay {
+				displayName="Shell delay"
+				description="Defines time between each shell.";
+				typeName="NUMBER";
+				defaultValue=1;
+			};
+			class shellClass {
+				displayName="Shell Class";
+				description="Defines shell class for artillery.";
+				typeName="STRING";
+				defaultValue="Sh_82mm_AMOS";
+			};
+		};
+		
+		class ModuleDescription: ModuleDescription {
+			description="Artillery FX";
+			sync[]={
+				"LocationArea_F"
+			};
+			class LocationArea_F {
+				description[]={
+					"https://feedback.bistudio.com/T84295",
+					"has been fixed if you can see this."
+				};
+				position=0;
+				optional=0;
+				duplicate=1;
+				synced[]={
+					"Any"
+				};
+			};
+		};
+	};
+	
 	// fen_fnc_bldPatrol
 	class fen_moduleBldPatrol: Module_F {
         scope = 2;
@@ -1511,7 +1653,87 @@ class CfgVehicles {
 			};
 		};
 	};
-
+	
+	// fen_fnc_rollingBarrage
+	class fen_moduleRollingBarrage: Module_F {
+        scope = 2;
+        displayName="Rolling Barrage";
+        author = "Fen";
+        vehicleClass = "Modules";
+        category = "Fen_Modules";
+        function = "fen_fnc_moduleRollingBarrage";
+        functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleRollingBarrage.paa";
+        isGlobal = 1;
+        isTriggerActivated = 1;
+        isDisposable = 0;
+        is3DEN = 0;
+		
+		class Arguments: ArgumentsBaseUnits {
+			class xAxisShells {
+				displayName="X axis number of shells";
+				description="Defines number of shells in the X axis (width).";
+				typeName="NUMBER";
+				defaultValue=10;
+			};
+            class xAxisSpace {
+				displayName="X axis spacing";
+				description="Defines space between shells in the X axis (width).";
+				typeName="NUMBER";
+				defaultValue=10;
+			};
+			class xAxisDelay {
+				displayName="X axis delay"
+				description="Defines time between shells in axis (width).";
+				typeName="NUMBER";
+				defaultValue=1;
+			};
+			class yAxisShells {
+				displayName="Y axis number of shells";
+				description="Defines number of shells in the Y axis (height).";
+				typeName="NUMBER";
+				defaultValue=10;
+			};
+            class yAxisSpace {
+				displayName="Y axis spacing";
+				description="Defines space between shells in the Y axis (height).";
+				typeName="NUMBER";
+				defaultValue=10;
+			};
+			class yAxisDelay {
+				displayName="Y axis delay"
+				description="Defines time between shells in Y axis (height).";
+				typeName="NUMBER";
+				defaultValue=1;
+			};
+			class shellClass {
+				displayName="Shell Class";
+				description="Defines shell class for artillery.";
+				typeName="STRING";
+				defaultValue="Sh_82mm_AMOS";
+			};
+		};
+		
+		class ModuleDescription: ModuleDescription {
+			description="Rolling Barrage";
+			sync[]={
+				"LocationArea_F"
+			};
+			class LocationArea_F {
+				description[]={
+					"https://feedback.bistudio.com/T84295",
+					"has been fixed if you can see this."
+				};
+				position=0;
+				optional=0;
+				duplicate=1;
+				synced[]={
+					"Any"
+				};
+			};
+		};
+	};
+	
 	// fen_fnc_scrambleCrew
 	class fen_moduleScrambleCrew: Module_F {
         scope = 2;

@@ -39,8 +39,6 @@ if (isNil "fen_debug") then {
 _cntRun=0;
 while {_cntRun<=_numRun} do {
     
-    sleep _artFrq;
-    
 	_cntRun=_cntRun+1;
 	
     for [{_i=1},{_i<_artNum},{_i=_i+1}] do {
@@ -86,6 +84,9 @@ while {_cntRun<=_numRun} do {
             };
         };
     };
+	
+    sleep _artFrq;
+	
 };
    
     
