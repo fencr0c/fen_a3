@@ -10,6 +10,9 @@ Parameters:
 _this select 0 : (Object) object
 _this select 1 : (String) text
 
+Usage:
+[object,"HVT is hidding towards the south of this position"] spawn fen_fnc_intel_addIntel;
+
 */
 
 private ["_object","_intel"];
