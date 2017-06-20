@@ -7,7 +7,7 @@ Description:
 Gives an AI unit the ability to use nearby artillery to engage targets.
 
 Parameters:
-_this select 0 : (Object) spotter
+_this select 0 : (Unit) spotter
 _this select 1 : (Scalar) maximum range at which spotter will engage targets, default is 1000
 _this select 2 : (Scalar) spotter can use artillery within this range, default is 5000
 _this select 3 : (Array) types of artillery spotter can call fire from, default is ["O_Mortar_01_F"]
