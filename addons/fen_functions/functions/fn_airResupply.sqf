@@ -10,11 +10,12 @@ Parameters:
 _this select 0 : (Side) side of transport aircraft
 _this select 1 : (String) transport aircraft class name
 _this select 2 : (Array) array of class names to drop
-_this select 3 : (Array) array of WP positions
-_this select 4 : (Scalar) wp # to start drop
-_this select 5 : (Object) trigger starting air resupply
-_this select 6 : (Scalar) flying hieght 
-_this select 7 : (String) class name for chute
+_this select 3 : (Array) start position of transport aircraft
+_this select 4 : (Array) array of WP positions
+_this select 5 : (Scalar) wp # to start drop
+_this select 6 : (Object) trigger starting air resupply
+_this select 7 : (Scalar) flying hieght 
+_this select 8 : (String) class name for chute
 
 
 */
