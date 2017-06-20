@@ -4,7 +4,7 @@ File: fn_releaseSentries.sqf
 Author: Fen 
 
 Description:
-Used by fen_fnc_spawnSentries, but can be used to release and group from "forceSpeed -1" when enemy are within range.
+Used by fen_fnc_spawnSentries, but can be used to release and group from "disableAI "PATH"" when enemy are within range.
 
 Parameters:
 _this select 0 : (Group) Group
