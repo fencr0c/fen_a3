@@ -1,3 +1,5 @@
+![](https://github.com/fencr0c/fen_a3/blob/master/images/fen_a3.png)
+
 # FEN_A3
 FEN_A3 is a collection of functions and tools for the ARMA 3 mission maker.
 
