@@ -28,8 +28,6 @@ _trgSid=param[5,west,[sidelogic]];
 if (isNull _iedObj) exitWith {};
 if not(local _iedObj) exitWith {};
 
-diag_log format["fn_iedobject: explosion class is %1",_expCls]; // debug delete me 
-
 _trgRng=_iedRng call BIS_fnc_randomNum;
 _trgDly=_iedDly call BIS_fnc_randomNum;
 

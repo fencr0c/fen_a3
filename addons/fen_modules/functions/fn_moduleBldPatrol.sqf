@@ -13,14 +13,10 @@ params [
 	["_units",[],[[]]]
 ];
 
-diag_log format["fn_moduleBldPatrol: units %1",_units]; //debug delete me 
-
 // exclude player (i.e. include servers and headless clients)
 if (hasInterface and not isServer) exitWith {};
 
 private _localunits=_units select {local _x};
-
-diag_log format["fn_moduleBldPatrol: localunits %1",_localunits]; //debug delete me 
 
 private _patrolRadius=_logic getVariable ["patrolRadius",300];
 private _excludeBuildings=[_logic getVariable ["excludeBuildings",[]]] call BIS_fnc_parseNumber;

@@ -21,9 +21,6 @@ _vari=param[2,objNull,[objNull]];
 
 if (isNull _unit) exitWith {};
 
-diag_log format["fn_group vari is %1",_vari]; // debug delete me 
-
-
 private _grpData=(group _unit) getVariable ["fen_ais_group",""];
 
 if (typeName _grpData!="STRING") then {

@@ -34,9 +34,6 @@ if (typeName _owningLocation!="OBJECT") then {
 	_owningLocation=objNull;
 };
 
-diag_log format["fn_moduleIEDObject: explosion class is %1",_explosionClass]; // debug delete me 
-
-
 { 
 	if (_includeAIS) then {
 		private _grpOptions=["exec:"];
