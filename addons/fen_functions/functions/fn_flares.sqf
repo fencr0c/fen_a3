@@ -45,7 +45,7 @@ while {_cntRun<=_runLen} do {
         _flrY=[(_maxDst*-1),_maxDst] call BIS_fnc_randomInt;
         _flrTyp=_flrRnd select floor(random count _flrRnd);
         //_flrRnd=createVehicle [_flrTyp,[(_cenLoc select 0)+_flrX,(_cenLoc select 1)+_flrY,100],[],0,"NONE"];
-        _flrShl=_flrTyp createVehicle [(_cenLoc select 0)+_flrx,(_cenLoc select 1)+_flrY,200];
+        _flrShl=_flrTyp createVehicle [(_cenLoc select 0)+_flrx,(_cenLoc select 1)+_flrY,150];
         
         _flrShl setvelocity [0,0,-3];
         sleep ([0.3,5] call BIS_fnc_randomInt);

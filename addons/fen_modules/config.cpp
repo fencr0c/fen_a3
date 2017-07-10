@@ -4,6 +4,9 @@ class CfgPatches {
 		name = "Fen Modules";
 		units[] = {
 			"fen_moduleAISpotter",
+            "fen_moduleAirResupply",
+            "fen_moduleArtilleryFX",
+            "fen_moduleArtilleryLine",
 			"fen_moduleBldPatrol",
 			"fen_moduleBoobyTrapVeh",
 			"fen_moduleCivilianArea",
@@ -18,6 +21,7 @@ class CfgPatches {
 			"fen_moduleIEDPP",
 			"fen_moduleAddIntel",
 			"fen_moduleRetreatGroup",
+            "fen_moduleRollingBarrage",
 			"fen_moduleScrambleCrew",
 			"fen_moduleSuicideBomber"
 		};

@@ -38,6 +38,10 @@ class cfgFunctions {
 			class moduleDicker {
 				descriptions="Dicker";
 			};
+            // fen_fnc_flares
+            class moduleFlares {
+                description="Flares";
+            }; 
 			// fen_fnc_grpDefend
 			class moduleGrpDefend {
 				description="Group Defend";

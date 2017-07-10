@@ -13,9 +13,6 @@ params [
 	["_logic",objNull,[objNull]]
 ];
 
-diag_log format["fn_moduleToolsInit hasInterface %1",hasInterface]; // debug delete me 
-diag_log format["fn_moduleToolsInit editorOnly %1",_logic getVariable ["editorOnly","not found"]]; // debug delete me 
-
 private _editorOnly=_logic getVariable ["editorOnly",false];
 
 if (_editorOnly) then {

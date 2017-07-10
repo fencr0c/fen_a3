@@ -137,6 +137,7 @@ class CfgVehicles {
 				description="Optional:Used when balancing to determine nubmer of AI to spawn";
 				typeName="NUMBER";
 			};
+            class ModuleDescription : ModuleDescription{}; // new
 		};
 		
 		class ModuleDescription: ModuleDescription {

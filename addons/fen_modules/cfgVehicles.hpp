@@ -848,6 +848,68 @@ class CfgVehicles {
 		};
 	};	
 	
+    // fen_fnc_flares
+	class fen_moduleFlares: Module_F {
+        scope = 2;
+        displayName="Flares";
+        author = "Fen";
+        vehicleClass = "Modules";
+        category = "Fen_Modules";
+        function = "fen_fnc_moduleFlares";
+        functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleFlares.paa";
+        isGlobal = 1;
+        isTriggerActivated = 1;
+        isDisposable = 0;
+        is3DEN = 0;
+		
+		class Arguments: ArgumentsBaseUnits {
+			class maxDistance {
+				displayName="Radius";
+				description="Defines maximum radius flares will be generated from module position.";
+				typeName="NUMBER";
+				defaultValue=300;
+			};
+            class numSimFlares {
+				displayName="Number of simulatenous flares";
+				description="Defines maximum number of simulatenous flares.";
+				typeName="NUMBER";
+				defaultValue=10;
+			};
+			class frequency {
+				displayName="Frequency of flares"
+				description="Defines how oftern flares are created.";
+				typeName="NUMBER";
+				defaultValue=30;
+			};
+			class runTimes {
+				displayName="Number of times to run";
+				description="Defines number flares will be generated.";
+				typeName="NUMBER";
+				defaultValue=10;
+			};
+		};
+		
+		class ModuleDescription: ModuleDescription {
+			description="Flares";
+			sync[]={
+				"LocationArea_F"
+			};
+			class LocationArea_F {
+				description[]={
+					"https://feedback.bistudio.com/T84295",
+					"has been fixed if you can see this."
+				};
+				position=0;
+				optional=0;
+				duplicate=1;
+				synced[]={
+					"Any"
+				};
+			};
+		};
+	};
+    
 	// fen_fnc_grpDefend
 	class fen_moduleGrpDefend: Module_F {
         scope = 2;
