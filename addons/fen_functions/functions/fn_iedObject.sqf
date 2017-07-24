@@ -34,6 +34,7 @@ _trgDly=_iedDly call BIS_fnc_randomNum;
 _iedTrg=createTrigger["EmptyDetector",(position _iedObj)];
 _iedTrg setTriggerArea[_trgRng,_trgRng,0,false];
 _iedTrg setTriggerActivation[str _trgSid,"PRESENT",false];
+_iedTrg setTriggerStatements["this","",""]; // https://feedback.bistudio.com/T124846
 
 sleep 5;
 waitUntil{

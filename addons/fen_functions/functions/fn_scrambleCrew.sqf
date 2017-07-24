@@ -171,6 +171,7 @@ switch (_crewSide) do {
 _scrambleTrigger=createTrigger["EmptyDetector",(position _vehicle)];
 _scrambleTrigger setTriggerArea[_triggeringRange,_triggeringRange,0,false];
 _scrambleTrigger setTriggerActivation[_triggeredBy,_triggerType,false];
+_scrambleTrigger setTriggerStatements["this","",""]; //https://feedback.bistudio.com/T124846
 
 while {true} do {
 
