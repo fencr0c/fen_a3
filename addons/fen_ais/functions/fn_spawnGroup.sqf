@@ -51,10 +51,12 @@ if (not("nobalance:" in _grpOpt) and ([_aisLoc] call fenAIS_fnc_balanced)) exitW
 			_spnUnt disableAI "PATH";
 		};
 		if ("vcom_off:" in _grpOpt) then {
-			_spnUnt setVariable ["NOAI",1,false];
+			//_spnUnt setVariable ["NOAI",1,false];
+            _spnUnt setVariable ["NOAI",true];
 		};
 		if ("vcom_nopath:" in _grpOpt) then {
-			_spnUnt setVariable ["VCOM_NOPATHING_Unit",1,false];
+			//_spnUnt setVariable ["VCOM_NOPATHING_Unit",1,false];
+            _spnUnt setVariable ["VCOM_NOPATHING_Unit",true];
 		};
 		if ("asr_exclude:" in _grpOpt) then {
 			_spnUnt setVariable ["asr_ai_exclude",true];
