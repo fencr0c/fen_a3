@@ -47,9 +47,6 @@ _subRnd="Sh_122_HE";
 // marker spotter 
 _sptUnt setVariable ["fen_aispotter",true];
 
-// wait before starting to avoid all spotters starting at once
-sleep random 180; 
-
 // main loop
 while {true} do {
     scopeName "main";
