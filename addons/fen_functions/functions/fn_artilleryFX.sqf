@@ -41,7 +41,7 @@ while {_cntRun<=_numRun} do {
     
 	_cntRun=_cntRun+1;
 	
-    for [{_i=1},{_i<_artNum},{_i=_i+1}] do {
+    for [{_i=1},{_i<=_artNum},{_i=_i+1}] do {
         
         [_artLoc,_artMin,_artMax,_artShl,_artDst] spawn {
             
