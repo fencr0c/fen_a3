@@ -110,12 +110,7 @@ while {not _endCounterAttack} do {
 	};
 
 	private _committedUnits=[[_counterAttackName]] call fen_fnc_cntOwnedUnts;
-	private _enemyAtArea=0;
-	if (fen_debug) then {
-		_enemyAtArea=28;
-	} else {
-		_enemyAtArea=count (allUnits select {side _x==_triggeringSide and _x distance _counterAttackArea select 0<=_counterAttackArea select 1});
-	};
+    private _enemyAtArea=count (allUnits select {side _x==_triggeringSide and _x distance (_counterAttackArea select 0)<=(_counterAttackArea select 1)});
 	
 	if (fen_debug) then {
 		diag_log format["fn_counterAttack: %1 %2 commited %3 enemy in area %4",time,_counterAttackName,_committedUnits,_enemyAtArea];
@@ -144,7 +139,7 @@ while {not _endCounterAttack} do {
 						
 						if (_noVCOM) then {
 							{
-								_x setVariable ["NOAI",1,false];
+								_x setVariable ["NOAI",true,false];
 							} forEach units _spawnedGroup;
 						};
 						
