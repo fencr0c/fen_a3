@@ -48,9 +48,13 @@ if (isNil "fen_debug") then {
 };
 
 // spawn transport helicopter
-_trnDta=[_aiiSid,_trnStr,0,0,false,true,_trnHel,_ownVal] call fen_fnc_spawnvehicle;
+_trnDta=[_aiiSid,_trnStr,0,0,false,true,_trnHel] call fen_fnc_spawnvehicle;
 _trnVeh=_trnDta select 0;
 _trnGrp=_trnDta select 1;
+
+{
+    _x setVariable ["NOAI",true,false];
+} forEach units _trnGrp;
 
 // spawn infantry group 
 _infGrp=[_aiiSid,_infStr,0,_infCls,_ownVal] call fen_fnc_spawngroup;
