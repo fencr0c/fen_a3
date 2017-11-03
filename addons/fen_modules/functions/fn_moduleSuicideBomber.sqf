@@ -19,6 +19,7 @@ if (hasInterface and not isServer) exitWith {};
 private _localunits=_units select {local _x};
 
 private _bombJacket=_logic getVariable ["bombJacket",false];
+private _deadManChance=_logic getVariable ["deadmanChance",0];
 private _includeAIS=_logic getVariable ["includeAIS",false];
 private _owningLocation=[_logic getVariable ["owningLocation",objNull]] call BIS_fnc_parseNumber;
 if (typeName _owningLocation!="OBJECT") then {
@@ -30,7 +31,8 @@ if (typeName _owningLocation!="OBJECT") then {
 		private _grpOptions=["exec:"];
 		
 		private _parameters="[leader %1," + 
-				format["%1",_bombJacket] +
+				format["%1,",_bombJacket] +
+                str _deadManChance +
 				"] spawn fen_fnc_suicideBomber;";
 	
 		_grpOptions pushBack _parameters;
@@ -41,7 +43,7 @@ if (typeName _owningLocation!="OBJECT") then {
 			[_x,_grpOptions,_owningLocation] call fenAIS_fnc_group;
 		};
 	} else {
-		[_x,_bombJacket] spawn fen_fnc_suicideBomber;
+		[_x,_bombJacket,_deadManChance] spawn fen_fnc_suicideBomber;
 	};
 } forEach _localunits;
 

@@ -1959,6 +1959,12 @@ class CfgVehicles {
 					};
 				};
 			};
+            class deadmanChance {
+                    displayName="Dead mans trigger %";
+                    description="Percentage change of touch off on death";
+                    typeName="NUMBER";
+                    defaultValue=0;
+            };
 			class includeAIS {
 				displayName="Add to AIS";
 				description="Synchronised groups are added to AIS.";

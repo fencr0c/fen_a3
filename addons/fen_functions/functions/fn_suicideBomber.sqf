@@ -12,6 +12,7 @@ When bombe detect player they will move towards them and go boom.
 Parameters:
 _this select 0 : (Object) unit
 _this select 1 : OPTIONAL (Boolean) wearing bomb jacket 
+_this select 2 : OPTIONAL (Scalar) % chance of dead mans trigger
 
 Example:
 [_unit,true] spawn fen_fnc_suicideBomber
@@ -22,6 +23,7 @@ private ["_knwAbt","_knwRat","_knwUnt","_bmbShl","_bmbNo1","_bmbNo2","_bmbNo3","
 
 _suiUnt=param[0,objNull,[objNull]];
 _bmbJkt=param[1,false,[true]];
+_trgChc=param[2,0,[0]];
 
 if not(local _suiUnt) exitWith{};
 
@@ -119,7 +121,25 @@ while {true} do {
     };
 };
 
+if (_trgChc>0) then {
+    if (ceil (random 100)<=_trgChc) then {
+        sleep ceil (random 30)+1;
+        if (vehicle (_suiUnt)==_suiUnt) then {
+            _bmbShl=createVehicle["Sh_82mm_AMOS",position _suiUnt,[],0,"CAN_COLLIDE"];
+        } else {
+            _bmbShl=createVehicle["Bo_MK82",position _suiUnt,[],0,"CAN_COLLIDE"];
+        };
+        _bmbShl setvelocity [0,0,-30];
+        sleep 5;
+        deleteVehicle _bmbShl;
+    };    
+};
+
 if (_bmbJkt) then {
+    waitUntil {
+        sleep 1;
+        isNull _suiUnt;
+    };
     detach _bmbNo1;
     deleteVehicle _bmbNo1;
     detach _bmbNo2;
