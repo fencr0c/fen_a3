@@ -50,6 +50,7 @@ fen_fnc_fndClearLoc_unitsClear={
 
 _chkLoc=_intLoc;
 _rtnLoc=[];
+private _loopCount=0;
 while {true} do {
     scopeName "clearLoc";
     
@@ -58,7 +59,13 @@ while {true} do {
         breakout "clearLoc";
     };
     
+    if (_loopCount>100) then {
+        breakOut "clearLoc";
+    };
+    sleep 0.03;
+    
     _chkLoc=[_chkLoc,0,_maxRad,_bldDst,0,1,0] call BIS_fnc_findSafePos;
+    _loopCount=_loopCount+1;
 };
 
 if (_rtnLoc distance _intLoc>_maxRad) then {
