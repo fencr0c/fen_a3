@@ -87,7 +87,7 @@ fen_fnc_hiddenEnemyControl={
 					_knwPly pushBack _x;
 				} else {
 					if ([objNull,"VIEW",_civUnt] checkVisibility [(eyePos _civUnt),(eyePos _x)]>0) then {
-						_knwPlay pushBack _x;
+						_knwPly pushBack _x;
 					};
 				};
 			};
