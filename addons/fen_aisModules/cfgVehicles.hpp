@@ -244,6 +244,11 @@ class CfgVehicles {
 				descriptions="Groups on Sentry will be release if enemy detected within radius.";
 				typeName="NUMBER";
 			};
+            class sentryTriggers {
+                displayName="Sentry release triggers array";
+                descriptions="Groups on Sentry will be released if at least one trigger is activated.e.g [trg1,trig2]";
+                typeName="STRING";
+            };
 			class VCOMoff {
 				displayName="VCOM Off";
 				description="Group will be exlcuded from VCOM_AI as per VCOM NOAI";

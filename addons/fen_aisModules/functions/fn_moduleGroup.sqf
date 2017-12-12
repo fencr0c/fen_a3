@@ -27,6 +27,10 @@ private _command=_logic getVariable ["command",""];
 private _doStop=_logic getVariable ["doStop",false];
 private _sentry=_logic getVariable ["sentry",false];
 private _sentryRange=_logic getVariable ["sentryRange",0];
+private _sentryTriggers=[_logic getVariable ["sentryTriggers","[]"]] call BIS_fnc_parseNumber;
+if (typeName _sentryTriggers!="ARRAY") then {
+	_sentryTriggers=[];
+};
 private _VCOMoff=_logic getVariable ["VCOMoff",false];
 private _VCOMnopath=_logic getVariable ["VCOMnopath",false];
 private _excludeASR=_logic getVariable ["excludeASR",false];
@@ -49,7 +53,7 @@ if (_doStop) then {
 };
 if (_sentry) then {
 	_options pushBack "sentry:";
-	_options pushBack _sentryRange;
+	_options pushBack [_sentryRange,_sentryTriggers];
 };
 if (_VCOMoff) then {
 	_options pushBack "vcom_off:";
