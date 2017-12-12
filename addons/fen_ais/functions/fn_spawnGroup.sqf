@@ -73,13 +73,36 @@ if (not("nobalance:" in _grpOpt) and ([_aisLoc] call fenAIS_fnc_balanced)) exitW
 			_spnUnt setUnitLoadOut (_x select 5);
 		};
 	} else {
-		_spnDta=[[((_x select 1) select 0),((_x select 1) select 1)],(_x select 2),(_x select 3),_spnGrp] call BIS_fnc_spawnVehicle;
-           
+    
+        private _flying="CAN_COLLIDE";
+        if (count _grpWay>0 and (_x select 3) isKindOf "Air") then {
+            _flying="FLY";
+        };
+        private _spnVeh=createVehicle[_x select 3,[((_x select 1) select 0),((_x select 1) select 1)],[],0,_flying];
+        _spnVeh setDir (_x select 2);
+        _spnVeh setPosASL (_x select 1);
+        _spnGrp addVehicle _spnVeh;
+        private _spnPos=[((_x select 1) select 0),((_x select 1) select 1)];
+        {
+            _spnUnt=_spnGrp createUnit[_x select 0,_spnPos,[],0,"NONE"];
+            if (count (_x select 4)>0) then {
+                _spnUnt setUnitLoadOut (_x select 4);
+            };
+            switch (_x select 1) do {
+                case "driver" : {_spnUnt moveInDriver _spnVeh};
+                case "commander" : {_spnUnt moveInCommander _spnVeh};
+                case "gunner" : {_spnUnt moveInTurret [_spnVeh,_x select 3]};
+                case "turret" : {_spnUnt moveInTurret [_spnVeh,_x select 3]};
+                case "cargo" : {_spnUnt moveInCargo [_spnVeh,_x select 2]};
+            };
+        } forEach (_x select 6);
+
 		if ((count _grpWay)==0) then {
-			doStop (commander (_spnDta select 0));
+            doStop (commander _spnVeh);
 		};
-		_lokDir=[position (_spnDta select 0),1000,(_x select 2)] call BIS_fnc_relPos;
-		(gunner (_spnDta select 0)) doWatch _lokDir;
+
+		_lokDir=[position _spnVeh,1000,(_x select 2)] call BIS_fnc_relPos;
+		(gunner _spnVeh) doWatch _lokDir;
 		
 		{
 			if ("sentry:" in _grpOpt) then {
@@ -94,7 +117,7 @@ if (not("nobalance:" in _grpOpt) and ([_aisLoc] call fenAIS_fnc_balanced)) exitW
 			if ("asr_exclude:" in _grpOpt) then {
 				_x setVariable ["asr_ai_exclude",true];
 			};
-		} forEach (_spnDta select 1);
+		} forEach (units _spnGrp);
 	};
 
 } forEach _grpMet;
