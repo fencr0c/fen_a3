@@ -25,6 +25,7 @@ class cfgFunctions {
 			class dltGroup;
 			class flares;
 			class fndClearLoc;
+            class forwardObs;
 			class grpDefend;
 			class grpStaticPos;
 			class grpSurrender;

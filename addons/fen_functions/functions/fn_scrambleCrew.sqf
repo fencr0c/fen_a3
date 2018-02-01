@@ -42,7 +42,7 @@ if (isNil "fen_debug") then {
     fen_debug=false;
 };
 
-fenfen_fnc_scrambleCrew_scramble_clutter={
+fen_fnc_scrambleCrew_scramble_clutter={
     
     private ["_safePosition","_x","_object","_vehicle","_clutterArray","_clutterObjects"];
 
@@ -70,7 +70,7 @@ fenfen_fnc_scrambleCrew_scramble_clutter={
 	_safePosition
 };
 
-fenfen_fnc_scrambleCrew_scramble_crew={
+fen_fnc_scrambleCrew_scramble_crew={
 
 	private ["_vehicle","_crewClass","_crewGroup","_crewSide","_crewPosition","_x","_safePosition"];
 	
@@ -150,9 +150,9 @@ fen_fnc_scrambleCrew_scramble={
 
 };
 
-_clutterPosition=[_vehicle,_clutterArray] call fenfen_fnc_scrambleCrew_scramble_clutter;
+_clutterPosition=[_vehicle,_clutterArray] call fen_fnc_scrambleCrew_scramble_clutter;
 
-_crewGroup=[_vehicle,_crewClass,_crewSide,_clutterPosition] call fenfen_fnc_scrambleCrew_scramble_crew;
+_crewGroup=[_vehicle,_crewClass,_crewSide,_clutterPosition] call fen_fnc_scrambleCrew_scramble_crew;
 
 _crewGroup addVehicle _vehicle;
 

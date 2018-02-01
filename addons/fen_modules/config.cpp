@@ -12,6 +12,8 @@ class CfgPatches {
 			"fen_moduleCivilianArea",
 			"fen_moduleAddConversation",
 			"fen_moduleDicker",
+            "fen_moduleFlares",
+            "fen_moduleForwardObs",
 			"fen_moduleGrpDefend",
 			"fen_moduleGrpStaticPos",
 			"fen_moduleGrpSurrender",

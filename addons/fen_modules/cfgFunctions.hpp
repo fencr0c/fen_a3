@@ -42,6 +42,10 @@ class cfgFunctions {
             class moduleFlares {
                 description="Flares";
             }; 
+            // fen_fnc_forwardObs
+            class moduleForwardObs  {
+                description="Forward Observer";
+            };
 			// fen_fnc_grpDefend
 			class moduleGrpDefend {
 				description="Group Defend";

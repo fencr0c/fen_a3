@@ -910,6 +910,115 @@ class CfgVehicles {
 		};
 	};
     
+    // fen_fnc_forwardObs
+	class fen_moduleForwardObs: Module_F {
+		scope = 2;
+        displayName="Forward Observer";
+        author = "Fen";
+        vehicleClass = "Modules";
+        category = "Fen_Modules";
+        function = "fen_fnc_moduleForwardObs";
+        functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleForwardObs.paa";
+        isGlobal = 1;
+        isTriggerActivated = 1;
+        isDisposable = 0;
+        is3DEN = 0;
+		
+		class Arguments: ArgumentsBaseUnits {
+            class engageRange {
+				displayName="Engagement Range";
+				description="Defines maximum engagement range for FO.";
+				typeName="NUMBER";
+				defaultValue=1500;
+			};
+       		class artilleryTypes {
+				displayName="Artillery classes array";
+				description="Defines an array of artillery classes the spotter can use.";
+				typeName="STRING";
+				defaultValue=["O_Mortar_01_F"];
+			};
+			class callingRange {
+				displayName="Calling Range";
+				description="Defines calling radius, FO can request fire missions from all artillery within this value.";
+				typeName="NUMBER";
+				defaultValue=5000;
+			};
+			class delayFireMission {
+				displayName="Fire mission frequency";
+				description="Defines delay between fire missions.";
+				typeName="NUMBER";
+				defaultValue=120;
+			};
+            class dfpTriggers {
+                displayName="Defensive Fire Plan Triggers";
+				description="Defines an array triggers for defensive fire plan.";
+				typeName="STRING";
+				defaultValue=[];
+            };
+            class skillLevel {
+                displayName="Skill Level";
+                description="Skill level of FO";
+                typeName="NUMBER";
+                class values { 
+                    class low {
+                        name="Low";
+                        value=1;
+                    };
+                    class medium {
+                        name="Medium";
+                        value=2;
+                        default=1;
+                    };
+                    class high {
+                        name="High";
+                        value=3;
+                    };
+                };
+            };
+			class includeAIS {
+				displayName="Add to AIS";
+				description="Synchronised groups are added to AIS.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};
+			class owningLocation {
+				displayName="Owning Location";
+				description="Optional: Owning AIS location";
+				typeName="STRING";
+			};
+		};
+		
+		class ModuleDescription: ModuleDescription {
+			description="AI Spotter";
+			sync[]={
+				"LocationArea_F"
+			};
+			class LocationArea_F {
+				description[]={
+					"https://feedback.bistudio.com/T84295",
+					"has been fixed if you can see this."
+				};
+				position=0;
+				optional=0;
+				duplicate=1;
+				synced[]={
+					"AnyAI"
+				};
+			};
+		};
+	};
+    
 	// fen_fnc_grpDefend
 	class fen_moduleGrpDefend: Module_F {
         scope = 2;
