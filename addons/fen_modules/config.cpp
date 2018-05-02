@@ -25,7 +25,9 @@ class CfgPatches {
 			"fen_moduleRetreatGroup",
             "fen_moduleRollingBarrage",
 			"fen_moduleScrambleCrew",
-			"fen_moduleSuicideBomber"
+			"fen_moduleSuicideBomber",
+            "fen_moduleRevealTriggeringUnitsAdd",
+            "fen_moduleShareTargets"
 		};
 		requiredVersion = 1.640000;
 		requiredAddons[] = {

@@ -9,5 +9,6 @@ class cfgRemoteExec {
 		mode=2;
 		JIP=0;
 		class setCaptive {allowedTargets=0;};
+        class reveal {allowedTargets=0;};
 	};
 };

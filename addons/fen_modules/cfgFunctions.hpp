@@ -82,15 +82,22 @@ class cfgFunctions {
 			class moduleRetreatGroup {
 				description="Retreat Group";
 			};
+            // fen_fnc_revealTriggeringUnitsAdd
+            class moduleRevealTriggeringUnitsAdd {
+                descriptions="Reveal Triggering Units";
+            };
 			// fen_fnc_rollingBarrage
 			class moduleRollingBarrage {
 				description="Rolling Barrage";
 			};
-
 			// fen_fnc_scrambleCrew
 			class moduleScrambleCrew {
 				description="Scramble Crew";
 			};
+            // fen_fnc_shareTargets
+            class moduleShareTargets {
+                description="Share Targets";
+            };
 			// fen_fnc_suicideBomber
 			class moduleSuicideBomber {
 				description="Suicide Bomber";

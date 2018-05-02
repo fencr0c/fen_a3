@@ -528,7 +528,7 @@ class CfgVehicles {
 			};			
 			class triggerByWest {
 				displayName="Activated by: West";
-				description="Civilians will be created with West units in range.";
+				description="Civilians will be created when West units in range.";
 				typeName="BOOL";
 				class values {
 					class no {
@@ -544,7 +544,7 @@ class CfgVehicles {
 			};
 			class triggerByEast {
 				displayName="Activated by: East";
-				description="Civilians will be created with East units in range.";
+				description="Civilians will be created when East units in range.";
 				typeName="BOOL";
 				class values {
 					class no {
@@ -560,7 +560,7 @@ class CfgVehicles {
 			};
 			class triggerByGuer {
 				displayName="Activated by: Independent";
-				description="Civilians will be created with Independent units in range.";
+				description="Civilians will be created when Independent units in range.";
 				typeName="BOOL";
 				class values {
 					class no {
@@ -576,7 +576,7 @@ class CfgVehicles {
 			};	
 			class triggerByCiv {
 				displayName="Activated by: Civilian";
-				description="Civialians will be created with Civilian units in range.";
+				description="Civialians will be created when Civilian units in range.";
 				typeName="BOOL";
 				class values {
 					class no {
@@ -1825,6 +1825,103 @@ class CfgVehicles {
 		};
 	};
 	
+    // fen_fnc_revealTriggeringUnitsAdd
+	class fen_moduleRevealTriggeringUnitsAdd: Module_F {
+        scope = 2;
+        displayName="Reveal Triggering Units";
+        author = "Fen";
+        vehicleClass = "Modules";
+        category = "Fen_Modules";
+        function = "fen_fnc_moduleRevealTriggeringUnitsAdd";
+        functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleRevealTriggeringUnitsAdd.paa";
+        isGlobal = 1;
+        isTriggerActivated = 0;
+        isDisposable = 0;
+        is3DEN = 0;
+		
+		class Arguments: ArgumentsBaseUnits {
+            class revealTriggers {
+                displayName="Reveal Triggers";
+				description="Defines an array of reveal triggers.";
+				typeName="STRING";
+				defaultValue=[];
+            };
+            class useLOS {
+                displayName="Use line of sight";
+                description="Only visible triggering units will be revealed to synchronised units";
+                typeName="BOOL";
+      			class values {
+					class no {
+						name="No";
+						value=0;
+                        default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+            };
+			class excludeAir {
+				displayName="Exclude Air Units";
+				description="By default Air units are not revealed";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+                        default=1;
+					};
+				};
+			};
+			class includeAIS {
+				displayName="Add to AIS";
+				description="Synchronised groups are added to AIS.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};
+			class owningLocation {
+				displayName="Owning Location";
+				description="Optional: Owning AIS location";
+				typeName="STRING";
+			};
+		};
+		
+		class ModuleDescription: ModuleDescription {
+			description="Retreat Group";
+			sync[]={
+				"LocationArea_F"
+			};
+			class LocationArea_F {
+				description[]={
+					"https://feedback.bistudio.com/T84295",
+					"has been fixed if you can see this."
+				};
+				position=1;
+				optional=0;
+				duplicate=1;
+				synced[]={
+					"AnyAI"
+				};
+			};
+		};
+	};
+   
 	// fen_fnc_rollingBarrage
 	class fen_moduleRollingBarrage: Module_F {
         scope = 2;
@@ -1905,6 +2002,124 @@ class CfgVehicles {
 		};
 	};
 	
+    // fen_fnc_shareTargets
+    class fen_moduleSharTargets: Module_F {
+        scope = 2;
+        displayName="Share Targets";
+        author = "Fen";
+        vehicleClass = "Modules";
+        category = "Fen_Modules";
+        function = "fen_fnc_moduleShareTargets";
+        functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleShareTargets.paa";
+        isGlobal = 1;
+        isTriggerActivated = 0;
+        isDisposable = 0;
+        is3DEN = 0;
+		
+		class Arguments: ArgumentsBaseUnits {
+			class processWest {
+				displayName="Share targets: West";
+				description="West will share targets with friendly groups.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+                        default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};
+      		class processEast {
+				displayName="Share targets: East";
+				description="East will share targets with friendly groups.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+                        default=1;
+					};
+				};
+			};
+            class processGuer {
+				displayName="Share targets: Independent";
+				description="Independent will share targets with friendly groups.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+                        default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};
+            class processCiv {
+				displayName="Share targets: Civilian";
+				description="Civilians will share targets with friendly groups.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+                        default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};
+			class frequency {
+				displayName="Frequency";
+				description="Defines how oftern targets are shared.";
+				typeName="NUMBER";
+				defaultValue=60;
+			};
+            class shareDistance {
+				displayName="Broadcast Distance";
+				description="Defines how far targets will be broadcast to nearby friendlies."
+				typeName="NUMBER";
+				defaultValue=250;
+			};
+      		class visibleRange {
+				displayName="Visible Range";
+				description="Only targets within visibile range will be shared.";
+				typeName="NUMBER";
+				defaultValue=600;
+			};
+		};
+		
+		class ModuleDescription: ModuleDescription {
+			description="Share Targets";
+			sync[]={
+				"LocationArea_F"
+			};
+			class LocationArea_F {
+				description[]={
+					"https://feedback.bistudio.com/T84295",
+					"has been fixed if you can see this."
+				};
+				position=0;
+				optional=0;
+				duplicate=1;
+				synced[]={};
+			};
+		};
+	};
+    
 	// fen_fnc_scrambleCrew
 	class fen_moduleScrambleCrew: Module_F {
         scope = 2;

@@ -40,10 +40,14 @@ class cfgFunctions {
 			class playersInTrigger;
 			class releaseSentries;
 			class retreatGroup;
+            class revealTriggeringUnitsAdd;
+            class revealTriggeringUnitsQueueHandler;
+            class revealTriggeringUnitsRemove;
 			class rollingBarrage;
 			class rtnBuildingPos;
 			class say3d;
 			class scrambleCrew;
+            class shareTargets;
 			class sideChatGbl;
 			class spawnGroup;
 			class spawnSentries;
