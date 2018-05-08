@@ -199,7 +199,7 @@ class CfgVehicles {
 				defaultValue=300;
 			};
 			class fireMissions {
-				displayName="Fire missions"
+				displayName="Fire missions";
 				description="Defines number of fire missions.";
 				typeName="NUMBER";
 				defaultValue=2;
@@ -279,7 +279,7 @@ class CfgVehicles {
 				defaultValue=10;
 			};
 			class shellDelay {
-				displayName="Shell delay"
+				displayName="Shell delay";
 				description="Defines time between each shell.";
 				typeName="NUMBER";
 				defaultValue=1;
@@ -877,7 +877,7 @@ class CfgVehicles {
 				defaultValue=10;
 			};
 			class frequency {
-				displayName="Frequency of flares"
+				displayName="Frequency of flares";
 				description="Defines how oftern flares are created.";
 				typeName="NUMBER";
 				defaultValue=30;
@@ -1951,7 +1951,7 @@ class CfgVehicles {
 				defaultValue=10;
 			};
 			class xAxisDelay {
-				displayName="X axis delay"
+				displayName="X axis delay";
 				description="Defines time between shells in axis (width).";
 				typeName="NUMBER";
 				defaultValue=1;
@@ -1969,7 +1969,7 @@ class CfgVehicles {
 				defaultValue=10;
 			};
 			class yAxisDelay {
-				displayName="Y axis delay"
+				displayName="Y axis delay";
 				description="Defines time between shells in Y axis (height).";
 				typeName="NUMBER";
 				defaultValue=1;
@@ -2003,7 +2003,7 @@ class CfgVehicles {
 	};
 	
     // fen_fnc_shareTargets
-    class fen_moduleSharTargets: Module_F {
+    class fen_moduleShareTargets: Module_F {
         scope = 2;
         displayName="Share Targets";
         author = "Fen";
@@ -2090,7 +2090,7 @@ class CfgVehicles {
 			};
             class shareDistance {
 				displayName="Broadcast Distance";
-				description="Defines how far targets will be broadcast to nearby friendlies."
+				description="Defines how far targets will be broadcast to nearby friendlies.";
 				typeName="NUMBER";
 				defaultValue=250;
 			};
