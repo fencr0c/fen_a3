@@ -11,6 +11,8 @@ class cfgFunctions {
 			class bldPatrol;
 			class boobyTrapVeh;
 			class civilianArea;
+            class civilianArea_group;
+            class civilianAreaQueueHandler;
 			class civTalk_addAction;
 			class civTalk_addConversation;
 			class civTalk_speak;

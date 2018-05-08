@@ -4,6 +4,8 @@ File: fn_civilianarea.sqf
 Author: Fen 
 
 Description:
+Adds area to civilian area queue and starts queue processing if required.
+
 Spawns a number of civilians in an area.
 Civilians will wander around the area, if buildings are accessible they will move into buildings.
 Civilians will continue to spawn/despawn based on players proximity
@@ -38,74 +40,42 @@ _fpsLmt=param[6,20];
 _tlkArr=param[7,[]];
 _excBld=param[8,[],[[]]];
 
-fen_fnc_civilianArea_group={
-
-	private ["_civGrp","_civUnt","_araLoc","_araRad","_movLoc","_bldPos"];
-                
-    _civGrp=_this select 0;
-    _araLoc=_this select 1;
-    _araRad=_this select 2;
-    _bldPos=_this select 3;
-	
-	while {{alive _x} count units _civGrp>0} do {
-		
-		{
-			if (alive _x and unitReady _x) then {
-				_civUnt=_x;
-				group _civUnt setCombatMode "GREEN";
-				group _civUnt setBehaviour "SAFE";
-				group _civUnt setSpeedMode "LIMITED";
-				_civUnt allowFleeing 1;
-				doStop _civUnt; 
-					
-				if not(fleeing _civUnt) then {
-					_civUnt forceSpeed 1.4;
-					if (count _bldPos<30) then {
-						_movLoc=[_araLoc,50,_araRad,4,0,1,0] call BIS_fnc_findSafePos;
-					} else {
-						_movLoc=_bldPos select floor(random count _bldPos);
-					};
-					_civUnt domove _movLoc;
-				} else {
-					_civUnt forceSpeed -1;
-					group _civUnt setCombatMode "GREEN";
-					group _civUnt setBehaviour "SAFE";
-					group _civUnt setSpeedMode "LIMITED";
-				};
-			};
-		} forEach units _civGrp;
-		sleep 30;
-	};
-};
-
 private _excludeClasses=[
-	"C_Driver_1_F",
-	"C_Driver_2_F",
-	"C_Driver_3_F",
-	"C_Driver_4_F",
-	"C_journalist_F",
-	"C_Marshal_F",
-	"C_man_pilot_F",
-	"C_scientist_F",
-	"C_Soldier_VR_F"
+    "C_Driver_1_F",
+    "C_Driver_2_F",
+    "C_Driver_3_F",
+    "C_Driver_4_F",
+    "C_Driver_1_random_base_F",
+    "C_Driver_1_black_F",
+    "C_Driver_1_blue_F",
+    "C_Driver_1_green_F",
+    "C_Driver_1_red_F",
+    "C_Driver_1_white_F",
+    "C_Driver_1_yellow_F",
+    "C_Driver_1_orange_F",
+    "C_Marshal_F",
+    "C_Paramedic_01_base_F",
+    "C_Man_Paramedic_01_F",
+    "C_Journalist_01_War_F",
+    "C_Man_UAV_06_F",
+    "C_Man_UAV_06_medical_F",
+    "C_man_w_worker_F",
+    "C_man_pilot_F",
+    "C_scientist_F"
 ];
 
 if (typename _civOpt=="ARRAY") then {
     _civArr=_civOpt;
 } else {
-	if (isNil "fen_civilianAreaFactionClasses") then {
-		_civArr=[];
-		_config=configFile>>"CfgVehicles";
-		for [{_idx=0},{_idx<count _config},{_idx=_idx+1}] do {
-	
-			if (isClass (_config select _idx)) then {
-				if (configname(_config select _idx) isKindOf "Man" and tolower ([(_config select _idx),"faction","none"] call BIS_fnc_returnConfigEntry)==tolower _civOpt and not(_config select _idx in _excludeClasses)) then {
-					_civArr pushBack configName (_config select _idx);
-				};
+	_civArr=[];
+	_config=configFile>>"CfgVehicles";
+	for [{_idx=0},{_idx<count _config},{_idx=_idx+1}] do {
+
+		if (isClass (_config select _idx)) then {
+			if (conFigName(_config select _idx) isKindOf "Man" and tolower ([(_config select _idx),"faction","none"] call BIS_fnc_returnConfigEntry)==tolower _civOpt and not(configName(_config select _idx) in _excludeClasses)) then {
+                _civArr pushBack configName (_config select _idx);
 			};
 		};
-	} else {
-		_civArr=fen_civilianAreaFactionClasses;
 	};
 };
 
@@ -115,58 +85,27 @@ _civTrg setTriggerArea[_actRng,_actRng,0,false];
 _civTrg setTriggerActivation["ANY","PRESENT",false];
 sleep 1;
 
-while {true} do {
-    
-    waitUntil {
-        sleep 1;
-        {alive _x and side _x in _actSid and isPlayer _x} count list _civTrg>0;
-    };
-    
-	_civGrp=createGroup civilian;
-	civilian setFriend [west,1];
-	civilian setFriend [east,1];
-	civilian setFriend [resistance,1];
-  
-    for [{_idx=1},{_idx<=_maxCiv},{_idx=_idx+1}] do {
-        
-        sleep 0.03;
-        
-        if (diag_fps>_fpsLmt) then {
-           
-            _civTyp=_civArr select floor(random count _civArr);
-            _spnLoc=[_araLoc,0,(_araRad/2),1,0,2,0] call BIS_fnc_findSafePos;
-            _civUnt=_civGrp createUnit[_civTyp,_spnLoc,[],0,"NONE"];
-            removeAllWeapons _civUnt;
-            removeAllItems _civUnt;
-			
-			_civUnt setVariable ["NOAI",1,false];
-			_civUnt setVariable ["VCOM_NOPATHING_Unit",1,false];
-			_civUnt setVariable ["asr_ai_exclude",true];
-			
-			if (count _tlkArr>0) then {
-				if (ceil(random 100)<=50) then {
-					[_civUnt,(selectRandom _tlkArr)] call fen_fnc_civTalk_addConversation;
-				};
-			};
-        };
-    };
-	
-	[_civGrp,_araLoc,_araRad,_bldPos] spawn	fen_fnc_civilianArea_group;
-    
-    waitUntil {
-        sleep 120;
-        {alive _x and side _x in _actSid and isPlayer _x} count list _civTrg==0;
-    };
-    
-    {
-        if not(_x getVariable ["gbl_arrested",false]) then {
-            deleteVehicle _x;
-        };
-	} forEach units _civGrp;
-	
-	if (typeName _civGrp=="GROUP") then {
-		if ({alive _x} count units _civGrp==0) then {
-			deleteGroup _civGrp;
-		};
-	};
+_civTrg setVariable ["fen_civilianArea_araRad",_araRad];
+_civTrg setVariable ["fen_civilianArea_maxCiv",_maxCiv];
+_civTrg setVariable ["fen_civilianArea_actSid",_actSid];
+_civTrg setVariable ["fen_civilianArea_fpsLmt",_fpsLmt];
+_civTrg setVariable ["fen_civilianArea_tlkAra",_tlkArr];
+_civTrg setVariable ["fen_civilianArea_bldPos",_bldPos];
+_civTrg setVariable ["fen_civilianArea_civArr",_civArr];
+
+if (isNil "fen_civilianAreaQueue") then {
+    fen_civilianAreaQueue=[];
 };
+
+
+fen_civilianAreaQueue pushBackUnique _civTrg;
+
+if (isNil "fen_civilianAreaQueueHandlerRunning") then {
+    fen_civilianAreaQueueHandlerRunning=false;
+};
+
+if not(fen_civilianAreaQueueHandlerRunning) then {
+    fen_civilianAreaQueueHandlerRunning=true;
+    [] spawn fen_fnc_civilianAreaQueueHandler;
+};
+
