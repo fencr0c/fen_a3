@@ -35,7 +35,7 @@ while {true} do {
                 private _knowsAbout=(leader _group) knowsAbout (_targetData select 4);
                 if (_knowsAbout>0) then {
                     {
-                        [leader _x,[(_targetData select 4),4]] remoteExec ["reveal",(leader _x)]; 
+                        [leader _x,[(_targetData select 4),_knowsAbout]] remoteExec ["reveal",(leader _x)]; 
                     } forEach (allGroups select {(leader _group distance leader _x<=_broadcastRange) and ([side _group,side _x] call BIS_fnc_sideIsFriendly) and not(isPlayer (leader _x))});
                 };
             };
