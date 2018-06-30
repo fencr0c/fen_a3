@@ -36,7 +36,6 @@ if (isNil "fen_debug") then {
 _patBld=nearestObjects [position leader _patGrp,["Building"],_patRad];
 if (count _patBld==0) exitWith {};
 
-// build list of building positions for nearby buildings
 _bldPos=[];
 {
 	if not(typeOf _x in _excBld) then {
@@ -50,31 +49,16 @@ _bldPos=[];
 	};
 } forEach _patBld;
 
-_patGrp setBehaviour "SAFE";
-
-// start each unit in group randomly moving around building
-{
-	[_x,_bldPos] spawn {
-		
-		private ["_patUnt","_bldPos"];
-		
-		_patUnt=_this select 0;
-		_bldPos=_this select 1;
-		
-		_patUnt setSpeedMode "LIMITED";
-		_patUnt setCombatMode "YELLOW";
-		doStop _patUnt;
-				
-		while {alive _patUnt} do {
-			scopeName "moveControl";
-			
-			// move to random building position 
-			_patUnt doMove (_bldPos select floor(random count _bldPos));
-			waitUntil {
-				sleep 3;
-				unitReady _patUnt or not(alive _patUnt);
-			};
-		};
-	};
-} forEach units _patGrp;
+while {{alive _x} count units _patGrp>0} do {
+    {
+        if (unitReady _x) then {
+            _x setBehaviour "SAFE";
+      		_x setSpeedMode "LIMITED";
+            _x setCombatMode "YELLOW";
+            _x doMove (_bldPos select floor(random count _bldPos));
+        };
+        sleep 0.03;
+    } foreach units _patGrp;
+    sleep 10;
+};
 
