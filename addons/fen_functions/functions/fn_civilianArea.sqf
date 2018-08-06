@@ -73,7 +73,9 @@ if (typename _civOpt=="ARRAY") then {
 
 		if (isClass (_config select _idx)) then {
 			if (conFigName(_config select _idx) isKindOf "Man" and tolower ([(_config select _idx),"faction","none"] call BIS_fnc_returnConfigEntry)==tolower _civOpt and not(configName(_config select _idx) in _excludeClasses)) then {
-                _civArr pushBack configName (_config select _idx);
+                if (getNumber((_config select _idx) >> "scope")>=2) then {
+                    _civArr pushBack configName (_config select _idx);
+                };
 			};
 		};
 	};
