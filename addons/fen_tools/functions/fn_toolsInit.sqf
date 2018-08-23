@@ -21,6 +21,7 @@ if (hasInterface) then {
 	player addAction ["<t color='#FFBF00'>Log Pos</t>",fenTools_fnc_loggetpos];
 	player addAction ["<t color='#FFBF00'>Log PosASL</t>",fenTools_fnc_loggetposasl];
 	player addAction ["<t color='#FFBF00'>Grab Sentry</t>",fenTools_fnc_sentrygrabber];
+    player addAction ["<t color='#FFBF00'>Grab Locations</t>",fenTools_fnc_locationgrabber];
 	player addAction ["<t color='#FFBF00'>Start Logging Active SQFs</t>",fenTools_fnc_logactive];
 	player addAction ["<t color='#FFBF00'>Report Skill Levels</t>",fenTools_fnc_rptskills];
 	player addAction ["<t color='#FFBF00'>Debug Panel OFF</t>",fenTools_fnc_panelInfoOff];

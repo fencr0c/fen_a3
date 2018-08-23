@@ -6,6 +6,7 @@ class cfgFunctions {
 			class enemyMarkers;
 			class groupMove;
 			class headlessFPS;
+            class locationGrabber;
 			class logActive;
 			class logGetPos;
 			class logGetPosASL;
