@@ -124,11 +124,16 @@ fen_fnc_scrambleCrew_scramble={
 		} else {
 		
 			_clearLocation=[(position _vehicle),4000,[side _crewGroup],2000,10] call fen_fnc_fndclearloc;
-			diag_log format["scramblecrew: veh loc %1 clr loc %2 distance %3",position _vehicle,_clearLocation,position _vehicle distance _clearLocation];
 			if (count _clearLocation==0) then {
+                if (fen_debug) then {
+                    diag_log format["scramblecrew: veh loc %1 clr loc %2 distance %3",position _vehicle,_clearLocation,position _vehicle distance _clearLocation];
+                };
 				_clearLocation=(position _vehicle);
 				_waypointRadius=4000;
 			} else {
+                if (fen_debug) then {
+                    diag_log format["scramblecrew: veh loc %1 assigned waypoint radius 4000",position _vehicle];
+                };
 				_waypointRadius=100;
 			};
 
