@@ -54,12 +54,34 @@ fen_fnc_forwardObs_availArtillery={
 	{
 		if (count crew _x!=0) then {
             if (unitReady _x) then {
-                _availArtillery pushBack _x;
+                if (fen_debug) then {
+                    diag_log format["fn_forwardObs: FO %1 availArtillery check gun %2 slaved to %3",_foUnit,_x,group _x getVariable["fen_forwardObs_slavedTo","none"]];
+                };
+                if ((group _x getVariable["fen_forwardObs_slavedTo",_foUnit])==_foUnit) then {
+                    group _x setVariable["fen_forwardObs_slavedTo",_foUnit];
+                    _availArtillery pushBack _x;
+                    if (fen_debug) then {
+                        diag_log format["fn_forwardObs: FO %1 slaved gun %2 from group %3",_foUnit,_x,group _x];
+                    };
+                };
             };
         };
 	} forEach ((position _foUnit) nearEntities[_artilleryTypes,_callingRange]);
 	
 	_availArtillery
+};
+
+fen_fnc_forwardObs_releaseArtillery={
+
+    params ["_foUnit","_availArtillery"];
+    
+    {  
+         group _x setVariable ["fen_forwardObs_slavedTo",nil];
+         if (fen_debug) then {
+            diag_log format["fn_forwardObs: FO %1 released gun %2 from group %3",_foUnit,_x,group _x];
+        };
+    } forEach _availArtillery select {(group _x getVariable["fen_forwardObs_slavedTo",_foUnit])==_foUnit};
+    
 };
 
 fen_fnc_forwardObs_dfpClear= {
@@ -107,6 +129,7 @@ fen_fnc_forwardObs_dfpProcess={
                 };
                 if (_fired==3) exitWith {};
 			} forEach _availArtillery;
+            
             if (_fired!=0) then {
                 _dfpTriggers=_dfpTriggers-[_target];
                 deleteVehicle _target;
@@ -142,7 +165,7 @@ fen_fnc_forwardObs_frfProcess={
     if (fen_debug) then {
         _debugTargetId=_foUnit getVariable["fen_debugTargetId",0];
         _debugTargetId=_debugTargetId+1;
-        [_observedTarget,format["T%1",_debugTargetId]] call fenTools_fnc_debugMarker;
+        [_observedTarget,format["%1-T%2",_foUnit,_debugTargetId]] call fenTools_fnc_debugMarker;
         _foUnit setVariable ["fen_debugTargetId",_debugTargetId];
     };
     
@@ -186,7 +209,7 @@ fen_fnc_forwardObs_frfProcess={
             _debugTargetId=_foUnit getVariable["fen_debugTargetId",0];
             _debugBracketId=_foUnit getVariable["fen_debugBracketId",0];
             _debugBracketId=_debugBracketId+1;
-            [_bracketTarget,format["T%1B%2",_debugTargetId,_debugBracketId]] call fenTools_fnc_debugMarker;
+            [_bracketTarget,format["%1-T%2B%3",str _foUnit,_debugTargetId,_debugBracketId]] call fenTools_fnc_debugMarker;
             _foUnit setVariable["fen_debugBracketId",_debugBracketId];
         };
        
@@ -296,6 +319,7 @@ while {alive _foUnit} do {
 		if not(_dfpUsed) then {
 			[_foUnit,_availArtillery,_engageRange,_skillLevel] call fen_fnc_forwardObs_frfProcess;
 		};
+        [_foUnit,_availArtillery] call fen_fnc_forwardObs_releaseArtillery;
 	};
 	
 	sleep _delayFireMission;
