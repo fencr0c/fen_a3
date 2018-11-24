@@ -53,15 +53,19 @@ fen_fnc_forwardObs_availArtillery={
 	private _availArtillery=[];
 	{
 		if (count crew _x!=0) then {
-            if (unitReady _x) then {
-                if (fen_debug) then {
-                    diag_log format["fn_forwardObs: FO %1 availArtillery check gun %2 slaved to %3",_foUnit,_x,group _x getVariable["fen_forwardObs_slavedTo","none"]];
-                };
-                if ((group _x getVariable["fen_forwardObs_slavedTo",_foUnit])==_foUnit) then {
-                    group _x setVariable["fen_forwardObs_slavedTo",_foUnit];
-                    _availArtillery pushBack _x;
+            if (count(getArtilleryAmmo [_x])==0) then {
+                diag_log format["fn_forwardObs: Gun %1 returns nothing from getArtilleryAmmo",_x];
+            } else {
+                if (unitReady _x) then {
                     if (fen_debug) then {
-                        diag_log format["fn_forwardObs: FO %1 slaved gun %2 from group %3",_foUnit,_x,group _x];
+                        diag_log format["fn_forwardObs: FO %1 availArtillery check gun %2 slaved to %3",_foUnit,_x,group _x getVariable["fen_forwardObs_slavedTo","none"]];
+                    };
+                    if ((group _x getVariable["fen_forwardObs_slavedTo",_foUnit])==_foUnit) then {
+                        group _x setVariable["fen_forwardObs_slavedTo",_foUnit];
+                        _availArtillery pushBack _x;
+                        if (fen_debug) then {
+                            diag_log format["fn_forwardObs: FO %1 slaved gun %2 from group %3",_foUnit,_x,group _x];
+                        };
                     };
                 };
             };
