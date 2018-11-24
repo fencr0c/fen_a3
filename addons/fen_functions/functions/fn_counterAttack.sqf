@@ -15,7 +15,7 @@ _this select 2 : outnumberment factor (Scalar)
 _this select 3 : side triggering counter attack (Side)
 _this select 4 : spawn area for counterattacking groups (Array) [[x,y,radius]
 _this select 5 : reserves pool (Array) [side,[unit classes in group],number of groups]
-_this select 6 : waypoints to place to be counterattacked (Array) [[wp position,wp radius,wp type, wp formation,wp combat mode, wp behaviour, wp speep]]
+_this select 6 : waypoints to place to be counterattacked (Array) [[wp position,wp radius,wp type, wp formation,wp combat mode, wp behaviour, wp speed]]
 _this select 7 : stop spawing if triggering side within x of spawn location
 _this select 8 : exclude groups from VCOM_AI (Boolean)
 
