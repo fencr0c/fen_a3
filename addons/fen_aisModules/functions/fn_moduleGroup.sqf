@@ -79,10 +79,14 @@ if (_loadout) then {
 	_options pushBack "loadout:";
 };
 
+private _groups=[];
 {
-	if (_owningLocation isEqualTo objNull) then {
-		[_x,_options] call fenAIS_fnc_group;
-	} else {
-		[_x,_options,_owningLocation] call fenAIS_fnc_group;
-	};
+	if not(group _x in _groups) then {
+        if (_owningLocation isEqualTo objNull) then {
+            [_x,_options] call fenAIS_fnc_group;
+        } else {
+            [_x,_options,_owningLocation] call fenAIS_fnc_group;
+        };
+       _groups pushBack (group _x);
+    };
 } forEach _units;
