@@ -42,7 +42,9 @@ waitUntil{
 	triggerActivated _iedTrg or not(alive _iedObj);
 };
 
-if not(alive _iedObj) exitWith {};
+if not(alive _iedObj) exitWith {
+    deleteVehicle _iedTrg;
+};
 
 [[position _iedObj,"click"],"fen_fnc_say3d",false,false] call BIS_fnc_MP;
 sleep _trgDly;
