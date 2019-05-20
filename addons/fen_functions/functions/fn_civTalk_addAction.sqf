@@ -18,5 +18,5 @@ _unit=param[0,objNull,[objNull]];
 _intel=param[1,[],[[]]];
 
 if (hasInterface) then {
-	_unit addAction ["Talk to Unit",fen_fnc_civTalk_speak,_intel,99,true,true,"","alive _target"];
+	_unit addAction ["Talk to Unit",fen_fnc_civTalk_speak,_intel,99,true,true,"","alive _target",3];
 };

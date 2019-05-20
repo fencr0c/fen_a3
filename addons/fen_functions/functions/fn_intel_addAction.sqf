@@ -18,5 +18,5 @@ _object=param[0,objNull,[objNull]];
 _intel=param[1,""];
 
 if (hasInterface) then {
-	_object addAction ["Pick up Intel",fen_fnc_intel_gather,_intel,99,true,true,""];
+	_object addAction ["Pick up Intel",fen_fnc_intel_gather,_intel,99,true,true,"","",2];
 };
