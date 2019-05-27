@@ -521,7 +521,7 @@ class CfgVehicles {
 				defaultValue=300;
 			};
             class maxCivilians {
-				displayName="Maximum number of civialians";
+				displayName="Maximum number of civilians";
 				description="Defines maximum number of civilians that will be created.";
 				typeName="number";
 				defaultValue=10;
@@ -618,6 +618,11 @@ class CfgVehicles {
 				description="Optional: If supplied will assign conversations randomly to civilians e.g. [['Hello','Goodbye'],['Nothing to say','Go away']]";
 				typeName="STRING";
 			};
+            class clause {
+                displayName="Conversation clause";
+                description="Optional: If supplied conversation only possible if clause is true";
+                typeName="STRING";
+            };
 			class excludeBuildings {
 				displayName="Exclude building classes array";
 				description="Optional: Defines array of building classes civilians will avoid";
@@ -664,6 +669,11 @@ class CfgVehicles {
 				description="Defines array of conversation text, each element requires and addition interaction e.g. ['Hello','GoodBye']";
 				typeName="STRING";
 			};
+            class clause {
+                displayName="Conversation clause";
+                description="Optional: If supplied conversation only possible if clause is true";
+                typeName="STRING";
+            };
 			class includeAIS {
 				displayName="Add to AIS";
 				description="Add synchronised units to AIS.";

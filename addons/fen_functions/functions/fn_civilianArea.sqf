@@ -20,8 +20,9 @@ _this select 3 : (Array) activated by sides, default is [west]
 _this select 4 : (Scalar) activation range, default is 1500
 _this select 5 : (Array/String) civilian classes array or faction, default is "CIV_F"
 _this select 6 : (Scalar) FPS limit, default is 20
-_this select 7 : OPTIONAL (Array) random assigned conversation
-_this select 8 : OPTIONAL (Array) Building classes to exclude
+_this select 7 : OPTIONAL (Array) randomly assigned conversation
+_this select 8 : OPTIONAL (String) clause for assigned conversation
+_this select 9 : OPTIONAL (Array) Building classes to exclude
 
 Example:
 [[1000,1000],300,10,[west],1500,"CIV_F",10,[["Hello","I see your a soldier"],["Go away","I dont want to speak to you"]]] spawn fen_fnc_civilianArea
@@ -38,7 +39,8 @@ _actRng=param[4,1500];
 _civOpt=param[5,"CIV_F"];
 _fpsLmt=param[6,20];
 _tlkArr=param[7,[]];
-_excBld=param[8,[],[[]]];
+_clause=param[8,"",[""]];
+_excBld=param[9,[],[[]]];
 
 private _excludeClasses=[
     "C_Driver_1_F",
@@ -92,6 +94,7 @@ _civTrg setVariable ["fen_civilianArea_maxCiv",_maxCiv];
 _civTrg setVariable ["fen_civilianArea_actSid",_actSid];
 _civTrg setVariable ["fen_civilianArea_fpsLmt",_fpsLmt];
 _civTrg setVariable ["fen_civilianArea_tlkAra",_tlkArr];
+_civTrg setVariable ["fen_civilianArea_clause",_clause];
 _civTrg setVariable ["fen_civilianArea_bldPos",_bldPos];
 _civTrg setVariable ["fen_civilianArea_civArr",_civArr];
 

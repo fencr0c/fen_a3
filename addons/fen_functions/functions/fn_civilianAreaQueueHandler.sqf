@@ -36,6 +36,7 @@ while {fen_civilianAreaQueueHandlerRunning} do {
                 private _tlkArr=_trigger getVariable "fen_civilianArea_tlkAra";
                 private _bldPos=_trigger getVariable "fen_civilianArea_bldPos";
                 private _civArr=_trigger getVariable "fen_civilianArea_civArr";
+                private _clause=_trigger getVariable "fen_civilianArea_clause";
                 
                 
                 for [{_idx=1},{_idx<=_maxCiv},{_idx=_idx+1}] do {
@@ -56,7 +57,7 @@ while {fen_civilianAreaQueueHandlerRunning} do {
 			
                         if (count _tlkArr>0) then {
                             if (ceil(random 100)<=50) then {
-                            [_civUnt,(selectRandom _tlkArr)] call fen_fnc_civTalk_addConversation;
+                            [_civUnt,(selectRandom _tlkArr),_clause] call fen_fnc_civTalk_addConversation;
                             };
                         };
                     };
