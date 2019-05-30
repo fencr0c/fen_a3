@@ -251,7 +251,7 @@ class CfgVehicles {
             };
 			class VCOMoff {
 				displayName="VCOM Off";
-				description="Group will be exlcuded from VCOM_AI as per VCOM NOAI";
+				description="Group will be exlcuded from VCOM_AI as per VCM_Disable";
 				typeName="BOOL";
 				class values {
 					class no {
@@ -266,8 +266,8 @@ class CfgVehicles {
 				};
 			};	
 			class VCOMnopath {
-				displayName="VCOM no path";
-				description="Group will not respond to calls for help as per VCOM_NOPATHING_Unit";
+				displayName="VCOM no rescue";
+				description="Group will not respond to calls for help as per VCM_NORESCUE";
 				typeName="BOOL";
 				class values {
 					class no {

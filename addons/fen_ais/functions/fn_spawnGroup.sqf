@@ -20,7 +20,7 @@ _aisLoc=_this select 1;
 _grpMet=_grpDta select 0;
 _grpWay=_grpDta select 1;
 _grpOpt=_grpDta select 2;
-    
+
 if ((count _grpMet)==0) exitWith {};
    
 if (not("nobalance:" in _grpOpt) and ([_aisLoc] call fenAIS_fnc_balanced)) exitWith{};
@@ -49,17 +49,6 @@ if (not("nobalance:" in _grpOpt) and ([_aisLoc] call fenAIS_fnc_balanced)) exitW
 		if ("sentry:" in _grpOpt) then {
 			//_spnUnt forceSpeed 0;
 			_spnUnt disableAI "PATH";
-		};
-		if ("vcom_off:" in _grpOpt) then {
-			//_spnUnt setVariable ["NOAI",1,false];
-            _spnUnt setVariable ["NOAI",true];
-		};
-		if ("vcom_nopath:" in _grpOpt) then {
-			//_spnUnt setVariable ["VCOM_NOPATHING_Unit",1,false];
-            _spnUnt setVariable ["VCOM_NOPATHING_Unit",true];
-		};
-		if ("asr_exclude:" in _grpOpt) then {
-			_spnUnt setVariable ["asr_ai_exclude",true];
 		};
 		if not(isNil "fen_removeMagazines") then {
 			{
@@ -108,15 +97,6 @@ if (not("nobalance:" in _grpOpt) and ([_aisLoc] call fenAIS_fnc_balanced)) exitW
 			if ("sentry:" in _grpOpt) then {
 				_x disableAI "PATH";
 			};
-			if ("vcom_off:" in _grpOpt) then {
-				_x setVariable ["NOAI",false];
-			};
-			if ("vcom_nopath:" in _grpOpt) then {
-				_x setVariable ["VCOM_NOPATHING_Unit",false];
-			};
-			if ("asr_exclude:" in _grpOpt) then {
-				_x setVariable ["asr_ai_exclude",true];
-			};
 		} forEach (units _spnGrp);
 	};
 
@@ -127,7 +107,7 @@ _locGrp=_aisLoc getVariable ["fen_ais_groups",[]];
 _locGrp pushBack _spnGrp;
 _aisLoc setVariable ["fen_ais_groups",_locGrp];
   
- _idx=0;
+_idx=0;
 while {_idx<count _grpOpt} do {
 	switch (toLower (_grpOpt select _idx)) do {
 		case "exec:" : {
@@ -146,6 +126,12 @@ while {_idx<count _grpOpt} do {
 			_idx=_idx+1;
 			_spnGrp setBehaviour (_grpOpt select _idx);
 		};
+        case "vcom_off:" : {
+            _spnGrp setVariable["Vcm_Disable",true,true];
+        };
+        case "vcom_nopath:" : {
+            _spnGrp setVariable["VCM_NORESCUE",true,true];
+        };
 	};
 	_idx=_idx+1;
 };
