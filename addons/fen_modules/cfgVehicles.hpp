@@ -67,7 +67,7 @@ class CfgVehicles {
 			};
 			class safeRound {
 				displayName="Chance of non-leathal round";
-				description="Defines the percentrage change of a round landing clear of players";
+				description="Defines the percentrage chance of a round landing clear of players";
 				typeName="Number";
 				defaultValue=50;
 			};
@@ -2337,6 +2337,127 @@ class CfgVehicles {
 				duplicate=1;
 				synced[]={
 					"AnyAI"
+				};
+			};
+		};
+	};	
+    
+    // fen_fnc_UCRaddCivilianClothesObject
+	class fen_moduleUCRaddCivilianClothesObject: Module_F {
+        scope = 2;
+        displayName="UCR Add Civ Clothes Object";
+        author = "Fen";
+        vehicleClass = "Modules";
+        category = "Fen_Modules";
+        function = "fen_fnc_moduleUCRaddCivilianClothesObject";
+        functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleUCRaddCivilianClothesObject.paa";
+        isGlobal = 1;
+        isTriggerActivated = 1;
+        isDisposable = 0;
+        is3DEN = 0;
+		
+		class Arguments: ArgumentsBaseUnits {
+            class minimum {
+                    displayName="Minimum number of clothes to add";
+                    description="The minimum number of civ uniforms to add to object.";
+                    typeName="NUMBER";
+                    defaultValue=0;
+            };
+            class maximum {
+                    displayName="Maximum number of clothes to add";
+                    description="The maximum number of civ uniforms to add to object.";
+                    typeName="NUMBER";
+                    defaultValue=5;
+            };
+			class includeAIS {
+				displayName="Add to AIS";
+				description="Synchronised objects are added AIS.";
+				typeName="BOOL";
+				class values {
+					class no {
+						name="No";
+						value=0;
+						default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};
+			class owningLocation {
+				displayName="Owning Location";
+				description="Optional: Defines owning AIS location";
+				typeName="STRING";
+			};
+		};
+		
+		class ModuleDescription: ModuleDescription {
+			description="UCR Add civ clothes to object";
+			sync[]={
+				"LocationArea_F"
+			};
+			class LocationArea_F {
+				description[]={
+					"https://feedback.bistudio.com/T84295",
+					"has been fixed if you can see this."
+				};
+				position=0;
+				optional=0;
+				duplicate=1;
+				synced[]={
+					"AnyAI"
+				};
+			};
+		};
+	};	
+    
+    // fen_fnc_UCRsearchBuildingClothes
+	class fen_moduleUCRsearchBuildingClothes: Module_F {
+        scope = 2;
+        displayName="UCR Search Building Civ Clothes";
+        author = "Fen";
+        vehicleClass = "Modules";
+        category = "Fen_Modules";
+        function = "fen_fnc_moduleUCRsearchBuildingClothes";
+        functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleUCRsearchBuildingClothes.paa";
+        isGlobal = 0;
+        isTriggerActivated = 0;
+        isDisposable = 0;
+        is3DEN = 0;
+		
+		class Arguments: ArgumentsBaseUnits {
+            class buildingBlackList {
+				displayName="Buildings to exclude";
+				description="Array of building types where search is not available.";
+				typeName="STRING";
+				defaultValue=[];
+			};
+            class chanceNewClothes {
+				displayName="Change of finding new clothes %";
+				description="Defines the percentrage chance for finding new clothes.";
+				typeName="Number";
+				defaultValue=25;
+			};
+		};
+		
+		class ModuleDescription: ModuleDescription {
+			description="UCR Search Building Clothes";
+			sync[]={
+				"LocationArea_F"
+			};
+			class LocationArea_F {
+				description[]={
+					"https://feedback.bistudio.com/T84295",
+					"has been fixed if you can see this."
+				};
+				position=0;
+				optional=0;
+				duplicate=1;
+				synced[]={
+					"Anything"
 				};
 			};
 		};

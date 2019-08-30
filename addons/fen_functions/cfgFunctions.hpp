@@ -38,6 +38,7 @@ class cfgFunctions {
 			class intel_addAction;
 			class intel_addIntel;
 			class intel_gather;
+            class isInsideBuilding;
 			class nearTargets;
 			class playersInTrigger;
 			class releaseSentries;
@@ -55,6 +56,9 @@ class cfgFunctions {
 			class spawnSentries;
 			class spawnVehicle;
 			class suicideBomber;
+            class UCRaddCivilianClothesObject;
+            class UCRsearchBuildingClothesAction;
+            class UCRsearchBuildingClothesMonitor;
 			class vehAssault;
 		};
 	};

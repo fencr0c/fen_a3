@@ -27,7 +27,8 @@ class CfgPatches {
 			"fen_moduleScrambleCrew",
 			"fen_moduleSuicideBomber",
             "fen_moduleRevealTriggeringUnitsAdd",
-            "fen_moduleShareTargets"
+            "fen_moduleShareTargets",
+            "fen_moduleUCRSearchBuildingClothes"
 		};
 		requiredVersion = 1.640000;
 		requiredAddons[] = {

@@ -102,6 +102,14 @@ class cfgFunctions {
 			class moduleSuicideBomber {
 				description="Suicide Bomber";
 			};
+            // fen_fnc_UCRaddCivilianClothesObject
+            class moduleUCRaddCivilianClothesObject {
+                description="UCR Add Civ clothes object";
+            }
+            // fen_fnc_UCRsearchBuildingClothes
+            class moduleUCRsearchBuildingClothes {
+                description="UCR Search buildings Civ clothing";
+            };
 		};
 	};
 };
