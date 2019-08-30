@@ -4,6 +4,8 @@ class cfgFunctions {
 			file="fen_A3\addons\fen_tools\functions";
 			class debugMarker;
 			class enemyMarkers;
+            class enemyMarkersOff;
+            class enemyMarkersOn;
 			class groupMove;
 			class headlessFPS;
             class locationGrabber;

@@ -31,7 +31,7 @@ _colArr=[
 
 _mrkArr=[];
 
-while {true} do {
+while {fen_tools_enemyMarkersOn} do {
     
     // delete markers 
     {
@@ -100,5 +100,10 @@ while {true} do {
     } forEach allGroups;
     sleep 10;
 };
+
+// delete markers 
+{
+    deleteMarkerLocal _x;
+} forEach _mrkArr;
 
 

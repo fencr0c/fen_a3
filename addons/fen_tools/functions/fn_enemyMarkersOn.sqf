@@ -17,9 +17,9 @@ _actionId=param[2];
 
 player removeAction _actionId;
 
-hint "Turning debug panel on.";
-fen_tools_panelOn=true;
-[] spawn fenTools_fnc_panelinfo;
+fen_tools_enemyMarkersOn=true;
+[] spawn fenTools_fnc_enemymarkers;
+hint "Turning enemy markers on.";
 sleep 10;
 
-player addAction ["<t color='#FFBF00'>Debug Panel OFF</t>",fenTools_fnc_panelInfoOff,[],0,false,false,""];
+player addAction ["<t color='#FFBF00'>Enemy Markers OFF</t>",fenTools_fnc_EnemyMarkersOff,[],0,false,false,""];
