@@ -91,7 +91,7 @@ fen_fnc_hiddenEnemyControl={
 					};
 				};
 			};
-        } forEach ([] call BIS_fnc_listPlayers);
+        } forEach ([] call BIS_fnc_listPlayers select {side _x!=civilian});
             
         // if no known player generate another random move
         if (count _knwPly==0) then {
