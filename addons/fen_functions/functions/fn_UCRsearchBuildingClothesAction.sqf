@@ -22,7 +22,7 @@ _actionId=param[2,0,[0]];
 private _blackListBuildings=player getVariable["fen_UCRsearchBuildingClothesBlackList",[]];
 private _chanceNewClothes=player getVariable["fen_UCRseachBuildingClothesChangeNewClothes",25];
 
-if not(([_caller,_blackListBuildings] call fenMIS_fnc_isInsideBuilding)) exitWith{
+if not(([_caller,_blackListBuildings] call fen_fnc_isInsideBuilding)) exitWith{
     hint "You are no longer in the building";
 };
 
