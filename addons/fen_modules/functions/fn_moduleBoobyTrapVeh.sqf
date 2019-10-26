@@ -34,11 +34,15 @@ if (typeName _owningLocation!="OBJECT") then {
 { 
 	if (_includeAIS) then {
 		private _grpOptions=["exec:"];
+        
+        if (str _trapSide=="GUER") then {
+            _trapSide="independent";
+        };
 		
 		private _parameters="[%1," + 
 				"'" + _explosionClass + "'" + "," +
 				"[" + str _minDelay + "," + str _maxDelay + "]," +
-				str _trapSide +
+				format["%1",_trapSide] +
 				"] spawn fen_fnc_boobyTrapVeh;";
 	
 		_grpOptions pushBack _parameters;

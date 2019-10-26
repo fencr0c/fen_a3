@@ -39,7 +39,11 @@ if (_proximityEast) then {
 	_proximitySides pushBack east;
 };
 if (_proximityGuer) then {
-	_proximitySides pushBack independent;
+    if (_includeAIS) then {
+        _proximitySides pushBack "independent";
+    } else {
+        _proximitySides pushBack independent;
+    };
 };
 if (_proximityCiv) then {
 	_proximitySides pushBack civilian;
@@ -47,10 +51,24 @@ if (_proximityCiv) then {
 
 { 
 	if (_includeAIS) then {
+    
+        private _proximitySidesStr="[";
+        for "_idx" from 0 to (count _proximitySides - 1) do {
+            if not(str (_proximitySides select _idx)=="GUER") then {
+                _proximitySidesStr=_proximitySidesStr + format["%1",(_proximitySides select _idx)];
+            } else {
+                _proximitySidesStr=_proximitySidesStr + format["%1","independent"];
+            };
+            if (_idx<(count _proximitySides - 1)) then {
+                _proximitySidesStr=_proximitySidesStr + ",";
+            };
+        };
+        _proximitySidesStr=_proximitySidesStr + "]";
+        
 		private _grpOptions=["exec:"];
 		
 		private _parameters="[%1," + 
-				"[" + format["%1",_proximitySides] + "," + str _proximity + "]," + 
+				"[" + format["%1",_proximitySidesStr] + "," + str _proximity + "]," + 
 				str _percentage + "," + 
 				format["%1",position _logic] + "," +
 				format["%1",_retreatAction] +

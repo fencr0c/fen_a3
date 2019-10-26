@@ -38,12 +38,16 @@ if (typeName _owningLocation!="OBJECT") then {
 	if (_includeAIS) then {
 		private _grpOptions=["exec:"];
 		
+        if (str _trgSide=="GUER") then {
+            _trgSide="independent";
+        };
+        
 		private _parameters="[%1," + 
 				format["%1",_removeIED] + "," +
 				"'" + _explosionClass + "'" + "," +
 				"[" + str _minRange + "," + str _maxRange + "]," +
 				"[" + str _minDelay + "," + str _maxDelay + "]," +
-				str _trgSide +
+				format["%1",_trgSide] +
 				"] spawn fen_fnc_iedObject;";
 	
 		_grpOptions pushBack _parameters;

@@ -47,11 +47,25 @@ if (_updateCiv) then {
 };
 { 
 	if (_includeAIS) then {
+    
+        private _updateSidesStr="[";
+        for "_idx" from 0 to (count _updateSides - 1) do {
+            if not(str (_updateSides select _idx)=="GUER") then {
+                _updateSidesStr=_updateSidesStr + format["%1",(_updateSides select _idx)];
+            } else {
+                _updateSidesStr=_updateSidesStr + format["%1","independent"];
+            };
+            if (_idx<(count _updateSides - 1)) then {
+                _updateSidesStr=_updateSidesStr + ",";
+            };
+        };
+        _updateSidesStr=_updateSidesStr + "]";
+        
 		private _grpOptions=["exec:"];
 		
 		private _parameters="[leader %1," + 
 				str _passIntel + "," +
-				format["%1",_updateSides] + "," +
+				format["%1",_updateSidesStr] + "," +
 				str _updateRange + "," +
 				str _frequency +
 				"] spawn fen_fnc_dicker;";

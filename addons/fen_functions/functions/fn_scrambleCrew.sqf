@@ -16,7 +16,7 @@ _this select 5 : OPTIONAL (Array) additional classes to spawn as clutter
 _this select 6 : OPTIONAL (Array) crew classes
 
 Example:
-[_vehicle,east,west,500,true,["box","tyres","barrels"],["soldier1","soldier2"]] spawn fen_fnc_scambleCrew
+[_vehicle,east,west,500,true,["box","tyres","barrels"],"soldier1"] spawn fen_fnc_scambleCrew
 
 */
 
@@ -30,10 +30,10 @@ _triggeringSide=param[2,west,[sideLogic]];
 _triggeringRange=param[3,500,[0]];
 _fight=param[4,true,[true]];
 _clutterArray=param[5,[],[[]]];
-_crewClass=param[6,[],[[]]];
+_crewClass=param[6,"",[""]];
 
 
-if (count _crewClass==0) then {
+if (_crewClass=="") then {
     _crewClass=(configFile>>"CfgVehicles">>(typeOf _vehicle)>>"crew") call BIS_fnc_getCfgData;
 };
 
@@ -83,7 +83,8 @@ fen_fnc_scrambleCrew_scramble_crew={
 	_crewPosition=[_vehicle,_crewGroup,true,(typeOf _vehicle)] call BIS_fnc_spawnCrew;
 	for [{_x=0},{_x<(count _crewPosition)},{_x=_x+1}] do {
 		if ((_crewPosition select _x)==1) then {
-			_crewGroup createUnit[_crewClass,_safePosition,[],5,"NONE"];
+			private _crewUnit=_crewGroup createUnit[_crewClass,_safePosition,[],5,"NONE"];
+            [_crewUnit] joinSilent _crewGroup;
 		};
 	};
 	
@@ -170,7 +171,7 @@ switch (_triggeringSide) do {
 switch (_crewSide) do {
 	case east : {_triggerType="EAST D"};
 	case west : {_triggerType="WEST D"};
-	case resistance : {_triggerType="GEUR D"};
+	case resistance : {_triggerType="GUER D"};
 };
 
 _scrambleTrigger=createTrigger["EmptyDetector",(position _vehicle)];

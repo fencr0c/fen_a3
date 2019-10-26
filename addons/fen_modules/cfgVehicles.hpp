@@ -2214,8 +2214,8 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 			class crew {
-				displayName="Crew array";
-				descrption="Optional: Array of classes for crew units.";
+				displayName="Override Crew Class";
+				descrption="Optional: Class name for crew. eg. I_Soldier_A_F";
 				typeName="STRING";
 			};
 			class includeAIS {
@@ -2436,7 +2436,7 @@ class CfgVehicles {
 				defaultValue=[];
 			};
             class chanceNewClothes {
-				displayName="Change of finding new clothes %";
+				displayName="Chance of finding new clothes %";
 				description="Defines the percentrage chance for finding new clothes.";
 				typeName="Number";
 				defaultValue=25;

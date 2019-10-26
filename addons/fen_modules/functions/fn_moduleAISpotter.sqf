@@ -38,13 +38,17 @@ if (typeName _owningLocation!="OBJECT") then {
 {
 	if (_includeAIS) then {
 		private _grpOtions=["exec:"];
+        
+        if (str _engageSide=="GUER") then {
+            _engageSide="independent";
+        };
 		
 		private _parameters="[leader %1," + 
 				str _spotRange + "," +
 				str _callRange + "," + 
 				format["%1",_artilleryTypes] + "," + 
 				str _frequency + "," + 
-				str _engageSide + "," +
+				format["%1",_engageSide] + "," +
 				str _safeRound + 
 				"] spawn fen_fnc_aiSpotter;";
 		

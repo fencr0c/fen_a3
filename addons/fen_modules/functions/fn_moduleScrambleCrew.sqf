@@ -32,10 +32,7 @@ private _clutter=[_logic getVariable ["clutter",[]]] call BIS_fnc_parseNumber;
 if (typeName _clutter!="ARRAY") then {
 	_clutter=[];
 };
-private _crew=[_logic getVariable ["crew",[]]] call BIS_fnc_parseNumber;
-if (typeName _crew!="ARRAY") then {
-	_crew=[];
-};
+private _crew=_logic getVariable ["crew",""];
 private _includeAIS=_logic getVariable ["includeAIS",false];
 private _owningLocation=[_logic getVariable ["owningLocation",objNull]] call BIS_fnc_parseNumber;
 if (typeName _owningLocation!="OBJECT") then {
@@ -44,15 +41,21 @@ if (typeName _owningLocation!="OBJECT") then {
 
 { 
 	if (_includeAIS) then {
+     
+        if (str _crewSide=="GUER") then {
+            _crewSide="independent";
+        };
+        if (str  _triggerSide=="GUER") then {
+            _triggerSide="independent";
+        };
 		private _grpOptions=["exec:"];
-		
 		private _parameters="[%1," + 
 				format["%1",_crewSide] + "," +
-				format["%1",_triggerSide] + "," +
+                format["%1",_triggerSide] + "," +
 				str _range + "," +
 				format["%1",_fight] + "," +
 				format["%1",_clutter] + "," +
-				format["%1",_crew] +
+                "'" + format["%1",_crew] + "'" +
 				"] spawn fen_fnc_scrambleCrew;";
 	
 		_grpOptions pushBack _parameters;
