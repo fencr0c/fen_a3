@@ -29,7 +29,7 @@ if not(([_caller,_blackListBuildings] call fen_fnc_isInsideBuilding)) exitWith{
 [_caller,"AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon"] remoteExec ["playMove",0];
 
 private _uniform=selectRandom (missionNamespace getVariable["INC_civilianUniforms",[]]);
-if not(((uniform _caller)==_uniform) and ((random 100)<=_chanceNewClothes)) then {
+if (not((uniform _caller)==_uniform) and ((random 100)<=_chanceNewClothes)) then {
         _caller forceAddUniform _uniform;
         hint "New clothes found."
 } else {

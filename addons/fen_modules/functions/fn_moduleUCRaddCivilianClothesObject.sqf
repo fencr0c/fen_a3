@@ -19,7 +19,7 @@ if (hasInterface and not isServer) exitWith {};
 private _localunits=_units select {local _x};
 
 private _minimum=_logic getVariable["minimum",0];
-private _maximum=_logic getVariable["minimum",0];
+private _maximum=_logic getVariable["maximum",0];
 private _includeAIS=_logic getVariable ["includeAIS",false];
 private _owningLocation=[_logic getVariable ["owningLocation",objNull]] call BIS_fnc_parseNumber;
 if (typeName _owningLocation!="OBJECT") then {
