@@ -2,6 +2,7 @@ class cfgFunctions {
 	class fen {
 		class functions {
 			file="fen_A3\addons\fen_functions\functions";
+            class addCachedMine;
 			class airAssault;
 			class aiSpotter;
 			class airResupply;
@@ -31,16 +32,19 @@ class cfgFunctions {
 			class grpDefend;
 			class grpStaticPos;
 			class grpSurrender;
+            class handleMines;
 			class hiddenEnemy;
 			class iedMan;
 			class iedObject;
 			class iedPP;
+            class initCachedMines;
 			class intel_addAction;
 			class intel_addIntel;
 			class intel_gather;
             class isInsideBuilding;
 			class nearTargets;
 			class playersInTrigger;
+            class playerNearMinePosition;
 			class releaseSentries;
 			class retreatGroup;
             class revealTriggeringUnitsAdd;
@@ -53,6 +57,7 @@ class cfgFunctions {
             class shareTargets;
 			class sideChatGbl;
 			class spawnGroup;
+            class spawnMine;
 			class spawnSentries;
 			class spawnVehicle;
 			class suicideBomber;

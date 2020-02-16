@@ -9,6 +9,7 @@ class CfgPatches {
             "fen_moduleArtilleryLine",
 			"fen_moduleBldPatrol",
 			"fen_moduleBoobyTrapVeh",
+            "fen_moduleCachedMines",
 			"fen_moduleCivilianArea",
 			"fen_moduleAddConversation",
 			"fen_moduleDicker",

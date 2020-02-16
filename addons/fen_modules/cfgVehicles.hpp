@@ -647,6 +647,37 @@ class CfgVehicles {
 			};
 		};
 	};
+    
+    //fen_fnc_cachedMines
+	class fen_moduleCachedMines: Module_F {
+        scope = 2;
+        displayName="Cached Mines";
+        author = "Fen";
+        vehicleClass = "Modules";
+        category = "Fen_Modules";
+        function = "fen_fnc_moduleCachedMines";
+        functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleCachedMines.paa";
+        isGlobal = 1;
+        isTriggerActivated = 0;
+        isDisposable = 0;
+        is3DEN = 0;
+		
+		class Arguments: ArgumentsBaseUnits {
+            class proximity {
+				displayName="Proximity";
+				description="Defines proximity to player for mines to be spawned.";
+				typeName="NUMBER";
+				defaultValue=800;
+			};
+            class frequency {
+                displayName="Frequency";
+                description="Defines how oftern check for spawning/despawning mines occurs.";
+                typeName="NUMBER";
+                defaultValue=5;
+            };
+		}; 
+    };
 	
 	// fen_fnc_civTalk_addConversation
 	class fen_moduleAddConversation: Module_F {

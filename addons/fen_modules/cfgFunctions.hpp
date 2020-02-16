@@ -26,6 +26,10 @@ class cfgFunctions {
 			class moduleBoobyTrapVeh {
 				description="Booby trap a vehicle";
 			};
+            // fen_fnc_cachedMines
+            class moduleCachedMines {
+                description="Caches allMines and respawns based on players proximity";
+            };
 			// fen_fnc_civilianArea
 			class moduleCivilianArea {
 				description="Spawns civilian population";
