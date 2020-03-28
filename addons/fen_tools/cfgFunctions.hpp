@@ -2,7 +2,8 @@ class cfgFunctions {
 	class fenTools {
 		class tools {
 			file="fen_A3\addons\fen_tools\functions";
-			class debugMarker;
+			class bulletTrace;
+            class debugMarker;
 			class enemyMarkers;
             class enemyMarkersOff;
             class enemyMarkersOn;
@@ -21,6 +22,10 @@ class cfgFunctions {
 			class teleport;
 			class teleportGrp;
 			class toolsInit;
+            class trackHitsAddEvent;
+            class trackHitsEvent;
+            class trackHitsMonitor;
+            class trackHitsRemoveMarker;
 		};
 	};
 };
