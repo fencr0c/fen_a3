@@ -4,7 +4,7 @@ class CfgVehicles {
         class ArgumentsBaseUnits;
         class ModuleDescription;
     };
-	
+
 	// fen_fnc_aiSpotter
 	class fen_moduleAISpotter: Module_F {
 		scope = 2;
@@ -19,7 +19,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class spotRange {
 				displayName="Spotting range";
@@ -93,7 +93,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="AI Spotter";
 			sync[]={
@@ -113,7 +113,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
 	// fen_fnc_airResupply
 	class fen_moduleAirResupply: Module_F {
         scope = 2;
@@ -128,7 +128,7 @@ class CfgVehicles {
         isTriggerActivated = 0;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
 			class dropWP {
 				displayName="Drop Waypoint";
@@ -149,7 +149,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Air Resupply";
 			sync[]={
@@ -169,7 +169,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
 	// fen_fnc_artilleryFX
 	class fen_moduleArtilleryFX: Module_F {
         scope = 2;
@@ -184,7 +184,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
 			class minDistance {
 				displayName="Minimum Distance";
@@ -229,7 +229,7 @@ class CfgVehicles {
 				defaultValue="Sh_82mm_AMOS";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Artillery FX";
 			sync[]={
@@ -249,7 +249,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
 	// fen_fnc_artilleryLine
 	class fen_moduleArtilleryLine: Module_F {
         scope = 2;
@@ -264,7 +264,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
 			class numberShells {
 				displayName="Number of shells";
@@ -291,7 +291,7 @@ class CfgVehicles {
 				defaultValue="Sh_82mm_AMOS";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Artillery FX";
 			sync[]={
@@ -311,7 +311,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
 	// fen_fnc_bldPatrol
 	class fen_moduleBldPatrol: Module_F {
         scope = 2;
@@ -326,7 +326,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class patrolRadius{
 				displayName="Patrol radius";
@@ -361,7 +361,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Building Patrol";
 			sync[]={
@@ -381,7 +381,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
 	// fen_fnc_boobyTrahVeh
 	class fen_moduleBoobyTrapVeh: Module_F {
         scope = 2;
@@ -396,7 +396,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class explosionClass{
 				displayName="Explosion size";
@@ -476,7 +476,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Booby Trap Vehicle";
 			sync[]={
@@ -512,7 +512,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class radius {
 				displayName="Area radius";
@@ -525,7 +525,7 @@ class CfgVehicles {
 				description="Defines maximum number of civilians that will be created.";
 				typeName="number";
 				defaultValue=10;
-			};			
+			};
 			class triggerByWest {
 				displayName="Activated by: West";
 				description="Civilians will be created when West units in range.";
@@ -573,7 +573,7 @@ class CfgVehicles {
 						value=1;
 					};
 				};
-			};	
+			};
 			class triggerByCiv {
 				displayName="Activated by: Civilian";
 				description="Civialians will be created when Civilian units in range.";
@@ -589,7 +589,7 @@ class CfgVehicles {
 						value=1;
 					};
 				};
-			};				
+			};
 			class triggerRange {
 				displayName="Activation radius";
 				description="Defines activation radius from module.";
@@ -629,7 +629,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Civilian Area";
 			sync[]={
@@ -647,7 +647,7 @@ class CfgVehicles {
 			};
 		};
 	};
-    
+
     //fen_fnc_cachedMines
 	class fen_moduleCachedMines: Module_F {
         scope = 2;
@@ -662,7 +662,7 @@ class CfgVehicles {
         isTriggerActivated = 0;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class proximity {
 				displayName="Proximity";
@@ -676,9 +676,9 @@ class CfgVehicles {
                 typeName="NUMBER";
                 defaultValue=5;
             };
-		}; 
+		};
     };
-	
+
 	// fen_fnc_civTalk_addConversation
 	class fen_moduleAddConversation: Module_F {
         scope = 2;
@@ -693,7 +693,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class conversation {
 				displayName="Conversation array";
@@ -727,7 +727,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Add Conversation";
 			sync[]={
@@ -747,7 +747,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
 	// fen_fnc_dicker
 	class fen_moduleDicker: Module_F {
         scope = 2;
@@ -762,7 +762,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class passIntel {
 				displayName="Percentage chance of passing on info";
@@ -817,7 +817,7 @@ class CfgVehicles {
 						value=1;
 					};
 				};
-			};	
+			};
 			class updateCiv {
 				displayName="Pass intel to: Civilian";
 				description="Dicker will pass on intel to all nearby Civilian units.";
@@ -868,7 +868,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Dicker";
 			sync[]={
@@ -887,8 +887,8 @@ class CfgVehicles {
 				};
 			};
 		};
-	};	
-	
+	};
+
     // fen_fnc_flares
 	class fen_moduleFlares: Module_F {
         scope = 2;
@@ -903,7 +903,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
 			class maxDistance {
 				displayName="Radius";
@@ -930,7 +930,7 @@ class CfgVehicles {
 				defaultValue=10;
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Flares";
 			sync[]={
@@ -950,7 +950,7 @@ class CfgVehicles {
 			};
 		};
 	};
-    
+
     // fen_fnc_forwardObs
 	class fen_moduleForwardObs: Module_F {
 		scope = 2;
@@ -965,7 +965,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class engageRange {
 				displayName="Engagement Range";
@@ -1001,7 +1001,7 @@ class CfgVehicles {
                 displayName="Skill Level";
                 description="Skill level of FO";
                 typeName="NUMBER";
-                class values { 
+                class values {
                     class low {
                         name="Low";
                         value=1;
@@ -1039,7 +1039,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="AI Spotter";
 			sync[]={
@@ -1059,7 +1059,7 @@ class CfgVehicles {
 			};
 		};
 	};
-    
+
 	// fen_fnc_grpDefend
 	class fen_moduleGrpDefend: Module_F {
         scope = 2;
@@ -1074,7 +1074,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class defendRadius{
 				displayName="Defend radius";
@@ -1109,7 +1109,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Defend Group";
 			sync[]={
@@ -1129,7 +1129,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
 	// fen_fnc_grpStaticPos
 	class fen_moduleGrpStaticPos: Module_F {
         scope = 2;
@@ -1144,7 +1144,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class defendRadius{
 				displayName="Defend radius";
@@ -1179,7 +1179,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Defend Group";
 			sync[]={
@@ -1199,7 +1199,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
 	// fen_fnc_grpSurrender
 	class fen_moduleGrpSurrender: Module_F {
         scope = 2;
@@ -1214,7 +1214,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class condition {
 				displayName="Condition to cause surrender";
@@ -1248,7 +1248,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Defend Group";
 			sync[]={
@@ -1283,7 +1283,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class armFaction {
 				displayName="Arm with weapons (faction)";
@@ -1340,7 +1340,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Hidden Enemy";
 			sync[]={
@@ -1360,7 +1360,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
 	// fen_fnc_iedMan
 	class fen_moduleIEDMan: Module_F {
         scope = 2;
@@ -1375,7 +1375,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class iedClasses {
 				displayName="IED classes array";
@@ -1410,7 +1410,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="IED Man";
 			sync[]={
@@ -1445,7 +1445,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class removeIED {
 				displayName="Delete object after detonation";
@@ -1466,7 +1466,7 @@ class CfgVehicles {
 			class explosionClass {
 				displayName="Explosion size";
 				description="Defines size of explosion.";
-				typeName="STRING";	
+				typeName="STRING";
 				class values {
 					class small {
 						name="Small";
@@ -1549,7 +1549,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="IED Object";
 			sync[]={
@@ -1570,7 +1570,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
 	// fen_fnc_iedPP
 	class fen_moduleIEDPP: Module_F {
         scope = 2;
@@ -1585,7 +1585,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
 			class trgSide {
 				displayName="Side causing detonation";
@@ -1632,7 +1632,7 @@ class CfgVehicles {
 				defaultValue=5;
 			};
 		};
-			
+
 		class ModuleDescription: ModuleDescription {
 			description="Pressure Plate IED";
 			sync[]={
@@ -1651,7 +1651,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
 	// fen_fnc_intel_addIntel
 	class fen_moduleAddIntel: Module_F {
         scope = 2;
@@ -1666,7 +1666,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
 			class intel {
 				displayName="Intel";
@@ -1695,7 +1695,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-			
+
 		class ModuleDescription: ModuleDescription {
 			description="Add Intel to object";
 			sync[]={
@@ -1714,7 +1714,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
 	// fen_fnc_retreatGroup
 	class fen_moduleRetreatGroup: Module_F {
         scope = 2;
@@ -1729,7 +1729,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class proximity {
 				displayName="Proximity retreat";
@@ -1784,7 +1784,7 @@ class CfgVehicles {
 						value=1;
 					};
 				};
-			};	
+			};
 			class proximityCiv {
 				displayName="Proximity: Civilian";
 				description="Group will retreat if West units in proximity.";
@@ -1800,7 +1800,7 @@ class CfgVehicles {
 						value=1;
 					};
 				};
-			};				
+			};
 			class percentage {
 				displayName="Casualty retreat";
 				description="Defines percentage of casualities to trigger a retreat";
@@ -1845,7 +1845,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Retreat Group";
 			sync[]={
@@ -1865,7 +1865,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
     // fen_fnc_revealTriggeringUnitsAdd
 	class fen_moduleRevealTriggeringUnitsAdd: Module_F {
         scope = 2;
@@ -1880,7 +1880,7 @@ class CfgVehicles {
         isTriggerActivated = 0;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class revealTriggers {
                 displayName="Reveal Triggers";
@@ -1942,7 +1942,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Retreat Group";
 			sync[]={
@@ -1962,7 +1962,7 @@ class CfgVehicles {
 			};
 		};
 	};
-   
+
 	// fen_fnc_rollingBarrage
 	class fen_moduleRollingBarrage: Module_F {
         scope = 2;
@@ -1977,7 +1977,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
 			class xAxisShells {
 				displayName="X axis number of shells";
@@ -2022,7 +2022,7 @@ class CfgVehicles {
 				defaultValue="Sh_82mm_AMOS";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Rolling Barrage";
 			sync[]={
@@ -2042,7 +2042,7 @@ class CfgVehicles {
 			};
 		};
 	};
-	
+
     // fen_fnc_shareTargets
     class fen_moduleShareTargets: Module_F {
         scope = 2;
@@ -2057,7 +2057,7 @@ class CfgVehicles {
         isTriggerActivated = 0;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
 			class processWest {
 				displayName="Share targets: West";
@@ -2142,7 +2142,7 @@ class CfgVehicles {
 				defaultValue=600;
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Share Targets";
 			sync[]={
@@ -2160,7 +2160,7 @@ class CfgVehicles {
 			};
 		};
 	};
-    
+
 	// fen_fnc_scrambleCrew
 	class fen_moduleScrambleCrew: Module_F {
         scope = 2;
@@ -2175,7 +2175,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class crewSide {
 				displayName="Crew side";
@@ -2271,7 +2271,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Scramble Crew";
 			sync[]={
@@ -2306,7 +2306,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class bombJacket {
 				displayName="Bomb jacket";
@@ -2325,10 +2325,10 @@ class CfgVehicles {
 				};
 			};
             class deadmanChance {
-                    displayName="Dead mans trigger %";
-                    description="Percentage change of touch off on death";
-                    typeName="NUMBER";
-                    defaultValue=0;
+                displayName="Dead mans trigger %";
+                description="Percentage change of touch off on death";
+                typeName="NUMBER";
+                defaultValue=0;
             };
 			class includeAIS {
 				displayName="Add to AIS";
@@ -2352,7 +2352,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Suicide Bomber";
 			sync[]={
@@ -2371,8 +2371,8 @@ class CfgVehicles {
 				};
 			};
 		};
-	};	
-    
+	};
+
     // fen_fnc_UCRaddCivilianClothesObject
 	class fen_moduleUCRaddCivilianClothesObject: Module_F {
         scope = 2;
@@ -2387,7 +2387,7 @@ class CfgVehicles {
         isTriggerActivated = 1;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class minimum {
                     displayName="Minimum number of clothes to add";
@@ -2423,7 +2423,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="UCR Add civ clothes to object";
 			sync[]={
@@ -2442,8 +2442,8 @@ class CfgVehicles {
 				};
 			};
 		};
-	};	
-    
+	};
+
     // fen_fnc_UCRsearchBuildingClothes
 	class fen_moduleUCRsearchBuildingClothes: Module_F {
         scope = 2;
@@ -2458,7 +2458,7 @@ class CfgVehicles {
         isTriggerActivated = 0;
         isDisposable = 0;
         is3DEN = 0;
-		
+
 		class Arguments: ArgumentsBaseUnits {
             class buildingBlackList {
 				displayName="Buildings to exclude";
@@ -2473,7 +2473,7 @@ class CfgVehicles {
 				defaultValue=25;
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="UCR Search Building Clothes";
 			sync[]={
@@ -2492,5 +2492,92 @@ class CfgVehicles {
 				};
 			};
 		};
-	};	
+	};
+
+    // fen_fnc_VIR
+	class fen_moduleVIR: Module_F {
+    scope = 2;
+    displayName="VIR";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleVIR";
+    functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleVIR.paa";
+    isGlobal = 0;
+    isTriggerActivated = 0;
+    isDisposable = 0;
+    is3DEN = 0;
+
+		class Arguments: ArgumentsBaseUnits {
+      class crewDisembark {
+				displayName="Crew disembark";
+				description="Determine if driver, commander, gunner should disembark on contact.";
+        typeName="BOOL";
+    		class values {
+					class no {
+						name="No";
+						value=0;
+            default=1;
+					};
+					class yes {
+						name="Yes";
+						value=1;
+					};
+				};
+			};
+      class proximity {
+        displayName="Reaction proximity";
+				description="Vehicle will react to enemy within proximity radius.";
+				typeName="Number";
+				defaultValue=750;
+			};
+      class convoyNumber {
+        displayName="Convoy Number";
+        description="Vehicles of same convoy number will react together."
+        typeName="NUMBER";
+        defaultValue=1;
+      };
+      class includeAIS {
+        displayName="Add to AIS";
+        description="Add synchronised objects to AIS.";
+        typeName="BOOL";
+        class values {
+          class no {
+            name="No";
+            value=0;
+            default=1;
+          };
+          class yes {
+            name="Yes";
+            value=1;
+          };
+        };
+      };
+      class owningLocation {
+        displayName="Owning Location";
+        description="Optional: Defines owning AIS location";
+        typeName="STRING";
+      };
+		};
+
+		class ModuleDescription: ModuleDescription {
+			description="VIR";
+			sync[]={
+				"LocationArea_F"
+			};
+			class LocationArea_F {
+				description[]={
+					"https://feedback.bistudio.com/T84295",
+					"has been fixed if you can see this."
+				};
+				position=0;
+				optional=0;
+				duplicate=1;
+				synced[]={
+					"Anything"
+				};
+			};
+		};
+	};
 };

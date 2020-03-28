@@ -1,7 +1,7 @@
 class cfgFunctions {
-	class fen {
-		class modules {
-			file="fen_A3\addons\fen_modules\functions";
+    class fen {
+        class modules {
+            file="fen_A3\addons\fen_modules\functions";
 			// fen_fnc_aiSpotter
 			class moduleAISpotter {
 				descrption="Allow AI unit to act as FO for nearby artillery";
@@ -14,7 +14,7 @@ class cfgFunctions {
 			class moduleArtilleryFX {
 				description="Artillery Effects";
 			};
-			// fen_fnc_artilleryLine 
+			// fen_fnc_artilleryLine
 			class moduleArtilleryLine {
 				description="Artillery Line";
 			};
@@ -45,7 +45,7 @@ class cfgFunctions {
             // fen_fnc_flares
             class moduleFlares {
                 description="Flares";
-            }; 
+            };
             // fen_fnc_forwardObs
             class moduleForwardObs  {
                 description="Forward Observer";
@@ -109,11 +109,15 @@ class cfgFunctions {
             // fen_fnc_UCRaddCivilianClothesObject
             class moduleUCRaddCivilianClothesObject {
                 description="UCR Add Civ clothes object";
-            }
+            };
             // fen_fnc_UCRsearchBuildingClothes
             class moduleUCRsearchBuildingClothes {
                 description="UCR Search buildings Civ clothing";
             };
+			// fen_fncVIRQueueAdd
+			class moduleVIR {
+				description="VIR";
+			};
 		};
 	};
 };
