@@ -1,7 +1,7 @@
 /*
 
 File: fn_restartLocation.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Restart an AIS Location
@@ -25,9 +25,9 @@ if isNil("fen_ais_controlSession") exitWith {};
 fen_ais_deleteGroups={
 
 	private ["_aisLoc"];
-	
+
 	_aisLoc=_this select 0;
-	
+
 	{
 		if ((group _x getVariable ["fen_ownedBy",""]==(str _aisLoc))) then {
 			if (vehicle _x!=_x) then {
@@ -44,7 +44,7 @@ fen_ais_deleteGroups={
 fen_ais_deleteVehicles={
 
 	private ["_aisLoc"];
-	
+
 	_aisLoc=_this select 0;
 	{
 		if ((_x getVariable ["fen_ownedBy",""]==(str _aisLoc))) then {
@@ -57,5 +57,5 @@ fen_ais_deleteVehicles={
 [_aisLoc] call fen_ais_deleteGroups;
 [_aisLoc] call fen_ais_deleteVehicles;
 
-[_aisLoc] execVM "fen_ais\ais_location.sqf";
-
+//[_aisLoc] execVM "fen_ais\ais_location.sqf";
+[_aisLoc] call fenAIS_fnc_locationQueueAdd;

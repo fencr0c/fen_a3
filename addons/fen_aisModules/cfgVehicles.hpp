@@ -6,19 +6,19 @@ class CfgVehicles {
     };
 
 	class fenAIS_moduleCreateLocation: Module_F {
-		scope = 2;
-        displayName="AIS Location";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "fenAIS_modules";
-        function = "fenAIS_fnc_moduleCreateLocation";
-        functionPriority = 20;
+	   scope = 2;
+    displayName="AIS Location";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "fenAIS_modules";
+    function = "fenAIS_fnc_moduleCreateLocation";
+    functionPriority = 20;
 		icon = "\fen_a3\addons\fen_aisModules\images\fn_moduleCreateLocation.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
-		
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
+
 		class Arguments: ArgumentsBaseUnits {
 			class radius {
 				displayName="Activation Radius";
@@ -50,8 +50,8 @@ class CfgVehicles {
 						name="Yes";
 						value=1;
 					};
-				};		
-			};				
+				};
+			};
 			class triggerByAIWest {
 				displayName="Activated by AI: West";
 				description="By default locations are activated by player, use this to also trigger activation by West AI units.";
@@ -99,7 +99,7 @@ class CfgVehicles {
 						value=1;
 					};
 				};
-			};	
+			};
 			class triggerByAICiv {
 				displayName="Activated by AI: Civilian";
 				description="By default locations are activated by player, use this to also trigger activation by Civilian AI units.";
@@ -115,9 +115,9 @@ class CfgVehicles {
 						value=1;
 					};
 				};
-			};				
+			};
 			class balance {
-				displayName="Apply Balancing"; 
+				displayName="Apply Balancing";
 				description="Number of AI groups spawned in will be balanced to number of players in mission.";
 				typeName="BOOL";
 				class values {
@@ -130,7 +130,7 @@ class CfgVehicles {
 						name="Yes";
 						value=1;
 					};
-				};		
+				};
 			};
 			class maxPlayers {
 				displayName="Max players in mission";
@@ -139,28 +139,28 @@ class CfgVehicles {
 			};
             class ModuleDescription : ModuleDescription{}; // new
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Add Vehicle to AIS";
 			sync[]={
 			};
 		};
 	};
-	
+
 	class fenAIS_moduleInit: Module_F {
 		scope = 2;
-        displayName="AIS Auto Start";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "fenAIS_modules";
-        function = "fenAIS_fnc_moduleInit";
-        functionPriority = 40;
+    displayName="AIS Auto Start";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "fenAIS_modules";
+    function = "fenAIS_fnc_moduleInit";
+    functionPriority = 40;
 		icon = "\fen_a3\addons\fen_aisModules\images\fn_moduleInit.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
-		
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
+
 		class Arguments: ArgumentsBaseUnits {
 			class useHC {
 				displayName="Use Headless Client if available";
@@ -170,42 +170,41 @@ class CfgVehicles {
 					class no {
 						name="No";
 						value=0;
-
-					};
+          };
 					class yes {
 						name="Yes";
 						value=1;
 						default=1;
 					};
-				};		
-			};
-		};
+        };
+      };
+    };
 
 		class ModuleDescription: ModuleDescription {
 			description="Add Vehicle to AIS";
 			sync[]={};
 		};
 	};
-	
+
 	class fenAIS_moduleGroup: Module_F {
 		scope = 2;
-        displayName="AIS Group";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "fenAIS_modules";
-        function = "fenAIS_fnc_moduleGroup";
-        functionPriority = 20;
+    displayName="AIS Group";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "fenAIS_modules";
+    function = "fenAIS_fnc_moduleGroup";
+    functionPriority = 20;
 		icon = "\fen_a3\addons\fen_aisModules\images\fn_moduleGroup.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
-		
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
+
 		class Arguments: ArgumentsBaseUnits {
-            class command {
-				displayName="Command to execute on spawn";
-				description="Command will be run when AIS spawns group. %1 will be substitued for group";
-				typeName="STRING";
+      class command {
+        displayName="Command to execute on spawn";
+        description="Command will be run when AIS spawns group. %1 will be substitued for group";
+        typeName="STRING";
 			};
 			class doStop {
 				displayName="Do Stop";
@@ -264,7 +263,7 @@ class CfgVehicles {
 						value=1;
 					};
 				};
-			};	
+			};
 			class VCOMnopath {
 				displayName="VCOM no rescue";
 				description="Group will not respond to calls for help as per VCM_NORESCUE";
@@ -280,7 +279,7 @@ class CfgVehicles {
 						value=1;
 					};
 				};
-			};			
+			};
 			class excludeASR {
 				displayName="Exclude from ASR_AI";
 				description="Group will be excluded from ASR_AI";
@@ -391,7 +390,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Add Group to AIS";
 			sync[]={
@@ -414,21 +413,21 @@ class CfgVehicles {
 
 	class fenAIS_moduleVehicle: Module_F {
 		scope = 2;
-        displayName="AIS Object";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "fenAIS_modules";
-        function = "fenAIS_fnc_moduleVehicle";
-        functionPriority = 20;
+    displayName="AIS Object";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "fenAIS_modules";
+    function = "fenAIS_fnc_moduleVehicle";
+    functionPriority = 20;
 		icon = "\fen_a3\addons\fen_aisModules\images\fn_moduleVehicle.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
-		
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
+
 		class Arguments: ArgumentsBaseUnits {
-            class command {
-				displayName="Command to execute on spawn";
+      class command {
+			  displayName="Command to execute on spawn";
 				description="Command will be run when AIS spawns vehicle. %1 will be substitued for vehicle";
 				typeName="STRING";
 			};
@@ -438,7 +437,7 @@ class CfgVehicles {
 				typeName="STRING";
 			};
 		};
-		
+
 		class ModuleDescription: ModuleDescription {
 			description="Add Vehicle to AIS";
 			sync[]={

@@ -1,7 +1,7 @@
 /*
 
 File: fn_init.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Starts AIS.
@@ -43,6 +43,8 @@ if (fen_debug) then {
 	[_x] call fenAIS_fnc_locationQueueAdd;
 } forEach fen_ais_locations;
 
+fen_ais_controlSession=true;
+
 if (fen_debug) then {
 	if (isNil "fen_ais_environment") then {
 		fen_ais_environment="oops";
@@ -51,9 +53,9 @@ if (fen_debug) then {
 		case not(isServer or hasInterface) : {fen_ais_environment="Headless Client"};
 		case (isServer) : {fen_ais_environment="Server"};
 		};
-		publicVariable "fen_ais_environment";			
+		publicVariable "fen_ais_environment";
 	} else {
 		fen_ais_environment="Multi Session Error";
-		publicVariable "fen_ais_environment";			
+		publicVariable "fen_ais_environment";
 	};
 };

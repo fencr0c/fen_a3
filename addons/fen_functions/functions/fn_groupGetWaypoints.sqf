@@ -17,17 +17,17 @@ params [
 
 _groupWayPoints=[];
 {
-    _groupWayPoints pushBack [
-        waypointPosition _x,
-        waypointType _x,
-        waypointCombatMode _x,
-        waypointFormation _x,
-        waypointSpeed _x,
-        waypointBehaviour _x,
-        waypointCompletionRadius _x,
-        waypointTimeout _x,
-        waypointStatements _x
-    ];
+  _groupWayPoints pushBack [
+    waypointPosition _x,
+    waypointType _x,
+    waypointCombatMode _x,
+    waypointFormation _x,
+    waypointSpeed _x,
+    waypointBehaviour _x,
+    waypointCompletionRadius _x,
+    waypointTimeout _x,
+    waypointStatements _x
+  ];
 } forEach (waypoints _group);
 
 _groupWayPoints

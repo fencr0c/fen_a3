@@ -8,24 +8,24 @@ class CfgVehicles {
 	// fen_fnc_aiSpotter
 	class fen_moduleAISpotter: Module_F {
 		scope = 2;
-        displayName="AI Spotter";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleAISpotter";
-        functionPriority = 10;
+    displayName="AI Spotter";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleAISpotter";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleAISpotter.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class spotRange {
-				displayName="Spotting range";
-				description="Defines maximum engagement range for spotter.";
-				typeName="NUMBER";
-				defaultValue=1000;
+      class spotRange {
+		  displayName="Spotting range";
+			description="Defines maximum engagement range for spotter.";
+			typeName="NUMBER";
+			defaultValue=1000;
 			};
 			class callRange {
 				displayName="Calling Range";
@@ -116,18 +116,18 @@ class CfgVehicles {
 
 	// fen_fnc_airResupply
 	class fen_moduleAirResupply: Module_F {
-        scope = 2;
-        displayName="Air Resupply";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleAirResupply";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Air Resupply";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleAirResupply";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleAirResupply.paa";
-        isGlobal = 1;
-        isTriggerActivated = 0;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 0;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
 			class dropWP {
@@ -172,18 +172,18 @@ class CfgVehicles {
 
 	// fen_fnc_artilleryFX
 	class fen_moduleArtilleryFX: Module_F {
-        scope = 2;
-        displayName="Artillery FX";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleArtilleryFX";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Artillery FX";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleArtilleryFX";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleArtilleryFX.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
 			class minDistance {
@@ -252,18 +252,18 @@ class CfgVehicles {
 
 	// fen_fnc_artilleryLine
 	class fen_moduleArtilleryLine: Module_F {
-        scope = 2;
-        displayName="Artillery Line";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleArtilleryLine";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Artillery Line";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleArtilleryLine";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleArtilleryLine.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
 			class numberShells {
@@ -314,21 +314,21 @@ class CfgVehicles {
 
 	// fen_fnc_bldPatrol
 	class fen_moduleBldPatrol: Module_F {
-        scope = 2;
-        displayName="Building Patrol";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleBldPatrol";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Building Patrol";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleBldPatrol";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleBldPatrol.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class patrolRadius{
+      class patrolRadius{
 				displayName="Patrol radius";
 				description="Define maximum range units will patrol from group leader.";
 				typeName="NUMBER";
@@ -384,21 +384,21 @@ class CfgVehicles {
 
 	// fen_fnc_boobyTrahVeh
 	class fen_moduleBoobyTrapVeh: Module_F {
-        scope = 2;
-        displayName="Booby Trap Vehicle";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleBoobyTrapVeh";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Booby Trap Vehicle";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleBoobyTrapVeh";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleBoobyTrapVeh.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class explosionClass{
+      class explosionClass{
 				displayName="Explosion size";
 				description="Defines size of explosion.";
 				typeName="STRING";
@@ -500,27 +500,27 @@ class CfgVehicles {
 
 	// fen_fnc_civilianArea
 	class fen_moduleCivilianArea: Module_F {
-        scope = 2;
-        displayName="Civilian Area";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleCivilianArea";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Civilian Area";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleCivilianArea";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleCivilianArea.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class radius {
+      class radius {
 				displayName="Area radius";
 				description="Defines wandering radius from module for civilian units.";
 				typeName="NUMBER";
 				defaultValue=300;
 			};
-            class maxCivilians {
+      class maxCivilians {
 				displayName="Maximum number of civilians";
 				description="Defines maximum number of civilians that will be created.";
 				typeName="number";
@@ -650,61 +650,61 @@ class CfgVehicles {
 
     //fen_fnc_cachedMines
 	class fen_moduleCachedMines: Module_F {
-        scope = 2;
-        displayName="Cached Mines";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleCachedMines";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Cached Mines";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleCachedMines";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleCachedMines.paa";
-        isGlobal = 1;
-        isTriggerActivated = 0;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 0;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class proximity {
+      class proximity {
 				displayName="Proximity";
 				description="Defines proximity to player for mines to be spawned.";
 				typeName="NUMBER";
 				defaultValue=800;
 			};
-            class frequency {
-                displayName="Frequency";
-                description="Defines how oftern check for spawning/despawning mines occurs.";
-                typeName="NUMBER";
-                defaultValue=5;
-            };
+      class frequency {
+        displayName="Frequency";
+        description="Defines how oftern check for spawning/despawning mines occurs.";
+        typeName="NUMBER";
+        defaultValue=5;
+      };
 		};
-    };
+  };
 
 	// fen_fnc_civTalk_addConversation
 	class fen_moduleAddConversation: Module_F {
-        scope = 2;
-        displayName="Add Conversation";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleAddConversation";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Add Conversation";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleAddConversation";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleAddConversation.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class conversation {
-				displayName="Conversation array";
+      class conversation {
+			  displayName="Conversation array";
 				description="Defines array of conversation text, each element requires and addition interaction e.g. ['Hello','GoodBye']";
 				typeName="STRING";
 			};
-            class clause {
-                displayName="Conversation clause";
-                description="Optional: If supplied conversation only possible if clause is true";
-                typeName="STRING";
-            };
+      class clause {
+        displayName="Conversation clause";
+        description="Optional: If supplied conversation only possible if clause is true";
+        typeName="STRING";
+      };
 			class includeAIS {
 				displayName="Add to AIS";
 				description="Add synchronised units to AIS.";
@@ -750,21 +750,21 @@ class CfgVehicles {
 
 	// fen_fnc_dicker
 	class fen_moduleDicker: Module_F {
-        scope = 2;
-        displayName="Dicker";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleDicker";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Dicker";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleDicker";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleDicker.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class passIntel {
+      class passIntel {
 				displayName="Percentage chance of passing on info";
 				description="Defines percentage chance of dicker passing on sigthings to nearby enemy.";
 				typeName="NUMBER";
@@ -891,18 +891,18 @@ class CfgVehicles {
 
     // fen_fnc_flares
 	class fen_moduleFlares: Module_F {
-        scope = 2;
-        displayName="Flares";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleFlares";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Flares";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleFlares";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleFlares.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
 			class maxDistance {
@@ -954,26 +954,26 @@ class CfgVehicles {
     // fen_fnc_forwardObs
 	class fen_moduleForwardObs: Module_F {
 		scope = 2;
-        displayName="Forward Observer";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleForwardObs";
-        functionPriority = 10;
+    displayName="Forward Observer";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleForwardObs";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleForwardObs.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class engageRange {
+      class engageRange {
 				displayName="Engagement Range";
 				description="Defines maximum engagement range for FO.";
 				typeName="NUMBER";
 				defaultValue=1500;
 			};
-       		class artilleryTypes {
+    	class artilleryTypes {
 				displayName="Artillery classes array";
 				description="Defines an array of artillery classes the spotter can use.";
 				typeName="STRING";
@@ -991,32 +991,32 @@ class CfgVehicles {
 				typeName="NUMBER";
 				defaultValue=120;
 			};
-            class dfpTriggers {
-                displayName="Defensive Fire Plan Triggers";
+      class dfpTriggers {
+        displayName="Defensive Fire Plan Triggers";
 				description="Defines an array triggers for defensive fire plan.";
 				typeName="STRING";
 				defaultValue=[];
-            };
-            class skillLevel {
-                displayName="Skill Level";
-                description="Skill level of FO";
-                typeName="NUMBER";
-                class values {
-                    class low {
-                        name="Low";
-                        value=1;
-                    };
-                    class medium {
-                        name="Medium";
-                        value=2;
-                        default=1;
-                    };
-                    class high {
-                        name="High";
-                        value=3;
-                    };
-                };
-            };
+      };
+      class skillLevel {
+        displayName="Skill Level";
+        description="Skill level of FO";
+        typeName="NUMBER";
+        class values {
+          class low {
+            name="Low";
+            value=1;
+          };
+          class medium {
+            name="Medium";
+            value=2;
+            default=1;
+          };
+          class high {
+            name="High";
+            value=3;
+          };
+        };
+      };
 			class includeAIS {
 				displayName="Add to AIS";
 				description="Synchronised groups are added to AIS.";
@@ -1062,21 +1062,21 @@ class CfgVehicles {
 
 	// fen_fnc_grpDefend
 	class fen_moduleGrpDefend: Module_F {
-        scope = 2;
-        displayName="Group Defend";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleGrpDefend";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Group Defend";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleGrpDefend";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleGrpDefend.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class defendRadius{
+      class defendRadius{
 				displayName="Defend radius";
 				description="Defines maximum radius from group leader units will garrison buildings and mount weapons systems.";
 				typeName="NUMBER";
@@ -1132,21 +1132,21 @@ class CfgVehicles {
 
 	// fen_fnc_grpStaticPos
 	class fen_moduleGrpStaticPos: Module_F {
-        scope = 2;
-        displayName="Group Static Positions";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleGrpStaticPos";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Group Static Positions";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleGrpStaticPos";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleGrpStaticPos.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class defendRadius{
+      class defendRadius{
 				displayName="Defend radius";
 				description="Defines maximum radius from group leader units will garrison buildings and mount weapons systems.";
 				typeName="NUMBER";
@@ -1202,26 +1202,26 @@ class CfgVehicles {
 
 	// fen_fnc_grpSurrender
 	class fen_moduleGrpSurrender: Module_F {
-        scope = 2;
-        displayName="Group Surrender";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleGrpSurrender";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Group Surrender";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleGrpSurrender";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleGrpSurrender.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class condition {
+      class condition {
 				displayName="Condition to cause surrender";
 				description="Defines clause that triggers surrender. Variable _group indicates group e.g. {alive _x} count units _group<3.";
 				typeName="STRING";
 			};
-            class command {
+      class command {
 				displayName="Command to run on surrender";
 				description="Optional: Defines command to run on surrender. Variable _group is available.";
 				typeName="STRING";
@@ -1271,21 +1271,21 @@ class CfgVehicles {
 
 	// fen_fnc_hiddenEnemy
 	class fen_moduleHiddenEnemy: Module_F {
-        scope = 2;
-        displayName="Hidden Enemy";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleHiddenEnemy";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Hidden Enemy";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleHiddenEnemy";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleHiddenEnemy.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class armFaction {
+      class armFaction {
 				displayName="Arm with weapons (faction)";
 				description="When units are triggered they will be armed with weapons from this faction.";
 				typeName="STRING";
@@ -1363,21 +1363,21 @@ class CfgVehicles {
 
 	// fen_fnc_iedMan
 	class fen_moduleIEDMan: Module_F {
-        scope = 2;
-        displayName="IED Man";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleIEDMan";
-        functionPriority = 10;
+    scope = 2;
+    displayName="IED Man";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleIEDMan";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleIEDMan.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class iedClasses {
+      class iedClasses {
 				displayName="IED classes array";
 				description="Defines array of classes of IED unit will place e.g. ['IEDLandBig_F','IEDLandBigF'] unit will place two IEDs.";
 				typeName="STRING";
@@ -1433,21 +1433,21 @@ class CfgVehicles {
 
 	// fen_fnc_iedObject
 	class fen_moduleIEDObject: Module_F {
-        scope = 2;
-        displayName="IED Object";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleIEDObject";
-        functionPriority = 10;
+    scope = 2;
+    displayName="IED Object";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleIEDObject";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleIEDObject.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class removeIED {
+      class removeIED {
 				displayName="Delete object after detonation";
 				description="Defines if object will be deleted after detonation.";
 				typeName="BOOL";
@@ -1573,18 +1573,18 @@ class CfgVehicles {
 
 	// fen_fnc_iedPP
 	class fen_moduleIEDPP: Module_F {
-        scope = 2;
-        displayName="Pressure Plate IED (BIS classes only)";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleIEDPP";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Pressure Plate IED (BIS classes only)";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleIEDPP";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleIEDPP.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
 			class trgSide {
@@ -1654,18 +1654,18 @@ class CfgVehicles {
 
 	// fen_fnc_intel_addIntel
 	class fen_moduleAddIntel: Module_F {
-        scope = 2;
-        displayName="Add Intel to object";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleAddIntel";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Add Intel to object";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleAddIntel";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleAddIntel.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
 			class intel {
@@ -1717,21 +1717,21 @@ class CfgVehicles {
 
 	// fen_fnc_retreatGroup
 	class fen_moduleRetreatGroup: Module_F {
-        scope = 2;
-        displayName="Retreat Group";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleRetreatGroup";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Retreat Group";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleRetreatGroup";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleRetreatGroup.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class proximity {
+      class proximity {
 				displayName="Proximity retreat";
 				description="Defines proximity retreat radius. When units of sides below are near group they will retreat.";
 				typeName="NUMBER";
@@ -1868,42 +1868,42 @@ class CfgVehicles {
 
     // fen_fnc_revealTriggeringUnitsAdd
 	class fen_moduleRevealTriggeringUnitsAdd: Module_F {
-        scope = 2;
-        displayName="Reveal Triggering Units";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleRevealTriggeringUnitsAdd";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Reveal Triggering Units";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleRevealTriggeringUnitsAdd";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleRevealTriggeringUnitsAdd.paa";
-        isGlobal = 1;
-        isTriggerActivated = 0;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 0;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class revealTriggers {
-                displayName="Reveal Triggers";
+      class revealTriggers {
+        displayName="Reveal Triggers";
 				description="Defines an array of reveal triggers.";
 				typeName="STRING";
 				defaultValue=[];
-            };
-            class useLOS {
-                displayName="Use line of sight";
-                description="Only visible triggering units will be revealed to synchronised units";
-                typeName="BOOL";
-      			class values {
+      };
+      class useLOS {
+        displayName="Use line of sight";
+        description="Only visible triggering units will be revealed to synchronised units";
+        typeName="BOOL";
+			  class values {
 					class no {
 						name="No";
 						value=0;
-                        default=1;
+            default=1;
 					};
 					class yes {
 						name="Yes";
 						value=1;
 					};
 				};
-            };
+      };
 			class excludeAir {
 				displayName="Exclude Air Units";
 				description="By default Air units are not revealed";
@@ -1965,18 +1965,18 @@ class CfgVehicles {
 
 	// fen_fnc_rollingBarrage
 	class fen_moduleRollingBarrage: Module_F {
-        scope = 2;
-        displayName="Rolling Barrage";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleRollingBarrage";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Rolling Barrage";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleRollingBarrage";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleRollingBarrage.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
 			class xAxisShells {
@@ -1985,7 +1985,7 @@ class CfgVehicles {
 				typeName="NUMBER";
 				defaultValue=10;
 			};
-            class xAxisSpace {
+      class xAxisSpace {
 				displayName="X axis spacing";
 				description="Defines space between shells in the X axis (width).";
 				typeName="NUMBER";
@@ -2003,7 +2003,7 @@ class CfgVehicles {
 				typeName="NUMBER";
 				defaultValue=10;
 			};
-            class yAxisSpace {
+      class yAxisSpace {
 				displayName="Y axis spacing";
 				description="Defines space between shells in the Y axis (height).";
 				typeName="NUMBER";
@@ -2043,20 +2043,20 @@ class CfgVehicles {
 		};
 	};
 
-    // fen_fnc_shareTargets
-    class fen_moduleShareTargets: Module_F {
-        scope = 2;
-        displayName="Share Targets";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleShareTargets";
-        functionPriority = 10;
-		icon = "\fen_a3\addons\fen_modules\images\fn_moduleShareTargets.paa";
-        isGlobal = 1;
-        isTriggerActivated = 0;
-        isDisposable = 0;
-        is3DEN = 0;
+// fen_fnc_shareTargets
+  class fen_moduleShareTargets: Module_F {
+    scope = 2;
+    displayName="Share Targets";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleShareTargets";
+    functionPriority = 10;
+	  icon = "\fen_a3\addons\fen_modules\images\fn_moduleShareTargets.paa";
+    isGlobal = 1;
+    isTriggerActivated = 0;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
 			class processWest {
@@ -2075,7 +2075,7 @@ class CfgVehicles {
 					};
 				};
 			};
-      		class processEast {
+      class processEast {
 				displayName="Share targets: East";
 				description="East will share targets with friendly groups.";
 				typeName="BOOL";
@@ -2087,11 +2087,11 @@ class CfgVehicles {
 					class yes {
 						name="Yes";
 						value=1;
-                        default=1;
+            default=1;
 					};
 				};
 			};
-            class processGuer {
+      class processGuer {
 				displayName="Share targets: Independent";
 				description="Independent will share targets with friendly groups.";
 				typeName="BOOL";
@@ -2099,15 +2099,15 @@ class CfgVehicles {
 					class no {
 						name="No";
 						value=0;
-                        default=1;
-					};
-					class yes {
-						name="Yes";
-						value=1;
+            default=1;
+				  };
+          class yes {
+					  name="Yes";
+					  value=1;
 					};
 				};
 			};
-            class processCiv {
+      class processCiv {
 				displayName="Share targets: Civilian";
 				description="Civilians will share targets with friendly groups.";
 				typeName="BOOL";
@@ -2115,7 +2115,7 @@ class CfgVehicles {
 					class no {
 						name="No";
 						value=0;
-                        default=1;
+            default=1;
 					};
 					class yes {
 						name="Yes";
@@ -2129,14 +2129,14 @@ class CfgVehicles {
 				typeName="NUMBER";
 				defaultValue=60;
 			};
-            class shareDistance {
+      class shareDistance {
 				displayName="Broadcast Distance";
 				description="Defines how far targets will be broadcast to nearby friendlies.";
 				typeName="NUMBER";
 				defaultValue=250;
 			};
-      		class visibleRange {
-				displayName="Visible Range";
+      class visibleRange {
+			  displayName="Visible Range";
 				description="Only targets within visibile range will be shared.";
 				typeName="NUMBER";
 				defaultValue=600;
@@ -2163,21 +2163,21 @@ class CfgVehicles {
 
 	// fen_fnc_scrambleCrew
 	class fen_moduleScrambleCrew: Module_F {
-        scope = 2;
-        displayName="Scramble Crew";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleScrambleCrew";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Scramble Crew";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleScrambleCrew";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleScrambleCrew.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class crewSide {
+      class crewSide {
 				displayName="Crew side";
 				description="Defines side of crew spawned.";
 				typeName="STRING";
@@ -2294,21 +2294,21 @@ class CfgVehicles {
 
 	// fen_fnc_suicideBomber
 	class fen_moduleSuicideBomber: Module_F {
-        scope = 2;
-        displayName="Suicide Bomber";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleSuicideBomber";
-        functionPriority = 10;
+    scope = 2;
+    displayName="Suicide Bomber";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleSuicideBomber";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleSuicideBomber.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class bombJacket {
+      class bombJacket {
 				displayName="Bomb jacket";
 				description="Unit is wearing bomb jacket.";
 				typeName="BOOL";
@@ -2324,12 +2324,12 @@ class CfgVehicles {
 					};
 				};
 			};
-            class deadmanChance {
-                displayName="Dead mans trigger %";
-                description="Percentage change of touch off on death";
-                typeName="NUMBER";
-                defaultValue=0;
-            };
+      class deadmanChance {
+        displayName="Dead mans trigger %";
+        description="Percentage change of touch off on death";
+        typeName="NUMBER";
+        defaultValue=0;
+      };
 			class includeAIS {
 				displayName="Add to AIS";
 				description="Synchronised groups are added to AIS.";
@@ -2375,32 +2375,32 @@ class CfgVehicles {
 
     // fen_fnc_UCRaddCivilianClothesObject
 	class fen_moduleUCRaddCivilianClothesObject: Module_F {
-        scope = 2;
-        displayName="UCR Add Civ Clothes Object";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleUCRaddCivilianClothesObject";
-        functionPriority = 10;
+    scope = 2;
+    displayName="UCR Add Civ Clothes Object";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleUCRaddCivilianClothesObject";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleUCRaddCivilianClothesObject.paa";
-        isGlobal = 1;
-        isTriggerActivated = 1;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class minimum {
-                    displayName="Minimum number of clothes to add";
-                    description="The minimum number of civ uniforms to add to object.";
-                    typeName="NUMBER";
-                    defaultValue=0;
-            };
-            class maximum {
-                    displayName="Maximum number of clothes to add";
-                    description="The maximum number of civ uniforms to add to object.";
-                    typeName="NUMBER";
-                    defaultValue=5;
-            };
+      class minimum {
+        displayName="Minimum number of clothes to add";
+        description="The minimum number of civ uniforms to add to object.";
+        typeName="NUMBER";
+        defaultValue=0;
+      };
+      class maximum {
+        displayName="Maximum number of clothes to add";
+        description="The maximum number of civ uniforms to add to object.";
+        typeName="NUMBER";
+        defaultValue=5;
+      };
 			class includeAIS {
 				displayName="Add to AIS";
 				description="Synchronised objects are added AIS.";
@@ -2446,27 +2446,27 @@ class CfgVehicles {
 
     // fen_fnc_UCRsearchBuildingClothes
 	class fen_moduleUCRsearchBuildingClothes: Module_F {
-        scope = 2;
-        displayName="UCR Search Building Civ Clothes";
-        author = "Fen";
-        vehicleClass = "Modules";
-        category = "Fen_Modules";
-        function = "fen_fnc_moduleUCRsearchBuildingClothes";
-        functionPriority = 10;
+    scope = 2;
+    displayName="UCR Search Building Civ Clothes";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleUCRsearchBuildingClothes";
+    functionPriority = 10;
 		icon = "\fen_a3\addons\fen_modules\images\fn_moduleUCRsearchBuildingClothes.paa";
-        isGlobal = 0;
-        isTriggerActivated = 0;
-        isDisposable = 0;
-        is3DEN = 0;
+    isGlobal = 0;
+    isTriggerActivated = 0;
+    isDisposable = 0;
+    is3DEN = 0;
 
 		class Arguments: ArgumentsBaseUnits {
-            class buildingBlackList {
+      class buildingBlackList {
 				displayName="Buildings to exclude";
 				description="Array of building types where search is not available.";
 				typeName="STRING";
 				defaultValue=[];
-			};
-            class chanceNewClothes {
+	    };
+      class chanceNewClothes {
 				displayName="Chance of finding new clothes %";
 				description="Defines the percentrage chance for finding new clothes.";
 				typeName="Number";

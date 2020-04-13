@@ -42,14 +42,14 @@ class cfgFunctions {
 			class moduleDicker {
 				descriptions="Dicker";
 			};
-            // fen_fnc_flares
-            class moduleFlares {
-                description="Flares";
-            };
-            // fen_fnc_forwardObs
-            class moduleForwardObs  {
-                description="Forward Observer";
-            };
+      // fen_fnc_flares
+      class moduleFlares {
+        description="Flares";
+      };
+      // fen_fnc_forwardObs
+      class moduleForwardObs  {
+        description="Forward Observer";
+      };
 			// fen_fnc_grpDefend
 			class moduleGrpDefend {
 				description="Group Defend";
@@ -86,10 +86,10 @@ class cfgFunctions {
 			class moduleRetreatGroup {
 				description="Retreat Group";
 			};
-            // fen_fnc_revealTriggeringUnitsAdd
-            class moduleRevealTriggeringUnitsAdd {
-                descriptions="Reveal Triggering Units";
-            };
+      // fen_fnc_revealTriggeringUnitsAdd
+      class moduleRevealTriggeringUnitsAdd {
+        descriptions="Reveal Triggering Units";
+      };
 			// fen_fnc_rollingBarrage
 			class moduleRollingBarrage {
 				description="Rolling Barrage";
@@ -98,22 +98,22 @@ class cfgFunctions {
 			class moduleScrambleCrew {
 				description="Scramble Crew";
 			};
-            // fen_fnc_shareTargets
-            class moduleShareTargets {
-                description="Share Targets";
-            };
+      // fen_fnc_shareTargets
+      class moduleShareTargets {
+        description="Share Targets";
+      };
 			// fen_fnc_suicideBomber
 			class moduleSuicideBomber {
 				description="Suicide Bomber";
 			};
-            // fen_fnc_UCRaddCivilianClothesObject
-            class moduleUCRaddCivilianClothesObject {
-                description="UCR Add Civ clothes object";
-            };
-            // fen_fnc_UCRsearchBuildingClothes
-            class moduleUCRsearchBuildingClothes {
-                description="UCR Search buildings Civ clothing";
-            };
+      // fen_fnc_UCRaddCivilianClothesObject
+      class moduleUCRaddCivilianClothesObject {
+        description="UCR Add Civ clothes object";
+      };
+      // fen_fnc_UCRsearchBuildingClothes
+      class moduleUCRsearchBuildingClothes {
+        description="UCR Search buildings Civ clothing";
+      };
 			// fen_fncVIRQueueAdd
 			class moduleVIR {
 				description="VIR";
