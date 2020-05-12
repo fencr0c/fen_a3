@@ -26,10 +26,10 @@ class cfgFunctions {
 			class moduleBoobyTrapVeh {
 				description="Booby trap a vehicle";
 			};
-            // fen_fnc_cachedMines
-            class moduleCachedMines {
-                description="Caches allMines and respawns based on players proximity";
-            };
+      // fen_fnc_cachedMines
+      class moduleCachedMines {
+        description="Caches allMines and respawns based on players proximity";
+      };
 			// fen_fnc_civilianArea
 			class moduleCivilianArea {
 				description="Spawns civilian population";
@@ -38,6 +38,10 @@ class cfgFunctions {
 			class moduleAddConversation {
 				description="Add coversation to unit";
 			};
+      // fen_fnc_civThrowGrenade
+      class moduleCivThrowGrenade {
+        description="Makes civilian unit throw grenade";
+      };
 			//fen_fnc_dicker
 			class moduleDicker {
 				descriptions="Dicker";
@@ -74,6 +78,10 @@ class cfgFunctions {
 			class moduleIEDObject {
 				description="IED Object";
 			};
+      // fen_fnc_IEDObjectTriggerMan
+      class moduleIEDObjectTriggerMan {
+        description="IED Object Trigger Man";
+      };
 			// fen_fnc_iedPP
 			class moduleIEDPP {
 				description="Pressure Plate IED";

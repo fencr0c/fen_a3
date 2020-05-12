@@ -1,7 +1,7 @@
 /*
 
 File: fn_moduleIEDObject.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Function for module IEDObject
@@ -28,38 +28,40 @@ private _trgSide=[_logic getVariable ["trgSide",west]] call BIS_fnc_parseNumber;
 if (typeName _trgSide!="SIDE") then {
 	_trgSide=west;
 };
+private _daisyChainID=_logic getVariable["daisyChainID",""];
+private _triggerManID=_logic getVariable["triggerManID",""];
 private _includeAIS=_logic getVariable ["includeAIS",false];
 private _owningLocation=[_logic getVariable ["owningLocation",objNull]] call BIS_fnc_parseNumber;
 if (typeName _owningLocation!="OBJECT") then {
 	_owningLocation=objNull;
 };
 
-{ 
+{
 	if (_includeAIS) then {
 		private _grpOptions=["exec:"];
-		
+
         if (str _trgSide=="GUER") then {
             _trgSide="independent";
         };
-        
-		private _parameters="[%1," + 
+
+		private _parameters="[%1," +
 				format["%1",_removeIED] + "," +
 				"'" + _explosionClass + "'" + "," +
 				"[" + str _minRange + "," + str _maxRange + "]," +
 				"[" + str _minDelay + "," + str _maxDelay + "]," +
-				format["%1",_trgSide] +
+				format["%1,",_trgSide] +
+				"'" + _daisyChainID + "'" + "," +
+				"'" + _triggerManID + "'" +
 				"] spawn fen_fnc_iedObject;";
-	
+
 		_grpOptions pushBack _parameters;
-		
+
 		if (_owningLocation isEqualTo objNull) then {
 			[_x,_grpOptions] call fenAIS_fnc_vehicle;
 		} else {
 			[_x,_grpOptions,_owningLocation] call fenAIS_fnc_vehicle;
 		};
 	} else {
-		[_x,_removeIED,_explosionClass,[_minRange,_maxRange],[_minDelay,_maxDelay],_trgSide] spawn fen_fnc_iedObject;
+		[_x,_removeIED,_explosionClass,[_minRange,_maxRange],[_minDelay,_maxDelay],_trgSide,_daisyChainID,_triggerManID] spawn fen_fnc_iedObject;
 	};
 } forEach _localunits;
-
-	

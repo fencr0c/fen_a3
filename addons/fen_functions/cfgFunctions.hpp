@@ -14,6 +14,7 @@ class cfgFunctions {
 			class civilianArea;
       class civilianArea_group;
       class civilianAreaQueueHandler;
+			class civThrowGrenade;
 			class civTalk_addAction;
 			class civTalk_addConversation;
 			class civTalk_speak;
@@ -29,6 +30,8 @@ class cfgFunctions {
 			class flares;
 			class fndClearLoc;
       class forwardObs;
+			class getUnitsNearPosition;
+			class getUnitsNearUnit;
 			class groupAddWaypoints;
 			class groupAlive;
 			class groupDeleteWaypoints;
@@ -45,9 +48,11 @@ class cfgFunctions {
 			class grpStaticPos;
 			class grpSurrender;
       class handleMines;
+			class hasLOStoUnit;
 			class hiddenEnemy;
 			class iedMan;
 			class iedObject;
+			class iedObjectTriggerMan;
 			class iedPP;
       class initCachedMines;
 			class intel_addAction;
@@ -76,6 +81,7 @@ class cfgFunctions {
       class UCRaddCivilianClothesObject;
       class UCRsearchBuildingClothesAction;
       class UCRsearchBuildingClothesMonitor;
+			class unitEvasion;
 			class vehAssault;
 	    class VIRInContact;
 	    class VIRQueueAdd;

@@ -498,6 +498,37 @@ class CfgVehicles {
 		};
 	};
 
+  //fen_fnc_cachedMines
+  class fen_moduleCachedMines: Module_F {
+    scope = 2;
+    displayName="Cached Mines";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleCachedMines";
+    functionPriority = 10;
+    icon = "\fen_a3\addons\fen_modules\images\fn_moduleCachedMines.paa";
+    isGlobal = 1;
+    isTriggerActivated = 0;
+    isDisposable = 0;
+    is3DEN = 0;
+
+    class Arguments: ArgumentsBaseUnits {
+      class proximity {
+        displayName="Proximity";
+        description="Defines proximity to player for mines to be spawned.";
+        typeName="NUMBER";
+        defaultValue=800;
+      };
+      class frequency {
+        displayName="Frequency";
+        description="Defines how oftern check for spawning/despawning mines occurs.";
+        typeName="NUMBER";
+        defaultValue=5;
+      };
+    };
+  };
+
 	// fen_fnc_civilianArea
 	class fen_moduleCivilianArea: Module_F {
     scope = 2;
@@ -648,35 +679,102 @@ class CfgVehicles {
 		};
 	};
 
-    //fen_fnc_cachedMines
-	class fen_moduleCachedMines: Module_F {
+  // fen_fnc_civThrowGrenade
+  class fen_moduleCivThrowGrenade: Module_F {
     scope = 2;
-    displayName="Cached Mines";
+    displayName="Civ Throw Grenade";
     author = "Fen";
     vehicleClass = "Modules";
     category = "Fen_Modules";
-    function = "fen_fnc_moduleCachedMines";
+    function = "fen_fnc_moduleCivThrowGrenade";
     functionPriority = 10;
-		icon = "\fen_a3\addons\fen_modules\images\fn_moduleCachedMines.paa";
+    icon = "\fen_a3\addons\fen_modules\images\fn_moduleCivThrowGrenade.paa";
     isGlobal = 1;
     isTriggerActivated = 0;
     isDisposable = 0;
     is3DEN = 0;
 
-		class Arguments: ArgumentsBaseUnits {
-      class proximity {
-				displayName="Proximity";
-				description="Defines proximity to player for mines to be spawned.";
-				typeName="NUMBER";
-				defaultValue=800;
-			};
-      class frequency {
-        displayName="Frequency";
-        description="Defines how oftern check for spawning/despawning mines occurs.";
-        typeName="NUMBER";
-        defaultValue=5;
+    class Arguments: ArgumentsBaseUnits {
+      class sideToEngage {
+        displayName="Side";
+        description="Defines side civilian will throw grenade at.";
+        typeName="STRING";
+        class values {
+          class west {
+            name="West";
+            value="west";
+            default=1;
+          };
+          class east {
+            name="East";
+            value="east";
+          };
+          class independent {
+            name="Independent";
+            value="independent";
+          };
+        };
       };
-		};
+      class proximity {
+        displayName="Proximity";
+        description="Defines proximity of side to cause grenade to be thrown.";
+        typeName="NUMBER";
+        defaultValue=80;
+      };
+      class evasionProximity {
+        displayName="Evasion Proximity";
+        description="Proximity of cause civilian to flee after throwing grenade.";
+        typeName="NUMBER";
+        defaultValue=100;
+      };
+      class evasionMove {
+        displayName="Evasion move distance";
+        description="Distance civilian will move in each evasion attempt";
+        typeName="NUMBER";
+        defaultValue=100;
+      };
+      class includeAIS {
+        displayName="Add to AIS";
+        description="Add synchronised objects to AIS.";
+        typeName="BOOL";
+        class values {
+          class no {
+            name="No";
+            value=0;
+            default=1;
+          };
+          class yes {
+            name="Yes";
+            value=1;
+          };
+        };
+      };
+      class owningLocation {
+        displayName="Owning Location";
+        description="Optional: Defines owning AIS location";
+        typeName="STRING";
+      };
+    };
+
+    class ModuleDescription: ModuleDescription {
+      description="Civ Throw Grenade";
+      sync[]={
+        "LocationArea_F"
+      };
+      class LocationArea_F {
+        description[]={
+          "https://feedback.bistudio.com/T84295",
+          "has been fixed if you can see this."
+        };
+        position=0;
+        optional=0;
+        duplicate=1;
+        synced[]={
+          "AnyVehicle",
+          "AnyStaticObject"
+        };
+      };
+    };
   };
 
 	// fen_fnc_civTalk_addConversation
@@ -1527,6 +1625,16 @@ class CfgVehicles {
 					};
 				};
 			};
+      class daisyChainID {
+        displayName="Daisy Chain ID";
+        description="All IED's for same ID will simulatenously trigger.";
+        typeName="STRING";
+      };
+      class triggerManID {
+        displayName="Trigger Man ID";
+        description="IED can be detonated by trigger man with same ID.";
+        typeName="STRING"
+      };
 			class includeAIS {
 				displayName="Add to AIS";
 				description="Add synchronised objects to AIS.";
@@ -1570,6 +1678,111 @@ class CfgVehicles {
 			};
 		};
 	};
+
+  // fen_fnc_iedObjectTriggerMan
+  class fen_moduleIEDObjectTriggerMan: Module_F {
+    scope = 2;
+    displayName="IED Object Trigger Man";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleIEDObjectTriggerMan";
+    functionPriority = 10;
+    icon = "\fen_a3\addons\fen_modules\images\fn_moduleIEDObjectTriggerMan.paa";
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
+
+    class Arguments: ArgumentsBaseUnits {
+      class trgSide {
+        displayName="Side causing detonation";
+        description="Defines side that cause trigger man to detonate IED.";
+        typeName="STRING";
+        class values {
+          class west {
+            name="West";
+            value="west";
+            default=1;
+          };
+          class east {
+            name="East";
+            value="east";
+          };
+          class independent {
+            name="Independent";
+            value="independent";
+          };
+        };
+      };
+      class proximity {
+        displayName="Trigger proximity";
+        description="Defines proximity of triggering side to IED to cause detonation.";
+        typeName="NUMBER";
+        defaultValue=20;
+      };
+      class triggerManID {
+        displayName="Trigger Man ID";
+        description="Trigger man will detonate IEDs with same Trigger Man ID (see IED Object Module).";
+        typeName="STRING"
+      };
+      class evasionProximity {
+        displayName="Evasion Proximity";
+        description="Proximity of triggering side to cause Trigger man to start evasions.";
+        typeName="NUMBER";
+        defaultValue=75;
+      };
+      class evasionMove {
+        displayName="Evasion move distance";
+        description="Distance trigger man will move in each evasion attempt";
+        typeName="NUMBER";
+        defaultValue=100;
+      };
+      class includeAIS {
+        displayName="Add to AIS";
+        description="Add synchronised objects to AIS.";
+        typeName="BOOL";
+        class values {
+          class no {
+            name="No";
+            value=0;
+            default=1;
+          };
+          class yes {
+            name="Yes";
+            value=1;
+          };
+        };
+      };
+      class owningLocation {
+        displayName="Owning Location";
+        description="Optional: Defines owning AIS location";
+        typeName="STRING";
+      };
+    };
+
+    class ModuleDescription: ModuleDescription {
+      description="IED Object Trigger Man";
+      sync[]={
+        "LocationArea_F"
+      };
+      class LocationArea_F {
+        description[]={
+          "https://feedback.bistudio.com/T84295",
+          "has been fixed if you can see this."
+        };
+        position=0;
+        optional=0;
+        duplicate=1;
+        synced[]={
+          "AnyVehicle",
+          "AnyStaticObject"
+        };
+      };
+    };
+  };
+
+
 
 	// fen_fnc_iedPP
 	class fen_moduleIEDPP: Module_F {
@@ -2373,7 +2586,7 @@ class CfgVehicles {
 		};
 	};
 
-    // fen_fnc_UCRaddCivilianClothesObject
+  // fen_fnc_UCRaddCivilianClothesObject
 	class fen_moduleUCRaddCivilianClothesObject: Module_F {
     scope = 2;
     displayName="UCR Add Civ Clothes Object";
@@ -2444,7 +2657,7 @@ class CfgVehicles {
 		};
 	};
 
-    // fen_fnc_UCRsearchBuildingClothes
+  // fen_fnc_UCRsearchBuildingClothes
 	class fen_moduleUCRsearchBuildingClothes: Module_F {
     scope = 2;
     displayName="UCR Search Building Civ Clothes";
@@ -2494,7 +2707,7 @@ class CfgVehicles {
 		};
 	};
 
-    // fen_fnc_VIR
+  // fen_fnc_VIR
 	class fen_moduleVIR: Module_F {
     scope = 2;
     displayName="VIR";

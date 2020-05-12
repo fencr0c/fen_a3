@@ -1,7 +1,7 @@
 /*
 
 File: fn_airAssault.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Inserts AI group by helicopter.
@@ -56,7 +56,7 @@ _trnGrp=_trnDta select 1;
     _x setVariable ["NOAI",true,false];
 } forEach units _trnGrp;
 
-// spawn infantry group 
+// spawn infantry group
 _infGrp=[_aiiSid,_infStr,0,_infCls,_ownVal] call fen_fnc_spawngroup;
 
 // move infantry group into transport helicopter
@@ -72,7 +72,7 @@ if (count _trnWPI==0) then {
     _trnGrp addWaypoint [_trnLnd,0];
     [_trnGrp,_idxWps] setWaypointType "MOVE";
 } else {
-    {       
+    {
         _idxWps=_idxWps+1;
         _trnGrp addWaypoint [_x,0];
         [_trnGrp,_idxWps] setWaypointType "MOVE";
@@ -91,14 +91,14 @@ if (count _trnWPI==0) then {
 
 // assign waypoint for helicopter outbound to despawn location
 if (count _trnWPO>0) then {
-    {
-        _idxWps=_idxWps+1;
-        _trnGrp addWaypoint [_x,0];
-        [_trnGrp,_idxWps] setWaypointType "MOVE";
-    } forEach _trnWPO;
+  {
+    _idxWps=_idxWps+1;
+    _trnGrp addWaypoint [_x,0];
+    [_trnGrp,_idxWps] setWaypointType "MOVE";
+  } forEach _trnWPO;
 };
 
-// assign waypoint for helicopter end 
+// assign waypoint for helicopter end
 _idxWps=_idxWps+1;
 _trnGrp addWaypoint [_trnEnd,0];
 [_trnGrp,_idxWps] setWaypointType "MOVE";
@@ -107,33 +107,31 @@ _trnGrp addWaypoint [_trnEnd,0];
 
 // spawn infantry disembarked handler
 [_infGrp,_infScr,_lndPad] spawn {
-    
-    private ["_infGrp","_infScr","_lndPad"];
-    
-    _infGrp=_this select 0;
-    _infScr=_this select 1;
-    _lndPad=_this select 2;
-    
+
+  private ["_infGrp","_infScr","_lndPad"];
+
+  _infGrp=_this select 0;
+  _infScr=_this select 1;
+  _lndPad=_this select 2;
+
 	// wait until troops disemark or no more units left in infantry group
-    waitUntil{
-        sleep 3;
-        vehicle leader _infGrp==leader _infGrp or
-        count units _infGrp==0;
-    };
-	
+  waitUntil{
+    sleep 3;
+    vehicle leader _infGrp==leader _infGrp or
+    count units _infGrp==0;
+  };
+
 	// unassign infantry group from helicopter
-    {
-        {unassignVehicle _x} forEach units _infGrp;
-    } forEach units _infGrp;
+  {
+    {unassignVehicle _x} forEach units _infGrp;
+  } forEach units _infGrp;
 
 	// delete landing pad
-    deleteVehicle _lndPad;	
-	
+  deleteVehicle _lndPad;
+
 	// run script for infantry group
 	if (_infScr!="") then {
 		[_infGrp] execVM _infScr;
 	};
 
 };
-
-

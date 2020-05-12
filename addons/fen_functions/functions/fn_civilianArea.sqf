@@ -1,7 +1,7 @@
 /*
 
 File: fn_civilianarea.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Adds area to civilian area queue and starts queue processing if required.
@@ -43,31 +43,34 @@ _clause=param[8,"",[""]];
 _excBld=param[9,[],[[]]];
 
 private _excludeClasses=[
-    "C_Driver_1_F",
-    "C_Driver_2_F",
-    "C_Driver_3_F",
-    "C_Driver_4_F",
-    "C_Driver_1_random_base_F",
-    "C_Driver_1_black_F",
-    "C_Driver_1_blue_F",
-    "C_Driver_1_green_F",
-    "C_Driver_1_red_F",
-    "C_Driver_1_white_F",
-    "C_Driver_1_yellow_F",
-    "C_Driver_1_orange_F",
-    "C_Marshal_F",
-    "C_Paramedic_01_base_F",
-    "C_Man_Paramedic_01_F",
-    "C_Journalist_01_War_F",
-    "C_Man_UAV_06_F",
-    "C_Man_UAV_06_medical_F",
-    "C_man_w_worker_F",
-    "C_man_pilot_F",
-    "C_scientist_F"
+  "C_Driver_1_F",
+  "C_Driver_2_F",
+  "C_Driver_3_F",
+  "C_Driver_4_F",
+  "C_Driver_1_random_base_F",
+  "C_Driver_1_black_F",
+  "C_Driver_1_blue_F",
+  "C_Driver_1_green_F",
+  "C_Driver_1_red_F",
+  "C_Driver_1_white_F",
+  "C_Driver_1_yellow_F",
+  "C_Driver_1_orange_F",
+  "C_Marshal_F",
+  "C_Paramedic_01_base_F",
+  "C_Man_Paramedic_01_F",
+  "C_journalist_F",
+  "C_Journalist_01_War_F",
+  "C_Man_UAV_06_F",
+  "C_Man_UAV_06_medical_F",
+  "C_man_w_worker_F",
+  "C_man_pilot_F",
+  "C_scientist_F",
+  "C_Protagonist_VR_F",
+  "C_Soldier_VR_F"
 ];
 
 if (typename _civOpt=="ARRAY") then {
-    _civArr=_civOpt;
+  _civArr=_civOpt;
 } else {
 	_civArr=[];
 	_config=configFile>>"CfgVehicles";
@@ -75,9 +78,9 @@ if (typename _civOpt=="ARRAY") then {
 
 		if (isClass (_config select _idx)) then {
 			if (conFigName(_config select _idx) isKindOf "Man" and tolower ([(_config select _idx),"faction","none"] call BIS_fnc_returnConfigEntry)==tolower _civOpt and not(configName(_config select _idx) in _excludeClasses)) then {
-                if (getNumber((_config select _idx) >> "scope")>=2) then {
-                    _civArr pushBack configName (_config select _idx);
-                };
+        if (getNumber((_config select _idx) >> "scope")>=2) then {
+          _civArr pushBack configName (_config select _idx);
+        };
 			};
 		};
 	};
@@ -99,18 +102,17 @@ _civTrg setVariable ["fen_civilianArea_bldPos",_bldPos];
 _civTrg setVariable ["fen_civilianArea_civArr",_civArr];
 
 if (isNil "fen_civilianAreaQueue") then {
-    fen_civilianAreaQueue=[];
+  fen_civilianAreaQueue=[];
 };
 
 
 fen_civilianAreaQueue pushBackUnique _civTrg;
 
 if (isNil "fen_civilianAreaQueueHandlerRunning") then {
-    fen_civilianAreaQueueHandlerRunning=false;
+  fen_civilianAreaQueueHandlerRunning=false;
 };
 
 if not(fen_civilianAreaQueueHandlerRunning) then {
-    fen_civilianAreaQueueHandlerRunning=true;
-    [] spawn fen_fnc_civilianAreaQueueHandler;
+  fen_civilianAreaQueueHandlerRunning=true;
+  [] spawn fen_fnc_civilianAreaQueueHandler;
 };
-
