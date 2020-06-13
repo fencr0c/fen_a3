@@ -23,6 +23,7 @@ _this select 6 : (Scalar) FPS limit, default is 20
 _this select 7 : OPTIONAL (Array) randomly assigned conversation
 _this select 8 : OPTIONAL (String) clause for assigned conversation
 _this select 9 : OPTIONAL (Array) Building classes to exclude
+_this select 10: OPTIONAL (Array) Black list markers
 
 Example:
 [[1000,1000],300,10,[west],1500,"CIV_F",10,[["Hello","I see your a soldier"],["Go away","I dont want to speak to you"]]] spawn fen_fnc_civilianArea
@@ -41,6 +42,7 @@ _fpsLmt=param[6,20];
 _tlkArr=param[7,[]];
 _clause=param[8,"",[""]];
 _excBld=param[9,[],[[]]];
+_blackList=param[10,[],[[]]];
 
 private _excludeClasses=[
   "C_Driver_1_F",
@@ -86,7 +88,21 @@ if (typename _civOpt=="ARRAY") then {
 	};
 };
 
-_bldPos=[_araLoc,_araRad,_excBld] call fen_fnc_rtnbuildingpos;
+private _bldPosAll=[_araLoc,_araRad,_excBld] call fen_fnc_rtnbuildingpos;
+private _bldPos=[];
+if (count _blackList>0) then {
+  {
+    private _checkPosition=_x;
+    {
+        if not(_checkPosition inArea _x) then {
+          _bldPos pushBack _checkPosition;
+        }
+    } forEach _blackList;
+  } forEach _bldPosAll;
+} else {
+  _bldPos=_bldPosAll;
+};
+
 _civTrg=createTrigger["EmptyDetector",_araLoc];
 _civTrg setTriggerArea[_actRng,_actRng,0,false];
 _civTrg setTriggerActivation["ANY","PRESENT",false];
