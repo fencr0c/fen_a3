@@ -1,7 +1,7 @@
 /*
 
 File: fn_moduleCivilianArea.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Function for module Civilianarea
@@ -37,6 +37,10 @@ private _excludeBuildings=[_logic getVariable ["excludeBuildings",[]]] call BIS_
 if (typeName _excludeBuildings!="ARRAY") then {
 	_excludeBuildings=[];
 };
+private _blackList=[_logic getVariable ["blackList",[]]] call BIS_fnc_parseNumber;
+if (typeName _blackList!="ARRAY") then {
+	_blackList=[];
+};
 
 private _triggeredBy=[];
 if (_triggerByWest) then {
@@ -63,6 +67,4 @@ if (count _civClasses==0) then {
 	_civData=_civClasses;
 };
 
-[position _logic,_radius,_maxCivilians,_triggeredBy,_triggerRange,_civData,_fpsLimiter,_conversations,_clause,_excludeBuildings] spawn fen_fnc_civilianArea;
-
-	
+[position _logic,_radius,_maxCivilians,_triggeredBy,_triggerRange,_civData,_fpsLimiter,_conversations,_clause,_excludeBuildings,_blackList] spawn fen_fnc_civilianArea;
