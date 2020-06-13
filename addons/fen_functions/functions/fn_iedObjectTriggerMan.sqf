@@ -35,13 +35,19 @@ if (_evasionProximity>0) then {
 
 while {alive _triggerMan} do {
 
-  {
+  /*{
     private _iedObject=_x;
     if (count(allUnits select {side _x==_sideToEnage and _x distance _iedObject<_proximityIED and ([_triggerMan,_x] call fen_fnc_hasLOStoUnit)})>0) then {
       _iedObject setVariable ["fen_iedObject_hasTriggeredRemotely",true];
     };
+  } forEach ((allmissionObjects "") select {(_x getVariable ["fen_iedObject_triggerManID",""])==_triggerManID});*/
+  {
+    private _iedTrigger=_x;
+    if (count(allUnits select {side _x==_sideToEnage and _x distance _iedTrigger<_proximityIED and ([_triggerMan,_x] call fen_fnc_hasLOStoUnit)})>0) then {
+      _iedTrigger setVariable ["fen_iedObject_hasTriggeredRemotely",true];
+    };
 
-  } forEach ((allmissionObjects "") select {(_x getVariable ["fen_iedObject_triggerManID",""])==_triggerManID});
+  } forEach (_triggerMan nearObjects["EmptyDetector",500] select {(_x getVariable["fen_iedObject_triggerManID",""])==_triggerManID});
 
   sleep 3;
 
