@@ -69,7 +69,7 @@ class CfgVehicles {
           defaultValue=5;
         };
         class hitLife {
-          displayName="Track Life"
+          displayName="Track Life";
           description="Defined how long each hit marker lasts.";
           typeName="NUMBER";
           defaultValue=30;

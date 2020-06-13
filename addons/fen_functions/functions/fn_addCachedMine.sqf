@@ -1,7 +1,7 @@
 /*
 
 File: fn_addCachedMine.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Adds a mine to the cached mines array
@@ -15,6 +15,8 @@ _this select 1 : start position
 params [
 	["_mine",objNull,[objNull]]
 ];
+
+if ([_mine] call fen_fnc_isVCBGroundSign) exitWith {};
 
 private _mineData=[typeOf _mine,getPosWorld _mine,direction _mine,(_mine call BIS_fnc_getPitchBank)];
 

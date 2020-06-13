@@ -659,6 +659,12 @@ class CfgVehicles {
 				description="Optional: Defines array of building classes civilians will avoid";
 				typeName="STRING";
 			};
+      class blackList {
+        displayName="Black list areas";
+        description="Optiona: Array of markers to exclude civilian activity";
+        typeName="STRING";
+        defaultValue=[];
+      }
 		};
 
 		class ModuleDescription: ModuleDescription {
@@ -1633,7 +1639,7 @@ class CfgVehicles {
       class triggerManID {
         displayName="Trigger Man ID";
         description="IED can be detonated by trigger man with same ID.";
-        typeName="STRING"
+        typeName="STRING";
       };
 			class includeAIS {
 				displayName="Add to AIS";
@@ -1724,7 +1730,7 @@ class CfgVehicles {
       class triggerManID {
         displayName="Trigger Man ID";
         description="Trigger man will detonate IEDs with same Trigger Man ID (see IED Object Module).";
-        typeName="STRING"
+        typeName="STRING";
       };
       class evasionProximity {
         displayName="Evasion Proximity";
@@ -1782,7 +1788,118 @@ class CfgVehicles {
     };
   };
 
+  // fen_fnc_iedObjectVCBGS
+	class fen_moduleIEDObjectVCBGS: Module_F {
+    scope = 2;
+    displayName="IED Object VCB Ground Sign";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleIEDObjectVCBGS";
+    functionPriority = 10;
+		icon = "\fen_a3\addons\fen_modules\images\fn_moduleIEDObjectVCBGS.paa";
+    isGlobal = 1;
+    isTriggerActivated = 1;
+    isDisposable = 0;
+    is3DEN = 0;
 
+		class Arguments: ArgumentsBaseUnits {
+			class explosionClass {
+				displayName="Explosion size";
+				description="Defines size of explosion.";
+				typeName="STRING";
+				class values {
+					class small {
+						name="Small";
+						value="M_NLAW_AT_F";
+						default=1;
+					};
+					class medium {
+						name="Medium";
+						value="M_Mo_82mm_AT";
+					};
+					class large {
+						name="Large";
+						value="Bo_Mk82";
+					};
+				};
+			};
+			class minRange {
+				displayName="Minimum proximity";
+				description="Defines minimum distance from object to detonation.";
+				typeName="NUMBER";
+				defaultValue=0;
+			};
+			class maxRange {
+				displayName="Maximum proximity";
+				description="Defines maximum distance from object to detonation.";
+				typeName="NUMBER";
+				defaultValue=8;
+			};
+			class minDelay {
+				displayName="Minimum delay before detonation";
+				description="Defines minimum delay in seconds from triggered to detonation.";
+				typename="NUMBER";
+				defaultValue=0;
+			};
+			class maxDelay {
+				displayName="Maximum delay before detonation";
+				desription="Defines maximum delay in seconds from triggered to detonation.";
+				typeName="NUMBER";
+				defaultValue=5;
+			};
+			class trgSide {
+				displayName="Side causing detonation";
+				description="Defines side that cause IED to trigger";
+				typeName="STRING";
+				class values {
+					class west {
+						name="West";
+						value="west";
+						default=1;
+					};
+					class east {
+						name="East";
+						value="east";
+					};
+					class independent {
+						name="Independent";
+						value="independent";
+					};
+				};
+			};
+      class daisyChainID {
+        displayName="Daisy Chain ID";
+        description="All IED's for same ID will simulatenously trigger.";
+        typeName="STRING";
+      };
+      class triggerManID {
+        displayName="Trigger Man ID";
+        description="IED can be detonated by trigger man with same ID.";
+        typeName="STRING";
+      };
+		};
+
+		class ModuleDescription: ModuleDescription {
+			description="IED Object";
+			sync[]={
+				"LocationArea_F"
+			};
+			class LocationArea_F {
+				description[]={
+					"https://feedback.bistudio.com/T84295",
+					"has been fixed if you can see this."
+				};
+				position=0;
+				optional=0;
+				duplicate=1;
+				synced[]={
+					"AnyVehicle",
+					"AnyStaticObject"
+				};
+			};
+		};
+	};
 
 	// fen_fnc_iedPP
 	class fen_moduleIEDPP: Module_F {
@@ -2747,7 +2864,7 @@ class CfgVehicles {
 			};
       class convoyNumber {
         displayName="Convoy Number";
-        description="Vehicles of same convoy number will react together."
+        description="Vehicles of same convoy number will react together.";
         typeName="NUMBER";
         defaultValue=1;
       };

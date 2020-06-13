@@ -82,6 +82,10 @@ class cfgFunctions {
       class moduleIEDObjectTriggerMan {
         description="IED Object Trigger Man";
       };
+      // fen_fnc_IEDObjectVCBGS
+      class moduleIEDObjectVCBGS {
+        description="IED Objects for VCB GS";
+      }
 			// fen_fnc_iedPP
 			class moduleIEDPP {
 				description="Pressure Plate IED";
