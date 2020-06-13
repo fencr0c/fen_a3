@@ -1,13 +1,13 @@
 /*
 
 File: fn_vehicle.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Adds vehicle to processed via AIS
 
 Parameters:
-_this select 0 : vehicle 
+_this select 0 : vehicle
 _this select 1 : optional parameters
 _this select 2 : optional owning location
 
@@ -20,6 +20,10 @@ _data=param[1,true];
 _vari=param[2,objNull,[objNull]];
 
 if (isNull _vehicle) exitWith {};
+
+if (_vehicle in allMines) exitWith {
+	systemChat format["AIS Error: %1 cannot be used with AIS",typeOf _vehicle];
+};
 
 private _vehData=_vehicle getVariable ["fen_ais_vehicle",""];
 
@@ -39,4 +43,4 @@ _vehicle setVariable ["fen_ais_vehicle",_vehData,true];
 
 if not(isNull _vari) then {
 	_vehicle setVariable ["fen_ais_vehicleOwnedBy",_vari,true];
-}; 
+};
