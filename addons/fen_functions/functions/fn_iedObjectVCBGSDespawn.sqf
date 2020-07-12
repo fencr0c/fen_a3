@@ -14,7 +14,6 @@ params [
   ["_iedObject",objNull,[objNull]]
 ];
 
-diag_log format["fn_iedObjectVCBGSDespawn starting for %1",_iedObject]; //debugdeleteme
 if (isNull _iedObject) exitWith {};
 if not(local _iedObject) exitWith {};
 

@@ -28,12 +28,8 @@ params [
 
 if not([_iedObject] call fen_fnc_isVCBGroundSign) exitWith {};
 
-if (isNull _iedObject) exitWith {
-  diag_log format["fn_iedObjectVCBGSAdd exit object is null"]; //debugdeleteme
-};
-if not(local _iedObject) exitWith {
-  diag_log format["fn_iedObjectVCBGSAdd exit not local"]; //debugdeleteme
-};
+if (isNull _iedObject) exitWith {};
+if not(local _iedObject) exitWith {};
 
 private _iedObjectVCBGSData=[
   typeOf _iedObject,
@@ -48,14 +44,10 @@ private _iedObjectVCBGSData=[
   _triggerManID
 ];
 
-diag_log format["fn_iedObjectVCBGSAdd iedObjectVCBGSData %1",_iedObjectVCBGSData]; //debugdeleteme
-
 private _iedObjectVCBGSCache=missionNamespace getVariable ["fen_iedObjectVCBGSCache",[]];
 _iedObjectVCBGSCache pushBack _iedObjectVCBGSData;
 missionNamespace setVariable["fen_iedObjectVCBGSCache",_iedObjectVCBGSCache];
 deleteVehicle _iedObject;
-
-diag_log format["fn_iedObjectVCBGSAdd fen_iedObjectVCBGSCache %1",missionNamespace getVariable["fen_iedObjectVCBGSCache","missing"]]; //debugdeleteme
 
 if not(missionNamespace getVariable["fen_iedObjectVCBGSHandler_running",false]) then {
   missionNamespace setVariable["fen_iedObjectVCBGSHandler_running",true];

@@ -17,9 +17,9 @@ params [
 
 private _allEmbarked=true;
 {
-    if (vehicle _x==_x) then {
-      _allEmbarked=false;
-    }
+  if (vehicle _x==_x) then {
+    _allEmbarked=false;
+  }
 } forEach units _group;
 
 _allEmbarked

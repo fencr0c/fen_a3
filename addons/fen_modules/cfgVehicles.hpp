@@ -1585,6 +1585,18 @@ class CfgVehicles {
 						name="Large";
 						value="Bo_Mk82";
 					};
+          class random {
+            name="Random S/M/L";
+            value="random";
+          };
+          class randomsm {
+            name="Random small/medium";
+            value="randomsm"
+          };
+          class randomml {
+            name="Random medium/large";
+            value="randomml";
+          };
 				};
 			};
 			class minRange {
@@ -1822,6 +1834,18 @@ class CfgVehicles {
 						name="Large";
 						value="Bo_Mk82";
 					};
+          class random {
+            name="Random S/M/L";
+            value="random";
+          };
+          class randomsm {
+            name="Random small/medium";
+            value="randomsm"
+          };
+          class randomml {
+            name="Random medium/large";
+            value="randomml";
+          };
 				};
 			};
 			class minRange {

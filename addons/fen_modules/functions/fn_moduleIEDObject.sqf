@@ -36,7 +36,15 @@ if (typeName _owningLocation!="OBJECT") then {
 	_owningLocation=objNull;
 };
 
+private _randomExplosionClassesAll=["M_NLAW_AT_F","M_Mo_82mm_AT","Bo_Mk82"];
+private _randomExplosionClassesSM=["M_NLAW_AT_F","M_Mo_82mm_AT"];
+private _randomExplosionClassesML=["M_Mo_82mm_AT","Bo_Mk82"];
 {
+	switch _explosionClass do {
+		case "random" : {_explosionClass=selectRandom _randomExplosionClassesAll};
+		case "randomsm" : {_explosionClass=selectRandom _randomExplosionClassesSM};
+		case "randomml" : {_explosionClass=selectRandom _randomExplosionClassesML};
+	};
 	if (_includeAIS) then {
 		private _grpOptions=["exec:"];
 

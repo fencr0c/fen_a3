@@ -30,6 +30,16 @@ if (typeName _trgSide!="SIDE") then {
 private _daisyChainID=_logic getVariable["daisyChainID",""];
 private _triggerManID=_logic getVariable["triggerManID",""];
 
+private _randomExplosionClassesAll=["M_NLAW_AT_F","M_Mo_82mm_AT","Bo_Mk82"];
+private _randomExplosionClassesSM=["M_NLAW_AT_F","M_Mo_82mm_AT"];
+private _randomExplosionClassesML=["M_Mo_82mm_AT","Bo_Mk82"];
 {
+
+	switch _explosionClass do {
+		case "random" : {_explosionClass=selectRandom _randomExplosionClassesAll};
+		case "randomsm" : {_explosionClass=selectRandom _randomExplosionClassesSM};
+		case "randomml" : {_explosionClass=selectRandom _randomExplosionClassesML};
+	};
+
   [_x,_explosionClass,[_minRange,_maxRange],[_minDelay,_maxDelay],_trgSide,_daisyChainID,_triggerManID] spawn fen_fnc_IEDObjectVCBGSAdd;
 } forEach _localunits;

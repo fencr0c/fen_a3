@@ -15,8 +15,6 @@ params [
     ["_VCBGSData",[],[[]]]
 ];
 
-diag_log format["fn_iedObjectVCBGSSpawn starting"]; //debugdeleteme
-
 private _class=_VCBGSData select 0;
 private _position=_VCBGSData select 1;
 private _direction=_VCBGSData select 2;
@@ -30,15 +28,12 @@ private _triggerManID=_VCBGSData select 9;
 
 private _ied=createVehicle [_class,_position,[],0,"CAN_COLLIDE"];
 _ied setPosWorld _position;
-[_ied,_pitchBank select 0,_pitchBank select 1] call BIS_fnc_setPitchBank;
 _ied setDir _direction;
-
+[_ied,_pitchBank select 0,_pitchBank select 1] call BIS_fnc_setPitchBank;
 
 private _iedObjectVCBGSCache=missionNamespace getVariable ["fen_iedObjectVCBGSCache",[]];
-diag_log format["fn_iedObjectVCBGSSpawn fen_iedObjectVCBSGCache before %1",_iedObjectVCBGSCache]; //debugdeleteme
 _iedObjectVCBGSCache=_iedObjectVCBGSCache-[_VCBGSData];
 missionNamespace setVariable["fen_iedObjectVCBGSCache",_iedObjectVCBGSCache];
-diag_log format["fn_iedObjectVCBGSSpawn fen_iedObjectVCBSGCache after %1",_iedObjectVCBGSCache]; //debugdeleteme
 
 private _proximity=_proximityLimits call BIS_fnc_randomNum;
 
