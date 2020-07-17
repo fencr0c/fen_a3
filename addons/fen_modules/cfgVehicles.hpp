@@ -1591,7 +1591,7 @@ class CfgVehicles {
           };
           class randomsm {
             name="Random small/medium";
-            value="randomsm"
+            value="randomsm";
           };
           class randomml {
             name="Random medium/large";
@@ -1840,7 +1840,7 @@ class CfgVehicles {
           };
           class randomsm {
             name="Random small/medium";
-            value="randomsm"
+            value="randomsm";
           };
           class randomml {
             name="Random medium/large";

@@ -51,6 +51,5 @@ deleteVehicle _iedObject;
 
 if not(missionNamespace getVariable["fen_iedObjectVCBGSHandler_running",false]) then {
   missionNamespace setVariable["fen_iedObjectVCBGSHandler_running",true];
-  diag_log format["fn_iedObjectVCBGSAdd starting handler"]; //debugdeleteme
   [] spawn fen_fnc_iedObjectVCBGSHandler;
 };
