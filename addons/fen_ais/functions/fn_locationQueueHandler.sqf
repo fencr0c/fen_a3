@@ -1,7 +1,7 @@
 /*
 
 File: fn_locationQueueHandler.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Processes locations in location queue
@@ -13,12 +13,13 @@ none
 
 while {fen_ais_locationQueueHandlerRunning} do {
 
-	sleep 2;
+	//sleep 2;
+	sleep (missionNamespace getVariable["fen_ais_locationSpawnFrequency",2]);
 	{
 
 		private _location=_x;
 		private _locationTriggered=false;
-		
+
 		private _triggeredByAI=_location getVariable ["fen_ais_byAI",false];
 
 		private _locationQueueTrigger=_location getVariable "fen_ais_locationQueueTrigger";
@@ -37,7 +38,7 @@ while {fen_ais_locationQueueHandlerRunning} do {
 		if not(_locationTriggered) then {
 			{
 				if not (_x isKindOf "Man") then {
-					{	
+					{
 						if (isPlayer _x) exitWith {
 							_locationTriggered=true;
 						};
@@ -52,38 +53,37 @@ while {fen_ais_locationQueueHandlerRunning} do {
 						_locationTriggered=true;
 					};
 				};
-		};	
-		
+		};
+
 		if (_locationTriggered) then {
-		
+
 			{
 				[_x,_location] call fenAIS_fnc_spawnVehicle;
-				sleep 0.03;
+				sleep (missionNamespace getVariable["fen_ais_smoothSpawnVehicles",0.03]);
 			} forEach (_location getVariable ["fen_ais_vehicleArray",[]]);
-		
+
 			{
 				[_x,_location] call fenAIS_fnc_spawnGroup;
-				sleep 0.03;
+				sleep (missionNamespace getVariable["fen_ais_smoothSpawnGroups",0.03]);
 			} forEach (_location getVariable ["fen_ais_groupArray",[]]);
-	
+
 			if (_location getVariable ["fen_ais_script",""]!="") then {
 				[_location] execVM (_location getVariable "fen_ais_script");
 			};
 
 			_location setVariable ["fen_ais_locationTriggered",true];
-			
+
 			deleteVehicle _locationQueueTrigger;
-	
+
 			[_location] call fenAIS_fnc_locationQueueRemove;
-			
+
 			if ((_location getVariable ["fen_ais_allowDespawn",false])) then {
 				[_location] spawn fenAIS_fnc_despawnQueueAdd;
 			};
 		};
 	} forEach fen_ais_locationQueue;
-	
+
 	if (count fen_ais_locationQueue==0) then {
 		fen_ais_locationQueueHandlerRunning=false;
 	};
 };
-	

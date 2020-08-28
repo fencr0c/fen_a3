@@ -18,6 +18,10 @@ class cfgFunctions {
 			class moduleVehicle {
 				description="AIS Object";
 			};
+			// fenAIS_fnc_defaults
+			class moduleDefaults {
+				description="AIS Defaults";
+			};
 		};
 	};
 };

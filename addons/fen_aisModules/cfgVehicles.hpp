@@ -147,6 +147,70 @@ class CfgVehicles {
 		};
 	};
 
+	class fenAIS_moduleDefaults: Module_F {
+	scope = 2;
+    displayName="AIS Defaults";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "fenAIS_modules";
+    function = "fenAIS_fnc_moduleDefaults";
+    functionPriority = 40;
+		icon = "\fen_a3\addons\fen_aisModules\images\fn_moduleDefaults.paa";
+    isGlobal = 1;
+    isTriggerActivated = 0;
+    isDisposable = 0;
+    is3DEN = 0;
+
+		class Arguments: ArgumentsBaseUnits {
+			class locationSpawnFrequency {
+				displayName="Location spawn frequency";
+				description="Defines how oftern AIS checks for location spawn in (seconds).";
+				typeName="NUMBER";
+				defaultValue=2;
+      };
+      class locationDespawnFrequency {
+        displayName="Location despawn freqneucy";
+        description="Defines how ofertn AIS checks for location despawn (seconds).";
+        typeName="NUMBER";
+        defaultValue=300;
+      };
+      class smoothSpawnGroups {
+        displayName="Smooth spawn group delay";
+        description="Defines delay between spawning each group (seconds).";
+        typeName="NUMBER";
+        defaultValue=0.03;
+      };
+      class smoothSpawnVehicles {
+        displayName="Smooth spawn vehicle delay";
+        description="Defines delay between spawning each vehciel (seconds).";
+        typeName="NUMBER";
+        defaultValue=0.03;
+      };
+      class skillAimAccuracy {
+        displayName="AI aiming accuracy";
+        descrption="Number 0 to 1, can be override by AI mods."
+        typeName="NUMBER";
+        defaultValue=0;
+      };
+      class removeMagazines {
+        displayName="Remove magazine array";
+        description="Array defining magazines to be remove from AI.";
+        typeName="STRING";
+      };
+      class factionSideSwap {
+        displayName="Faction side swap array.";
+        description="Paired elements defined faction,side.";
+        typeName="STRING"
+      };
+    };
+
+		class ModuleDescription: ModuleDescription {
+			description="Change AIS defaults";
+			sync[]={};
+		};
+	};
+
+
 	class fenAIS_moduleInit: Module_F {
 		scope = 2;
     displayName="AIS Auto Start";

@@ -1,7 +1,7 @@
 /*
 
 File: fn_locationsQueueHandler.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Processes locations in location queue
@@ -17,12 +17,12 @@ if (isNil "fen_debug") then {
 
 while {fen_ais_despawnQueueHandlerRunning} do {
 
-	sleep 300;
+	sleep (missionNamespace getVariable["fen_ais_locationDespawnFrequency",300]);
 	{
 
 		private _location=_x;
 		private _locationDespawn=true;
-		
+
 		private	_triggeredByAI=_location getVariable ["fen_ais_byAI",false];
 
 		private _despawnQueueTrigger=_location getVariable "fen_ais_despawnQueueTrigger";
@@ -41,7 +41,7 @@ while {fen_ais_despawnQueueHandlerRunning} do {
 		if (_locationDespawn) then {
 			{
 				if not (_x isKindOf "Man") then {
-					{	
+					{
 						if (isPlayer _x) exitWith {
 							_locationDespawn=false;
 						};
@@ -49,16 +49,16 @@ while {fen_ais_despawnQueueHandlerRunning} do {
 				};
 			} forEach (list _despawnQueueTrigger);
 		};
-	
+
 		if (_locationDespawn) then {
 
 			private _radius=_location getVariable "fen_ais_location";
-			
+
 			_location setVariable ["fen_ais_groupArray",nil];
 			_location setVariable ["fen_ais_vehicleArray",nil];
 			_location setVariable ["fen_ais_unitCount",nil];
 			_location setVariable ["fen_ais_locationTriggered",nil];
-	
+
 			{
 				if (([_x,(position _location)] call fenAIS_fnc_groupDistance)<=_radius) then {
 					[_x] call fenAIS_fnc_sentryQueueRemove;
@@ -66,23 +66,23 @@ while {fen_ais_despawnQueueHandlerRunning} do {
 					sleep 0.03;
 				};
 			} forEach (_location getVariable ["fen_ais_groups",[]]);
-	
+
 			{
 				if (_x distance _location<_radius) then {
 					[_x,_location] call fenAIS_fnc_addVehicle;
 					sleep 0.03;
 				};
 			} forEach (_location getVariable ["fen_ais_vehicles",[]]);
-	
+
 			_location setVariable ["fen_ais_groups",nil];
 			_location setVariable ["fen_ais_vehicles",nil];
-	
+
 			if (count (_location getVariable ["fen_ais_groupArray",[]])>0 or count (_location getVariable ["fen_ais_vehicleArray",[]])>0) then {
 				[_location] call fenAIS_fnc_locationQueueAdd;
 			};
-	
+
 			_location setVariable ["fen_ais_locationTriggered",false];
-	
+
 			if (fen_debug) then {
 				[_location] call fenAIS_fnc_reportVehicles;
 				[_location] call fenAIS_fnc_reportGroups;
@@ -90,14 +90,10 @@ while {fen_ais_despawnQueueHandlerRunning} do {
 
 			[_location] call fenAIS_fnc_despawnQueueRemove;
 		};
-			
+
 	} forEach fen_ais_despawnQueue;
-	
+
 	if (count fen_ais_despawnQueue==0) then {
 		fen_ais_despawnQueueHandlerRunning=false;
 	};
 };
-
-
-
-	
