@@ -39,6 +39,6 @@ _iedTrg setVariable["fen_iedObject_allParameters",_this,true];
 _iedTrg setVariable["fen_iedObject_daisyChainID",_daisyChainID,true];
 _iedTrg setVariable["fen_iedObject_triggerManID",_triggerManID,true];
 _iedTrg setVariable["fen_iedObject_hasTriggeredRemotely",false,true];
-_iedTrg setTriggerArea[_trgRng,_trgRng,0,false];
+_iedTrg setTriggerArea[_trgRng,_trgRng,0,false,5];
 _iedTrg setTriggerActivation[str _trgSid,"PRESENT",false];
 _iedTrg setTriggerStatements["(this or not(alive (thisTrigger getVariable 'fen_iedObject_object')) or (thisTrigger getVariable 'fen_iedObject_hasTriggeredRemotely'))","[thisTrigger] spawn fen_fnc_iedObjectTriggered",""];

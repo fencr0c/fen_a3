@@ -24,4 +24,4 @@ private _allParameters=_iedTrigger getVariable["fen_iedObject_allParameters",[]]
 
 [_iedObject,_allParameters select 2,_allParameters select 3,_allParameters select 4,_allParameters select 5,_allParameters select 6,_allParameters select 7] call fen_fnc_iedObjectVCBGSAdd;
 
-deleteVehicle _iedObject;
+deleteVehicle _iedTrigger;

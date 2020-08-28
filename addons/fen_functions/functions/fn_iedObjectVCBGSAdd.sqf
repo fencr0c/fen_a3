@@ -33,7 +33,7 @@ if not(local _iedObject) exitWith {};
 
 private _iedObjectVCBGSData=[
   typeOf _iedObject,
-  getPosWorld _iedObject,
+  getPos _iedObject,
   direction _iedObject,
   (_iedObject call BIS_fnc_getPitchBank),
   _explosionClass,

@@ -54,10 +54,10 @@ class cfgFunctions {
 			class iedObject;
 			class iedObjectTriggered;
 			class iedObjectTriggerMan;
-            class iedObjectVCBGSAdd;
-            class iedObjectVCBGSDespawn;
-            class iedObjectVCBGSHandler;
-            class iedObjectVCBGSSpawn;
+      class iedObjectVCBGSAdd;
+      class iedObjectVCBGSDespawn;
+      class iedObjectVCBGSHandler;
+      class iedObjectVCBGSSpawn;
 			class iedPP;
       class initCachedMines;
 			class intel_addAction;

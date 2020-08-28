@@ -1,7 +1,7 @@
 /*
 
 File: fn_addSpawnMine.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Spawns a mine.
@@ -28,11 +28,10 @@ private _direction=_mineData select 2;
 private _pitchBank=_mineData select 3;
 
 private _mine=createVehicle [_type,_position,[],0,"CAN_COLLIDE"];
-_mine setPosWorld _position;
-[_mine,_pitchBank select 0,_pitchBank select 1] call BIS_fnc_setPitchBank;	
+_mine setPos _position;
 _mine setDir _direction;
+[_mine,_pitchBank select 0,_pitchBank select 1] call BIS_fnc_setPitchBank;
 
 private _cachedMines=missionNamespace getVariable["fen_cachedMines",[]];
 _cachedMines=_cachedMines-[_mineData];
 missionNamespace setVariable["fen_cachedMines",_cachedMines];
-

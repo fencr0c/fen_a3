@@ -1,7 +1,7 @@
 /*
 
 File: fn_handleMines.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Function for handling caching and spawning mines
@@ -19,7 +19,7 @@ params [
 while {true} do {
 
     sleep _frequency;
-    
+
     {
         if (([_x select 1,_proximity] call fen_fnc_playerNearMinePosition)) then {
             [_x] call fen_fnc_spawnMine;
@@ -27,11 +27,9 @@ while {true} do {
     } forEach (missionNamespace getVariable["fen_cachedMines",[]]);
 
     {
-        if (not([(getPosWorld _x),_proximity] call fen_fnc_playerNearMinePosition)) then {
+        if (not([(getPos _x),_proximity] call fen_fnc_playerNearMinePosition)) then {
             [_x] call fen_fnc_addCachedMine;
         };
     } forEach allMines;
 
 };
-
-

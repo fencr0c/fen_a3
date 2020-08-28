@@ -27,7 +27,7 @@ private _daisyChainID=_VCBGSData select 8;
 private _triggerManID=_VCBGSData select 9;
 
 private _ied=createVehicle [_class,_position,[],0,"CAN_COLLIDE"];
-_ied setPosWorld _position;
+_ied setPos _position;
 _ied setDir _direction;
 [_ied,_pitchBank select 0,_pitchBank select 1] call BIS_fnc_setPitchBank;
 
@@ -54,6 +54,6 @@ _trigger setVariable["fen_iedObject_allParameters",_allParameters,true];
 _trigger setVariable["fen_iedObject_daisyChainID",_daisyChainID,true];
 _trigger setVariable["fen_iedObject_triggerManID",_triggerManID,true];
 _trigger setVariable["fen_iedObject_hasTriggeredRemotely",false,true];
-_trigger setTriggerArea[_proximity,_proximity,0,false];
+_trigger setTriggerArea[_proximity,_proximity,0,false,5];
 _trigger setTriggerActivation[str _triggeringSide,"PRESENT",false];
 _trigger setTriggerStatements["(this or not(alive (thisTrigger getVariable 'fen_iedObject_object')) or (thisTrigger getVariable 'fen_iedObject_hasTriggeredRemotely'))","[thisTrigger] spawn fen_fnc_iedObjectTriggered",""];

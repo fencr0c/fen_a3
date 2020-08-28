@@ -18,7 +18,7 @@ params [
 
 if ([_mine] call fen_fnc_isVCBGroundSign) exitWith {};
 
-private _mineData=[typeOf _mine,getPosWorld _mine,direction _mine,(_mine call BIS_fnc_getPitchBank)];
+private _mineData=[typeOf _mine,getPos _mine,direction _mine,(_mine call BIS_fnc_getPitchBank)];
 
 private _cachedMines=missionNamespace getVariable["fen_cachedMines",[]];
 _cachedMines pushBack _mineData;
