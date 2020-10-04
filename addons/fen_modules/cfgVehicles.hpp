@@ -640,7 +640,7 @@ class CfgVehicles {
 			};
 			class fpsLimiter {
 				displayName="FPS limiter";
-				descriptions="If FPS falls below this value civilians will not be spawned";
+				description="If FPS falls below this value civilians will not be spawned";
 				typeName="NUMBER";
 				defaultValue=20;
 			};
@@ -946,7 +946,7 @@ class CfgVehicles {
 			};
 			class frequency {
 				displayName="Frequency";
-				descriptions="Defines in seconds how oftern dicker will update nearby units.";
+				description="Defines in seconds how oftern dicker will update nearby units.";
 				typeName="NUMBER";
 				defaultValue=10;
 			};
@@ -1619,7 +1619,7 @@ class CfgVehicles {
 			};
 			class maxDelay {
 				displayName="Maximum delay before detonation";
-				desription="Defines maximum delay in seconds from triggered to detonation.";
+				description="Defines maximum delay in seconds from triggered to detonation.";
 				typeName="NUMBER";
 				defaultValue=5;
 			};
@@ -1924,6 +1924,119 @@ class CfgVehicles {
 			};
 		};
 	};
+
+  // fen_fnc_iedObjectVCBGSRandom
+  class fen_moduleIEDObjectVCBGSRandom: Module_F {
+    scope = 2;
+    displayName="IED Object VCB Ground Sign Random";
+    author = "Fen";
+    vehicleClass = "Modules";
+    category = "Fen_Modules";
+    function = "fen_fnc_moduleIEDObjectVCBGSRandom";
+    functionPriority = 10;
+    icon = "\fen_a3\addons\fen_modules\images\fn_moduleIEDObjectVCBGSRandom.paa";
+    isGlobal = 1;
+    isTriggerActivated = 0;
+    isDisposable = 0;
+    is3DEN = 0;
+
+    class Arguments: ArgumentsBaseUnits {
+      class numberOfIEDs {
+        displayName="Number of IEDs";
+        description="Defines number of random VCB GS objects to create.";
+        typeName="NUMBER";
+        defaultValue=100;
+      };
+      class trgSide {
+        displayName="Side causing detonation";
+        description="Defines side that cause IED to trigger";
+        typeName="STRING";
+        class values {
+          class west {
+            name="West";
+            value="west";
+            default=1;
+          };
+          class east {
+            name="East";
+            value="east";
+          };
+          class independent {
+            name="Independent";
+            value="independent";
+          };
+        };
+      };
+      class minRange {
+        displayName="Minimum proximity";
+        description="Defines minimum distance from object to detonation.";
+        typeName="NUMBER";
+        defaultValue=0;
+      };
+      class maxRange {
+        displayName="Maximum proximity";
+        description="Defines maximum distance from object to detonation.";
+        typeName="NUMBER";
+        defaultValue=8;
+      };
+      class minDelay {
+        displayName="Minimum delay before detonation";
+        description="Defines minimum delay in seconds from triggered to detonation.";
+        typename="NUMBER";
+        defaultValue=0;
+      };
+      class maxDelay {
+        displayName="Maximum delay before detonation";
+        desription="Defines maximum delay in seconds from triggered to detonation.";
+        typeName="NUMBER";
+        defaultValue=5;
+      };
+      class clusterChance {
+        displayName="Cluster chance";
+        description="Defnes percentage chance of additional IEDs being placed in daisy chained cluster.";
+        typeName="NUMBER";
+        defaultValue=10;
+      };
+      class clusterMinDelay {
+        displayName="Cluster min detonation delay";
+        description="Defines minimum delay in seconds from trigger to detonation for clustered IEDs.";
+        typeName="NUMBER";
+        defaultValue=0;
+      };
+      class clusterMaxDelay {
+        displayName="Cluster max detontation delay";
+        description="Defines maximum delay in seconds from trigger to detonation for clustered IEDs.";
+        typeName="NUMBER";
+        defaultValue=120;
+      };
+      class blackList {
+        displayName="Markers blacklist array";
+        description="Array of markers where random IEDs will not be created";
+        typeName="STRING";
+        defaultValue=[];
+      };
+    };
+
+    class ModuleDescription: ModuleDescription {
+      description="IED Object VCBGS Random";
+      sync[]={
+        "LocationArea_F"
+      };
+      class LocationArea_F {
+        description[]={
+          "https://feedback.bistudio.com/T84295",
+          "has been fixed if you can see this."
+        };
+        position=0;
+        optional=0;
+        duplicate=1;
+        synced[]={
+          "AnyVehicle",
+          "AnyStaticObject"
+        };
+      };
+    };
+  };
 
 	// fen_fnc_iedPP
 	class fen_moduleIEDPP: Module_F {
@@ -2600,7 +2713,7 @@ class CfgVehicles {
 			};
 			class crew {
 				displayName="Override Crew Class";
-				descrption="Optional: Class name for crew. eg. I_Soldier_A_F";
+				description="Optional: Class name for crew. eg. I_Soldier_A_F";
 				typeName="STRING";
 			};
 			class includeAIS {

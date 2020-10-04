@@ -85,7 +85,11 @@ class cfgFunctions {
       // fen_fnc_IEDObjectVCBGS
       class moduleIEDObjectVCBGS {
         description="IED Objects for VCB GS";
-      }
+      };
+      // fen_fnc_IEDObjectsVCBGS Random
+      class moduleIEDObjectVCBGSRandom {
+        description="IED Objects VCB GS Random";
+      };
 			// fen_fnc_iedPP
 			class moduleIEDPP {
 				description="Pressure Plate IED";

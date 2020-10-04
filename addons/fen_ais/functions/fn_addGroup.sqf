@@ -1,7 +1,7 @@
 /*
 
 File: fn_addGroup.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Adds group to AIS locations
@@ -13,7 +13,7 @@ _this select 1 : AIS location
 */
 
 private ["_untPos","_untDir","_untCls","_untStn","_grpIdn","_aisLoc","_untLst","_vehLst","_idx","_wayPos","_wayTyp","_wayMod","_wayFrm","_waySpd","_wayBeh","_wayCmp","_wayStm","_wayLst","_untSid","_grpOpt","_locGrp","_wayTim","_wayCur","_lodOut","_vehCrw"];
-    
+
 _grpIdn=_this select 0;
 _aisLoc=_this select 1;
 
@@ -48,19 +48,19 @@ _vehLst=[];
 					_untPos=getPosAsl (vehicle _x);
 					_untDir=getDir (vehicle _x);
 					_untCls=typeOf (vehicle _x);
-                    _vehCrw=[];
-                    {
-                       //private _crwCls= typeOf (_x select 0);
-                       //private _crwRol= toLower (_x select 1);
-                       //private _crwInx=_x select 2;
-                       //private _crwTur=_x select 3;
-                       //_vehCrw pushBack [_crwCls,_crwRol,_crwInx,_crwTur];
-                       _lodOut=[];
-                       if ("loadout:" in _grpOpt) then {
-                        _lodOut=getUnitLoadOut (_x select 0);
-                       };
-                       _vehCrw pushBack [typeOf (_x select 0),toLower (_x select 1),(_x select 2),(_x select 3),_lodOut];
-                    } forEach (fullCrew (vehicle _x));
+          _vehCrw=[];
+          {
+            //private _crwCls= typeOf (_x select 0);
+            //private _crwRol= toLower (_x select 1);
+            //private _crwInx=_x select 2;
+            //private _crwTur=_x select 3;
+            //_vehCrw pushBack [_crwCls,_crwRol,_crwInx,_crwTur];
+            _lodOut=[];
+            if ("loadout:" in _grpOpt) then {
+              _lodOut=getUnitLoadOut (_x select 0);
+            };
+            _vehCrw pushBack [typeOf (_x select 0),toLower (_x select 1),(_x select 2),(_x select 3),_lodOut];
+          } forEach (fullCrew (vehicle _x));
 					_untLst pushBack [_untSid,_untPos,_untDir,_untCls,"",[],_vehCrw];
 					_vehLst pushBack (vehicle _x);
 				} else {
@@ -71,36 +71,36 @@ _vehLst=[];
 					//_untStn=unitPos _x;
 					//_lodOut=[];
 					//if ("loadout:" in _grpOpt) then {
-                    //    _lodOut=getUnitLoadOut _x;
+          //    _lodOut=getUnitLoadOut _x;
 					//};
 					//_untLst pushBack [_untSid,_untPos,_untDir,_untCls,_untStn,_lodOut];
 					//_aisLoc setVariable ["fen_ais_unitCount",(_aisLoc getVariable ["fen_ais_unitCount",0])+1];
-                    diag_log format["fn_addGroup: did it in second part"]; //debug
+          diag_log format["fn_addGroup: did it in second part"]; //debug
 				};
 			};
 		};
-    };
+  };
 } forEach (units _grpIdn);
-    
+
 _wayLst=[];
 for [{_idx=1},{_idx<count(waypoints _grpIdn)},{_idx=_idx+1}] do {
-    _wayPos=waypointPosition [_grpIdn,_idx];
-    _wayTyp=waypointType [_grpIdn,_idx];
-    _wayMod=waypointCombatMode [_grpIdn,_idx];
-    _wayFrm=waypointFormation [_grpIdn,_idx];        
-    _waySpd=waypointSpeed [_grpIdn,_idx];
-    _wayBeh=waypointBehaviour [_grpIdn,_idx];
-    _wayCmp=waypointCompletionRadius [_grpIdn,_idx];
-    _wayTim=waypointTimeout [_grpIdn,_idx];
-    _wayStm=waypointStatements [_grpIdn,_idx];
+  _wayPos=waypointPosition [_grpIdn,_idx];
+  _wayTyp=waypointType [_grpIdn,_idx];
+  _wayMod=waypointCombatMode [_grpIdn,_idx];
+  _wayFrm=waypointFormation [_grpIdn,_idx];
+  _waySpd=waypointSpeed [_grpIdn,_idx];
+  _wayBeh=waypointBehaviour [_grpIdn,_idx];
+  _wayCmp=waypointCompletionRadius [_grpIdn,_idx];
+  _wayTim=waypointTimeout [_grpIdn,_idx];
+  _wayStm=waypointStatements [_grpIdn,_idx];
 	_wayCur=currentWaypoint _grpIdn;
 	_wayLst pushBack [_wayPos,_wayTyp,_wayMod,_wayFrm,_waySpd,_wayBeh,_wayCmp,_wayTim,_wayStm,_wayCur];
 };
-  
+
 _locGrp=_aisLoc getVariable ["fen_ais_groupArray",[]];
 _locGrp pushBack [_untLst,_wayLst,_grpOpt];
 _aisLoc setVariable ["fen_ais_groupArray",_locGrp];
-   
+
 {
 	if ((vehicle _x)!=_x) then {
 		deleteVehicle (vehicle _x);

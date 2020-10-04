@@ -26,6 +26,7 @@ class cfgFunctions {
       class trackHitsEvent;
       class trackHitsMonitor;
       class trackHitsRemoveMarker;
+			class VCBGSMarkers;
 		};
 	};
 };

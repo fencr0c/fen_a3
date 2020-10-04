@@ -188,7 +188,7 @@ class CfgVehicles {
       };
       class skillAimAccuracy {
         displayName="AI aiming accuracy";
-        descrption="Number 0 to 1, can be override by AI mods."
+        descrption="Number 0 to 1, can be override by AI mods.";
         typeName="NUMBER";
         defaultValue=0;
       };
@@ -200,7 +200,7 @@ class CfgVehicles {
       class factionSideSwap {
         displayName="Faction side swap array.";
         description="Paired elements defined faction,side.";
-        typeName="STRING"
+        typeName="STRING";
       };
     };
 

@@ -1,7 +1,7 @@
 /*
 
 File: fn_moduleToolsInit.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Function for module Tools Init
@@ -27,6 +27,7 @@ missionNamespace setVariable ["fen_enableDebugPanel",(_logic getVariable ["enabl
 missionNamespace setVariable ["fen_enableDebugPanelDefault",(_logic getVariable ["enableDebugPanelDefault",true]),true];
 missionNamespace setVariable ["fen_enableEnemyMarkers",(_logic getVariable ["enableEnemyMarkers",true]),true];
 missionNamespace setVariable ["fen_enableEnemyMarkersDefault",(_logic getVariable ["enableEnemyMarkersDefault",true]),true];
+missionNamespace setVariable ["fen_enableVCBGSMarkers",(_logic getVariable ["enableVCBGSMarkers",true]),true];
 
 if (_editorOnly) then {
 	if (isServer and hasInterface) then {
@@ -41,6 +42,3 @@ if (_editorOnly) then {
 		[] remoteExec ["fenTools_fnc_toolsInit",0,true];
 	};
 };
-
-
-

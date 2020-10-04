@@ -1,7 +1,7 @@
 /*
 
 File: fn_trackRemoveMarker.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Function for removing hit markers

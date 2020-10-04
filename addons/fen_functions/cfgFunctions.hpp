@@ -29,6 +29,7 @@ class cfgFunctions {
 			class dltGroup;
 			class flares;
 			class fndClearLoc;
+			class formatMapMarkers;
       class forwardObs;
 			class getUnitsNearPosition;
 			class getUnitsNearUnit;
@@ -50,6 +51,7 @@ class cfgFunctions {
       class handleMines;
 			class hasLOStoUnit;
 			class hiddenEnemy;
+			class hidePrefixedMarkers;
 			class iedMan;
 			class iedObject;
 			class iedObjectTriggered;
@@ -57,6 +59,7 @@ class cfgFunctions {
       class iedObjectVCBGSAdd;
       class iedObjectVCBGSDespawn;
       class iedObjectVCBGSHandler;
+			class iedObjectVCBGSRandom;
       class iedObjectVCBGSSpawn;
 			class iedPP;
       class initCachedMines;
@@ -66,8 +69,9 @@ class cfgFunctions {
       class isInsideBuilding;
 			class isVCBGroundSign;
 			class nearTargets;
-			class playersInTrigger;
       class playerNearMinePosition;
+			class playersInTrigger;
+			class playersNearPosition;
 			class releaseSentries;
 			class retreatGroup;
       class revealTriggeringUnitsAdd;

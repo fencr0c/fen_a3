@@ -12,6 +12,7 @@ class CfgPatches {
       "fen_moduleCachedMines",
 			"fen_moduleCivilianArea",
 			"fen_moduleAddConversation",
+			"fen_moduleCivThrowGrenade",
 			"fen_moduleDicker",
       "fen_moduleFlares",
       "fen_moduleForwardObs",
@@ -22,15 +23,18 @@ class CfgPatches {
 			"fen_moduleIEDMan",
 			"fen_moduleIEDObject",
 			"fen_moduleIEDObjectTriggerMan",
+			"fen_moduleIEDObjectVCBGS",
+			"fen_moduleIEDObjectVCBGSRandom",
 			"fen_moduleIEDPP",
 			"fen_moduleAddIntel",
 			"fen_moduleRetreatGroup",
+			"fen_moduleRevealTriggeringUnitsAdd",
       "fen_moduleRollingBarrage",
 			"fen_moduleScrambleCrew",
 			"fen_moduleSuicideBomber",
-      "fen_moduleRevealTriggeringUnitsAdd",
       "fen_moduleShareTargets",
-      "fen_moduleUCRSearchBuildingClothes"
+      "fen_moduleUCRSearchBuildingClothes",
+			"fen_moduleVIR"
 		};
 		requiredVersion = 1.640000;
 		requiredAddons[] = {

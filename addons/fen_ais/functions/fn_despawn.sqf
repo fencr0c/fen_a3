@@ -1,7 +1,7 @@
 /*
 
 File: ais_despawn.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Despawn an AIS location
@@ -55,7 +55,7 @@ while {not _despawn} do {
 			};
 		} forEach (list _aisTrg);
 	};
-/*	
+/*
 	for [{_idx=0},{_idx<count (_aisLoc getVariable ["fen_ais_groups",[]])},{_idx=_idx+1}] do {
 		if ({alive _x} count units (_aisLoc getVariable ["fen_ais_groups",[]] select _idx)>0) then {
 			_noGroups=false;
@@ -100,6 +100,6 @@ _aisLoc setVariable ["fen_ais_locationTriggered",false];
 deleteVehicle _aisTrg;
 
 if (fen_debug) then {
-[_aisLoc] call fenAIS_fnc_reportVehicles;
-[_aisLoc] call fenAIS_fnc_reportGroups;
+	[_aisLoc] call fenAIS_fnc_reportVehicles;
+	[_aisLoc] call fenAIS_fnc_reportGroups;
 };

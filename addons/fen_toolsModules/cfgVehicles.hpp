@@ -320,6 +320,22 @@ class CfgVehicles {
 					};
 				};
       };
+      class enableVCBGSMarkers {
+        displayName="Mark VCB Ground Sign Objects";
+        description="Puts a marker on all VCB ground sign objects";
+        typeName="BOOL";
+        class values {
+          class no {
+            name="No";
+            value=0;
+            default=1;
+          };
+          class yes {
+            name="Yes";
+            value=1;
+          };
+        };
+      };
 		};
 		class ModuleDescription: ModuleDescription {
 			description="Fen Tools";
