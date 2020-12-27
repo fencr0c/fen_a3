@@ -68,6 +68,7 @@ class cfgFunctions {
 			class intel_gather;
       class isInsideBuilding;
 			class isVCBGroundSign;
+			class isVCBIED;
 			class nearTargets;
       class playerNearMinePosition;
 			class playersInTrigger;

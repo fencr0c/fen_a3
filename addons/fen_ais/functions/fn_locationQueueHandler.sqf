@@ -72,6 +72,7 @@ while {fen_ais_locationQueueHandlerRunning} do {
 			};
 
 			_location setVariable ["fen_ais_locationTriggered",true];
+			_location setVariable ["fen_ais_skipLocationBalancing",true];
 
 			deleteVehicle _locationQueueTrigger;
 

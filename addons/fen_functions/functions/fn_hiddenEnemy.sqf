@@ -35,189 +35,185 @@ if (isNil "fen_debug") then {
 };
 
 if (typeName _armOpt=="ARRAY") then {
-    _clsArr=_armOpt;
+  _clsArr=_armOpt;
 } else {
-    _clsArr=[];
-    _config=configFile>>"CfgVehicles";
-    for [{_idx=0},{_idx<count _config},{_idx=_idx+1}] do {
-        
-        if (isClass (_config select _idx)) then {
-            if (configname(_config select _idx) isKindOf "Man" and tolower ([(_config select _idx),"faction","none"] call BIS_fnc_returnConfigEntry)==tolower _armOpt) then {
-                //_clsArr set[count _clsArr,configName (_config select _idx)];
-				_clsArr pushBack configName (_config select _idx);
-            };
-        };
+  _clsArr=[];
+  _config=configFile>>"CfgVehicles";
+  for [{_idx=0},{_idx<count _config},{_idx=_idx+1}] do {
+
+    if (isClass (_config select _idx)) then {
+      if (configname(_config select _idx) isKindOf "Man" and tolower ([(_config select _idx),"faction","none"] call BIS_fnc_returnConfigEntry)==tolower _armOpt) then {
+        _clsArr pushBack configName (_config select _idx);
+      };
     };
+  };
 };
 
 fen_fnc_hiddenEnemyControl={
-        
-	private ["_civUnt","_rarCls","_rarRad","_knwPly","_movLoc","_strLoc","_rarLoc","_arrWpn","_arrMag","_clsObj","_enmGrp","_strSid","_civGrp","_endPrc","_maxMov","_priWpn","_muzzle","_actRad","_civCls","_clsArr","_idx","_armObj"];
-      
-    _civUnt=_this select 0;
-    _rarCls=_this select 1;
-    _rarRad=_this select 2;
-    _maxMov=_this select 3;
-    _strSid=_this select 4;
-    _strLoc=_this select 5;
-    _actRad=_this select 6;
-    _clsArr=_this select 7;
-        
-    _civGrp=group _civUnt;
-    _endPrc=false;
-       
-    while {alive _civUnt and not _endPrc} do {
-        scopeName "civLoop";
 
-        sleep 3;
-            
-        // if dead end 
-        if (not alive _civUnt) then {
-            breakOut "civLoop";
-        };
-            
-        // check if unit knows about any players
-        _knwPly=[];
-        {
-//			if (_civUnt knowsAbout vehicle _x>0 and vehicle _x isKindOf "Man" and _x distance _civUnt<=_actRad) then {
-//			_knwPly pushBack _x;
-//            };
-			if (vehicle _x isKindOf "Man" and _x distance _civUnt<=_actRad) then {
-				if (_civUnt knowsAbout vehicle _x>0) then {
-					_knwPly pushBack _x;
-				} else {
-					if ([objNull,"VIEW",_civUnt] checkVisibility [(eyePos _civUnt),(eyePos _x)]>0) then {
-						_knwPly pushBack _x;
-					};
-				};
-			};
-        } forEach ([] call BIS_fnc_listPlayers select {side _x!=civilian});
-            
-        // if no known player generate another random move
-        if (count _knwPly==0) then {
-                
+	private ["_civUnt","_rarCls","_rarRad","_knwPly","_movLoc","_strLoc","_rarLoc","_arrWpn","_arrMag","_clsObj","_enmGrp","_strSid","_civGrp","_endPrc","_maxMov","_priWpn","_muzzle","_actRad","_civCls","_clsArr","_idx","_armObj"];
+
+  _civUnt=_this select 0;
+  _rarCls=_this select 1;
+  _rarRad=_this select 2;
+  _maxMov=_this select 3;
+  _strSid=_this select 4;
+  _strLoc=_this select 5;
+  _actRad=_this select 6;
+  _clsArr=_this select 7;
+
+  _civGrp=group _civUnt;
+  _endPrc=false;
+
+  while {alive _civUnt and not _endPrc} do {
+    scopeName "civLoop";
+
+    sleep 3;
+
+    // if dead end
+    if (not alive _civUnt) then {
+      breakOut "civLoop";
+    };
+
+    // check if unit knows about any players
+    _knwPly=[];
+    {
+		  if (vehicle _x isKindOf "Man" and _x distance _civUnt<=_actRad) then {
+			  if (_civUnt knowsAbout vehicle _x>0) then {
+				  _knwPly pushBack _x;
+			  } else {
+				  if ([objNull,"VIEW",_civUnt] checkVisibility [(eyePos _civUnt),(eyePos _x)]>0) then {
+					  _knwPly pushBack _x;
+				  };
+			  };
+		  };
+    } forEach ([] call BIS_fnc_listPlayers select {side _x!=civilian});
+
+    // if no known player generate another random move
+    if (count _knwPly==0) then {
+
 			_movLoc=[_strLoc,10,_maxMov,4,0,1,0] call BIS_fnc_findSafePos;
 			_civUnt forceSpeed 1.4;
 			_civUnt domove _movLoc;
 			waitUntil {
 				sleep 3;
-                unitReady _civUnt or not(alive _civUnt);
-            };
-        } else {
-                
-            // find nearest places to rearm
-            _clsObj=nearestObjects [position _civUnt,_rarCls,_rarRad];
-			
-            // strip out rearm places with players nearby (within 50m)
-            _armObj=[];
-            for [{_idx=0},{_idx<count _clsObj},{_idx=_idx+1}] do {
-                if ({alive _x and (_x distance (_clsObj select _idx))<50} count ([] call BIS_fnc_listPlayers)==0) then {
-					_armObj pushBack (_clsObj select _idx);
-                };
-            };
-			
-            // if place to rearm found
-            if (count _armObj!=0) then {
-                    
-				// if dead end 
+        unitReady _civUnt or not(alive _civUnt);
+      };
+    } else {
+
+      // find nearest places to rearm
+      _clsObj=nearestObjects [position _civUnt,_rarCls,_rarRad];
+
+      // strip out rearm places with players nearby (within 50m)
+      _armObj=[];
+      for [{_idx=0},{_idx<count _clsObj},{_idx=_idx+1}] do {
+        if ({alive _x and (_x distance (_clsObj select _idx))<50} count ([] call BIS_fnc_listPlayers)==0) then {
+				  _armObj pushBack (_clsObj select _idx);
+        };
+      };
+
+      // if place to rearm found
+      if (count _armObj!=0) then {
+
+			  // if dead end
 				if (not alive _civUnt) then {
 					breakOut "civLoop";
-                };
-                    
-                // move unit to rearm area
-                _civUnt forceSpeed -1;
-                _rarLoc=getPos (_armObj select 0);
-                _civUnt doMove _rarLoc;
-                    
-                waitUntil {
-                    sleep 3;
-                    unitReady _civUnt or not(alive _civUnt);
-                };
-                    
-                // if unit in rearm area
-                if (count (nearestObjects [position _civUnt,_rarCls,8])>0) then {
-                    
-					// get unit to crouch and rearm
-                    _civUnt setUnitPos "Middle";
-                    dostop _civUnt;
-                    sleep 3;
-                        
-                    // if dead end 
-                    if (not alive _civUnt) then {
-                        breakOut "civLoop";
-                    };
-                       
-                    // create new enemy group or join existing group
-                    if (typeName (group _civUnt getVariable ["fen_hiddenenemy_newgrp",false])=="BOOL") then {
-                        _enmGrp=createGroup _strSid;
-                        _enmGrp setVariable ["fen_ownedBy",((group _civUnt) getVariable ["fen_ownedBy",""])];
-                        group _civUnt setVariable ["fen_hiddenenemy_newgrp",_enmGrp];
-                    } else {
-                        _enmGrp=group _civUnt getVariable "fen_hiddenenemy_newgrp";
-                    };
-                        
-                    // if dead end 
-                    if (not alive _civUnt) then {
-                        breakOut "civLoop";
-                    };
-                        
-                    [_civUnt] joinSilent _enmGrp;
-                        
-                    // delete original civilian group if no units
-                    if ({alive _x} count units _civGrp==0) then {
-                        deleteGroup _civGrp;
-                    };
-                        
-                    // if dead end 
-                    if (not alive _civUnt) then {
-                        breakOut "civLoop";
-                    };
-
-					// arm unit with standard weapons and magazines
-                    _civCls=_clsArr select floor(random (count _clsArr));
-                    {
-                        if (_x isKindOf "Vest_Base_F" or ("Vest_"+_x) in (getArray (configFile >> "CfgPatches" >> "A3_Weapons_F_Vests" >> "units"))) then {
-                            _civUnt addVest _x;
-                        };
-                    } forEach (getArray(configFile>>"CfgVehicles">>_civCls>>"linkedItems"));
-                    _arrWpn=getArray(configFile>>"CfgVehicles">>_civCls>>"weapons");
-                    _arrMag=getArray(configFile>>"CfgVehicles">>_civCls>>"magazines");
-                    {
-                        _civUnt addMagazine _x;
-                    } forEach _arrMag;
-                    {                            
-                        _civUnt addWeapon _x;
-                    } forEach _arrWpn;
-                        
-                    sleep 1;
-                    
-                    // select weapon 
-                    _priWpn=primaryWeapon _civUnt;
-                    _civUnt selectweapon _priWpn;
-                    _muzzle=getArray(configFile>>"cfgWeapons">>_priWpn>>"muzzles");
-                    _civUnt selectWeapon (_muzzle select 0);
-                       
-                    // reset stance
-                    _civUnt setUnitPos "Auto";
-                    
-                    // reveal known players 
-                    {
-                        _civUnt reveal [_x,3];
-                    } forEach _knwPly;
-                    
-                    // set behaviour
-                    _civUnt setBehaviour "AWARE";
-                    _civUnt setCombatMode "RED";
-                    if (isNil "fen_ai_aimacc") then {fen_ai_aimacc=0.2};
-					_civUnt setSkill ["aimingAccuracy",fen_ai_aimacc];
-                        
-                    // end 
-                    _endPrc=true;
-                    sleep 3;
-                };
-            };
         };
-    }; 
+
+        // move unit to rearm area
+        _civUnt forceSpeed -1;
+        _rarLoc=getPos (_armObj select 0);
+        _civUnt doMove _rarLoc;
+
+        waitUntil {
+          sleep 3;
+          unitReady _civUnt or not(alive _civUnt);
+        };
+
+        // if unit in rearm area
+        if (count (nearestObjects [position _civUnt,_rarCls,8])>0) then {
+
+				// get unit to crouch and rearm
+        _civUnt setUnitPos "Middle";
+        dostop _civUnt;
+        sleep 3;
+
+        // if dead end
+        if (not alive _civUnt) then {
+          breakOut "civLoop";
+        };
+
+        // create new enemy group or join existing group
+        if (typeName (group _civUnt getVariable ["fen_hiddenenemy_newgrp",false])=="BOOL") then {
+            _enmGrp=createGroup _strSid;
+            _enmGrp setVariable ["fen_ownedBy",((group _civUnt) getVariable ["fen_ownedBy",""])];
+            group _civUnt setVariable ["fen_hiddenenemy_newgrp",_enmGrp];
+        } else {
+          _enmGrp=group _civUnt getVariable "fen_hiddenenemy_newgrp";
+        };
+
+        // if dead end
+        if (not alive _civUnt) then {
+          breakOut "civLoop";
+        };
+
+        [_civUnt] joinSilent _enmGrp;
+
+        // delete original civilian group if no units
+        if ({alive _x} count units _civGrp==0) then {
+          deleteGroup _civGrp;
+        };
+
+        // if dead end
+        if (not alive _civUnt) then {
+          breakOut "civLoop";
+        };
+
+				// arm unit with standard weapons and magazines
+        _civCls=_clsArr select floor(random (count _clsArr));
+        {
+          if (_x isKindOf "Vest_Base_F" or ("Vest_"+_x) in (getArray (configFile >> "CfgPatches" >> "A3_Weapons_F_Vests" >> "units"))) then {
+            _civUnt addVest _x;
+          };
+        } forEach (getArray(configFile>>"CfgVehicles">>_civCls>>"linkedItems"));
+        _arrWpn=getArray(configFile>>"CfgVehicles">>_civCls>>"weapons");
+        _arrMag=getArray(configFile>>"CfgVehicles">>_civCls>>"magazines");
+        {
+          _civUnt addMagazine _x;
+        } forEach _arrMag;
+        {
+          _civUnt addWeapon _x;
+        } forEach _arrWpn;
+
+        sleep 1;
+
+        // select weapon
+        _priWpn=primaryWeapon _civUnt;
+        _civUnt selectweapon _priWpn;
+        _muzzle=getArray(configFile>>"cfgWeapons">>_priWpn>>"muzzles");
+        _civUnt selectWeapon (_muzzle select 0);
+
+        // reset stance
+        _civUnt setUnitPos "Auto";
+
+        // reveal known players
+        {
+          _civUnt reveal [_x,3];
+        } forEach _knwPly;
+
+        // set behaviour
+        _civUnt setBehaviour "AWARE";
+        _civUnt setCombatMode "RED";
+        if (isNil "fen_ai_aimacc") then {fen_ai_aimacc=0.2};
+					_civUnt setSkill ["aimingAccuracy",fen_ai_aimacc];
+
+          // end
+          _endPrc=true;
+          sleep 3;
+        };
+      };
+    };
+  }; 
 };
 
 // save group side and leaders start location
@@ -248,14 +244,7 @@ _civGrp setVariable ["fen_ownedBy",(_enmGrp getVariable ["fen_ownedBy",""])];
 // remove the original group
 deleteGroup _enmGrp;
 
-// for each unit 
+// for each unit
 {
     [_x,_rarCls,_rarRad,_maxMov,_strSid,_strLoc,_actRad,_clsArr] spawn fen_fnc_hiddenEnemyControl;
 } forEach units _civGrp;
-
-    
-
-
-
-
-

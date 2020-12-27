@@ -5,6 +5,7 @@ class cfgFunctions {
 			class addGroup;
 			class addVehicle;
 			class balanced;
+			class countBalancedUnits;
 			class countUnits;
 			class createLocation;
 			class despawnQueueAdd;

@@ -29,7 +29,7 @@ while {true} do {
     _marker setMarkerSize [0.75,0.75];
     createVehicle ["Sign_Arrow_F",(getMarkerPos _marker),[],0,"CAN_COLLIDE"];
 
-  } forEach (allMines select {([_x] call fen_fnc_isVCBGroundSign)});
+  } forEach (allMines select {([_x] call fen_fnc_isVCBIED)});
 
   sleep 10;
 };

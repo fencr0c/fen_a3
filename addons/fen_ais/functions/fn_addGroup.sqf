@@ -24,6 +24,10 @@ if (typeName (_grpIdn getVariable ["fen_ais_group",""])=="ARRAY") then {
 	} forEach (_grpIdn getVariable "fen_ais_group");
 };
 
+if not("nobalance:" in _grpOpt) then {
+	_aisLoc setVariable ["fen_ais_balanceCount",(_aisLoc getVariable ["fen_ais_balanceCount",0])+(count units _grpIdn)];
+};
+
 _untLst=[];
 _vehLst=[];
 {

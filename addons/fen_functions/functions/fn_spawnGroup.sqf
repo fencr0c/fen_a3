@@ -1,13 +1,13 @@
 /*
 
 File: fn_spawnGroup.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Spawn infantry group.
 
 Parameters:
-_this select 0 : (Side) side 
+_this select 0 : (Side) side
 _this select 1 : (Array) location to spawn
 _this select 2 : (Scalar) direction to spawn
 _this select 3 : (Array) classes in group

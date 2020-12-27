@@ -16,7 +16,7 @@ params [
 	["_mine",objNull,[objNull]]
 ];
 
-if ([_mine] call fen_fnc_isVCBGroundSign) exitWith {};
+if ([_mine] call fen_fnc_isVCBIED) exitWith {};
 
 private _mineData=[typeOf _mine,getPos _mine,direction _mine,(_mine call BIS_fnc_getPitchBank)];
 

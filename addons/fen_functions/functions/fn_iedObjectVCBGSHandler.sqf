@@ -27,5 +27,5 @@ while {(missionNamespace getVariable["fen_iedObjectVCBGSHandler_running",false])
     if not([(getPos _x),_proximity] call fen_fnc_playerNearMinePosition) then {
       [_x] call fen_fnc_iedObjectVCBGSDespawn;
     };
-  } forEach (allMines select {[_x] call fen_fnc_isVCBGroundSign});
+  } forEach (allMines select {[_x] call fen_fnc_isVCBIED});
 };

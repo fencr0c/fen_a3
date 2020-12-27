@@ -1,17 +1,16 @@
 /*
 
-File: fn_isVCBGroundSign.sqf
+File: fn_isVCBIED.sqf
 Author: Fen
 
 Description:
-Checks if object passed is on of the VCB ground sign objects or object type contains VCB_IED
+Checks if object passed is on of the VCB IED objects or object type contains VCB_IED
 
 Parameters:
 _this select 0 : (object)
 
 */
 
-/* depricated to fn_isVCBIED
 params [
   ["_object",objNull,[objNull]]
 ];
@@ -38,5 +37,3 @@ private _vcbGroundSigns=[
 ];
 
 ((typeOf _object) in _vcbGroundSigns) or (str(typeOf _object) find "VCB_IED">0)
-*/
-[_object] call fen_fnc_isVCBIED

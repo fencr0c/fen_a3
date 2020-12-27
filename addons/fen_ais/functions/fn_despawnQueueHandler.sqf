@@ -58,6 +58,7 @@ while {fen_ais_despawnQueueHandlerRunning} do {
 			_location setVariable ["fen_ais_vehicleArray",nil];
 			_location setVariable ["fen_ais_unitCount",nil];
 			_location setVariable ["fen_ais_locationTriggered",nil];
+			_location setVariable ["fen_ais_balanceCount",nil];
 
 			{
 				if (([_x,(position _location)] call fenAIS_fnc_groupDistance)<=_radius) then {

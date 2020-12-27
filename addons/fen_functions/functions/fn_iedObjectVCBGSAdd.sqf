@@ -26,7 +26,7 @@ params [
   ["_triggerManID","",[""]]
 ];
 
-if not([_iedObject] call fen_fnc_isVCBGroundSign) exitWith {};
+if not([_iedObject] call fen_fnc_isVCBIED) exitWith {};
 
 if (isNull _iedObject) exitWith {};
 if not(local _iedObject) exitWith {};
