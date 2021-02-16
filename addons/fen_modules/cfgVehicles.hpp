@@ -809,6 +809,11 @@ class CfgVehicles {
         description="Optional: If supplied conversation only possible if clause is true";
         typeName="STRING";
       };
+      class completionVariable {
+        displayName="Conversaton complete variable";
+        description="Optional: missionNameSpace variable will be set to true on conversation completion.";
+        typeName="STRING";
+      };
 			class includeAIS {
 				displayName="Add to AIS";
 				description="Add synchronised units to AIS.";
@@ -2139,7 +2144,12 @@ class CfgVehicles {
 				displayName="Intel";
 				description="Defines intel string.";
 				typeName="STRING";
-				};
+			};
+      class intelGathered {
+        displayName="Intel gathered variable";
+        description="Optional: missionNameSpace variable will be set to true when intel gathered.";
+        typeName="STRING";
+      };
 			class includeAIS {
 				displayName="Add to AIS";
 				description="Add synchronised objects to AIS.";

@@ -1,7 +1,7 @@
 /*
 
 File: fn_civtalk_addConversation.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Allows civilian unit to talk to player. (Doesnt have to be a civilian).
@@ -22,8 +22,8 @@ private ["_unit","_intel","_clause"];
 _unit=param[0,objNull,[objNull]];
 _intel=param[1,[],[[]]];
 _clause=param[2,"",[""]];
+_completionVariable=param[3,"",[""]];
 
 if not(local _unit) exitWith {};
 
-[_unit,_intel,_clause] remoteExec ["fen_fnc_civTalk_addAction",0,true];
-
+[_unit,_intel,_clause,_completionVariable] remoteExec ["fen_fnc_civTalk_addAction",0,true];

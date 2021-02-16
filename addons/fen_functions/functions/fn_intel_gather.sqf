@@ -1,7 +1,7 @@
 /*
 
 File: fn_intel_gather.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Handles conversaton called from addAction, see fen_fnc_intel_addIntel
@@ -16,7 +16,10 @@ private ["_target","_intel","_caller","_subject","_grid"];
 
 _target=param[0,objNull,[objNull]];
 _caller=param[1,objNull,[objNull]];
-_intel=param[3,""];
+_data=param[3,[],[[]]];
+
+private _intel=_data select 0;
+private _intelGathered=_data select 1;
 
 if not(hasInterface) exitWith {};
 
@@ -29,7 +32,10 @@ if not(_caller diarySubjectExists "intelLog") then {
 //_grid=[(getPos _target) select 0,(getPos _target) select 1];
 _grid=mapGridPosition (getPos _target);
 _subject=format["%1/GR%2",text (nearestLocations [_caller,["nameVillage","nameCity"],500] select 0),_grid];
-_caller createDiaryRecord ["intelLog",[_subject,_intel]];	
+_caller createDiaryRecord ["intelLog",[_subject,_intel]];
 
 deleteVehicle _target;
 
+if not(_intelGathered=="") then {
+	missionNameSpace setVariable[_intelGathered,true,true];
+};

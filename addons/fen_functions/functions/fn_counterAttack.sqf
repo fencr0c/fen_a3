@@ -15,7 +15,7 @@ _this select 2 : outnumberment factor (Scalar)
 _this select 3 : side triggering counter attack (Side)
 _this select 4 : spawn area for counterattacking groups (Array) [[x,y,radius]
 _this select 5 : reserves pool (Array) [side,[unit classes in group],number of groups]
-_this select 6 : waypoints to place to be counterattacked (Array) [[wp position,wp radius,wp type, wp formation,wp combat mode, wp behaviour, wp speed]]
+_this select 6 : waypoints to place to be counterattacked (Array) [[wp position,wp radius,wp type, wp formation,wp combat mode, wp behaviour, wp speed,[condition,statement]]]
 _this select 7 : stop spawing if triggering side within x of spawn location
 _this select 8 : exclude groups from VCOM_AI (Boolean)
 
@@ -133,7 +133,7 @@ while {not _endCounterAttack} do {
 					if (count _spawnPosition>0) then {
 
             private _spawnPosition2d=[_spawnPosition select 0,_spawnPosition select 1];
-						private _spawnedGroup=[_reservesSide,_spawnPosition2d,random(360),_reservesClasses,_counterAttackName] call fenMIS_fnc_spawnGroup;
+						private _spawnedGroup=[_reservesSide,_spawnPosition2d,random(360),_reservesClasses,_counterAttackName] call fen_fnc_spawnGroup;
 						if (fen_debug) then {
 							diag_log format["fn_counterAttack: %1 %2 spawned group %3",time,_counterAttackName,_spawnedGroup];
 						};
@@ -168,6 +168,11 @@ while {not _endCounterAttack} do {
 								[_spawnedGroup,_wpIdx+1] setWayPointCombatMode (_wpData select 4);
 								[_spawnedGroup,_wpIdx+1] setWayPointBehaviour (_wpData select 5);
 								[_spawnedGroup,_wpIdx+1] setWaypointSpeed (_wpData select 6);
+								if (count _wpData>=7) then {
+									if (typeName (_wpData select 7)=="ARRAY") then {
+										[_spawnedGroup,_wpIdx+1] setWaypointStatements [(_wpData select 7) select 0,(_wpData select 7) select 1];
+									};
+								};
 							};
 						};
 					};

@@ -1,7 +1,7 @@
 /*
 
 File: fn_intel_addAction.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Adds Action object for intel gathering, see fen_fnc_intel_addIntel
@@ -16,7 +16,8 @@ private ["_unit","_intel"];
 
 _object=param[0,objNull,[objNull]];
 _intel=param[1,""];
+_intelGathered=param[2,""];
 
 if (hasInterface) then {
-	_object addAction ["Pick up Intel",fen_fnc_intel_gather,_intel,99,true,true,"","",2];
+	_object addAction ["Pick up Intel",fen_fnc_intel_gather,[_intel,_intelGathered],99,true,true,"","",2];
 };

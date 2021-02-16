@@ -1,7 +1,7 @@
 /*
 
 File: fn_intel_addIntel.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Allows inteligence to be gathered from an object e.g. documents, photos etc.
@@ -19,8 +19,8 @@ private ["_object","_intel"];
 
 _object=param[0,objNull,[objNull]];
 _intel=param[1,""];
+_intelGathered=param[2,""];
 
 if not(local _object) exitWith {};
 
-[_object,_intel] remoteExec ["fen_fnc_intel_addAction",0,true];
-
+[_object,_intel,_intelGathered] remoteExec ["fen_fnc_intel_addAction",0,true];

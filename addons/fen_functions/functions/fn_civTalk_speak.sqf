@@ -1,7 +1,7 @@
 /*
 
 File: fn_civtalk_speak.sqf
-Author: Fen 
+Author: Fen
 
 Description:
 Handles conversaton called from addAction, see fen_fnc_civTalk_addConversation
@@ -21,6 +21,7 @@ _data=param[3,[],[[]]];
 
 private _intel=_data select 0;
 private _clauseString=_data select 1;
+private _completionVariable=_data select 2;
 
 if not(hasInterface) exitWith {};
 
@@ -50,6 +51,9 @@ if (count _intel==0) exitWith {
 if (fen_civTalk_idx==count _intel) exitWith {
     hint "I have nothing more to say. Goodbye.";
     [_target,1.4] remoteExec ["forceSpeed",_target];
+		if not(_completionVariable=="") then {
+			missionNameSpace setVariable[_completionVariable,true,true];
+		};
 };
 
 [_target,0] remoteExec ["forceSpeed",_target];
@@ -73,22 +77,22 @@ if (_clauseMet) then {
         {
             _text=_text+"<br/>"+_x;
         } forEach _intel;
-        _caller createDiaryRecord ["civChatLog",[_subject,_text]];	
+        _caller createDiaryRecord ["civChatLog",[_subject,_text]];
         fen_civTalk_talkedWith pushBack _target;
     };
 };
 
 [_target,_caller] spawn {
     private ["_target","_caller"];
-    
+
     _target=_this select 0;
     _caller=_this select 1;
-    
+
     waitUntil {
         sleep 30;
         not(alive _target) or (_caller distance _target>20);
     };
-    
+
     [_target,1.4] remoteExec ["forceSpeed",_target];
     [_target,objNull] remoteExec ["doWatch",_target];
 };
