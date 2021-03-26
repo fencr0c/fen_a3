@@ -127,7 +127,8 @@ while {not _endCounterAttack} do {
 				private _reservesClasses=_reservesData select 1;
 				private _reservesLeft=_reservesData select 2;
 
-				if (_reservesLeft>0) then {
+				//if (_reservesLeft>0) then {
+				if (_reservesLeft>0) exitWith {
 
 					private _spawnPosition=[(_spawnArea select 0),(_spawnArea select 1),[_triggeringSide],_stopSpawnProximity,10] call fen_fnc_fndClearLoc;
 					if (count _spawnPosition>0) then {
