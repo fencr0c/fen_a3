@@ -72,6 +72,7 @@ if (not("nobalance:" in _grpOpt) and ([_aisLoc] call fenAIS_fnc_balanced)) exitW
     private _spnPos=[((_x select 1) select 0),((_x select 1) select 1)];
     {
       _spnUnt=_spnGrp createUnit[_x select 0,_spnPos,[],0,"NONE"];
+			[_spnUnt] joinSilent _spnGrp;
       if (count (_x select 4)>0) then {
         _spnUnt setUnitLoadOut (_x select 4);
       };
